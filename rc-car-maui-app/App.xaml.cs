@@ -15,13 +15,17 @@ public partial class App : Application {
 
     private static async Task ConnectWebSocket()
     {
-        try
+        for (var counter = 1; counter <= 5 && !WebsocketClient.IsConnected(); counter++)
         {
-            await WebsocketClient.Connect("ws://192.168.178.31:9999");
-        }
-        catch (Exception ex)
-        {
-            Console.WriteLine($"WebSocket connection error: {ex.Message}");
+            try
+            {
+                Console.WriteLine($"Attempting to connect to WebSocket server... Attempt {counter}");
+                await WebsocketClient.Connect("ws://192.168.178.31:9999");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"WebSocket connection error: {ex.Message}");
+            }
         }
     }
 
