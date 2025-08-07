@@ -1,4 +1,4 @@
-﻿namespace rc_car_maui_app;
+﻿namespace rc_car_maui_app.Views;
 
 public partial class MainPage : ContentPage {
     int count = 0;
