@@ -3,12 +3,29 @@
     x:Class="rc_car_maui_app.AppShell"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:local="clr-namespace:rc_car_maui_app"
+    xmlns:views="clr-namespace:rc_car_maui_app.Views"
     Title="rc_car_maui_app">
-
-    <ShellContent
-        Title="Home"
-        ContentTemplate="{DataTemplate local:MainPage}"
-        Route="MainPage" />
+    
+    <TabBar>
+        <Tab Title="Driving" Icon="steering_wheel.png">
+            <ShellContent
+                Title="Driving Modes"
+                ContentTemplate="{DataTemplate views:DrivingPage}"
+                Route="DrivingPage"/>
+        </Tab>
+        <Tab Title="Home" Icon="home.png">
+            <ShellContent
+                x:Name="HomeTab"
+                Title="Home"
+                ContentTemplate="{DataTemplate views:MainPage}"
+                Route="DrivingPage"/>
+        </Tab>
+        <Tab Title="Settings" Icon="settings.png">
+            <ShellContent
+                Title="Settings"
+                ContentTemplate="{DataTemplate views:SettingsPage}"
+                Route="SettingsPage"/>
+        </Tab>
+    </TabBar>
 
 </Shell>
