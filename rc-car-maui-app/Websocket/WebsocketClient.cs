@@ -9,7 +9,7 @@ namespace rc_car_maui_app.Websocket;
  */
 public static class WebsocketClient
 {
-    private static bool connected;
+    private static WebsocketClientState state;
     private static Queue<string> queue = new Queue<string>();
 
     /**
@@ -22,11 +22,11 @@ public static class WebsocketClient
 
         try
         {
-            if (!connected)
+            if (IsDisconnected())
             {
                 await client.ConnectAsync(new Uri(uri), CancellationToken.None);
                 Console.WriteLine("Connected to WebSocket server.");
-                connected = true;
+                state = WebsocketClientState.Connected;
 
                 await Task.WhenAny(ReceiveTask(client), SendTask(client));
             }
@@ -38,7 +38,7 @@ public static class WebsocketClient
             if (client.State is WebSocketState.Open or WebSocketState.CloseReceived) {
                 await client.CloseAsync(WebSocketCloseStatus.NormalClosure, "Client closing", CancellationToken.None);
                 Console.WriteLine("Connection closed.");
-                connected = false;
+                state = WebsocketClientState.Disconnected;
             }
         }
     }
@@ -49,7 +49,7 @@ public static class WebsocketClient
      */
     public static void Send(string message)
     {
-        if (connected) 
+        if (IsConnected()) 
             queue.Enqueue(message);
     }
 
@@ -58,7 +58,23 @@ public static class WebsocketClient
      */
     public static bool IsConnected()
     {
-        return connected;
+        return state == WebsocketClientState.Connected;
+    }
+    
+    /**
+     * This method checks if the WebSocket client is currently connecting to the server.
+     */
+    public static bool IsConnecting()
+    {
+        return state == WebsocketClientState.Connecting;
+    }
+    
+    /**
+     * This method checks if the WebSocket client is currently disconnected from the server.
+     */
+    public static bool IsDisconnected()
+    {
+        return state == WebsocketClientState.Disconnected;
     }
 
     /**
