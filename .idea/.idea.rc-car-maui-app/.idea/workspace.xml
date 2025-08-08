@@ -5,15 +5,46 @@
     <projectFile kind="XamarinIOS">rc-car-maui-app/rc-car-maui-app.csproj</projectFile>
     <projectFile kind="XamarinMacOS">rc-car-maui-app/rc-car-maui-app.csproj</projectFile>
   </component>
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="ad4409de-6a60-4da3-b1b2-a3ea231b8dea" name="Changes" comment="" />
+    <list default="true" id="ad4409de-6a60-4da3-b1b2-a3ea231b8dea" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/rc-car-maui-app/Websocket/WebsocketClient.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.rc-car-maui-app/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.rc-car-maui-app/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rc-car-maui-app/App.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/rc-car-maui-app/App.xaml.cs" afterDir="false" />
+    </list>
+    <list id="de31690c-267f-4f28-a20c-f89813bef43e" name="Changes by STROBMO" comment="">
+      <change beforePath="$PROJECT_DIR$/rc-car-maui-app/App.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/rc-car-maui-app/App.xaml.cs" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "LU-XD"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/Disturbtion273/rc-car-maui-app.git",
+    "accountId": "a855ac66-e3c0-451e-b479-7e740aaa210e"
+  }
+}]]></component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/26485843d8792b014655b8e17da5a95e6a2fed9d9bd487556ccbd472cdab/Application.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/62c944bd1ce5cdba36749b2bb2c97e8763ad8a838ecacc9646a9e6c98a7e6c22/Task.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="InvalidFacetManager">
     <ignored-facets>
@@ -24,6 +55,15 @@
   <component name="KubernetesApiProvider">{
   &quot;isMigrated&quot;: true
 }</component>
+  <component name="LineStatusTrackerManager">
+    <file path="$PROJECT_DIR$/rc-car-maui-app/App.xaml.cs">
+      <ranges>
+        <range start1="0" end1="0" start2="0" end2="2" changelist="ad4409de-6a60-4da3-b1b2-a3ea231b8dea" />
+        <range start1="6" end1="6" start2="8" end2="26" changelist="de31690c-267f-4f28-a20c-f89813bef43e" />
+      </ranges>
+    </file>
+  </component>
+  <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 7
 }</component>
@@ -41,8 +81,14 @@
     "DeviceKind#com.jetbrains.rider.run.multiPlatform.ios.devices.IOSDevicesProvider": "Simulator",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "task/websocket-connection",
+    "iOS.rc-car-maui-app.executor": "Run",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "settings.editor.selected.configurable": "AndroidSettingsPageId",
     "vue.rearranger.settings.migration": "true"
@@ -85,12 +131,14 @@
       <updated>1754407033363</updated>
       <workItem from="1754407034627" duration="28000" />
       <workItem from="1754407076875" duration="87000" />
+      <workItem from="1754407783196" duration="7887000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="UnityCheckinConfiguration" checkUnsavedScenes="true" />
   <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
