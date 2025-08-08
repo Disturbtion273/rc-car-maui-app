@@ -68,11 +68,18 @@
       <MauiXaml Update="Views\MainPage.xaml">
         <SubType>Designer</SubType>
       </MauiXaml>
+      <MauiXaml Update="Views\Manual Driving.xaml">
+        <SubType>Designer</SubType>
+      </MauiXaml>
     </ItemGroup>
 
     <ItemGroup>
       <Compile Update="Views\MainPage.xaml.cs">
         <DependentUpon>MainPage.xaml</DependentUpon>
+        <SubType>Code</SubType>
+      </Compile>
+      <Compile Update="Views\Manual Driving.xaml.cs">
+        <DependentUpon>Manual Driving.xaml</DependentUpon>
         <SubType>Code</SubType>
       </Compile>
     </ItemGroup>

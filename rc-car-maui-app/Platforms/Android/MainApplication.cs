@@ -4,7 +4,8 @@ using Android.Runtime;
 namespace rc_car_maui_app;
 
 [Application]
-public class MainApplication : MauiApplication {
+public class MainApplication : MauiApplication
+{
     public MainApplication(IntPtr handle, JniHandleOwnership ownership)
         : base(handle, ownership) { }
 
