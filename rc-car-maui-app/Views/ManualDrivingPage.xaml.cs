@@ -11,13 +11,6 @@ public partial class ManualDrivingPage : ContentPage
         InitializeComponent();
         _orientationService = Application.Current.Windows[0].Page.Handler.MauiContext.Services
             .GetService<IDeviceOrientationService>();
-
-        Content = new Label
-        {
-            Text = "Landscape Mode",
-            HorizontalOptions = LayoutOptions.Center,
-            VerticalOptions = LayoutOptions.Center
-        };
     }
 
 
@@ -31,5 +24,15 @@ public partial class ManualDrivingPage : ContentPage
     {
         _orientationService.SetPortrait();
         base.OnDisappearing();
+    }
+
+    private void Slider_OnValueChanged(object? sender, ValueChangedEventArgs e)
+    {
+        Console.WriteLine(e.NewValue);
+    }
+
+    private void Slider_OnDragCompleted(object? sender, EventArgs e)
+    {
+        if (sender is Slider slider) slider.Value = 0;
     }
 }
