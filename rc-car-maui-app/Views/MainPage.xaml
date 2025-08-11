@@ -16,7 +16,7 @@
                 <Border.StrokeShape>
                     <RoundRectangle CornerRadius="10" />
                 </Border.StrokeShape>
-                <Entry x:Name="IpEntry" Keyboard="Numeric" HorizontalTextAlignment="Center"
+                <Entry x:Name="IpEntry" Keyboard="Url" HorizontalTextAlignment="Center"
                        TextChanged="OnIpEntryChanged" />
             </Border>
             <Button x:Name="ConnectionButton" Text="Connect" Clicked="OnConnectClicked" IsEnabled="False" />
