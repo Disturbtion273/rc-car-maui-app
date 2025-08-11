@@ -4,21 +4,47 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="rc_car_maui_app.Views.DrivingPage">
     <ScrollView>
-        <VerticalStackLayout Padding="20" Spacing="20">
+        <VerticalStackLayout Padding="20" 
+                             Spacing="30" 
+                             VerticalOptions="Center">
             
+            <!-- Card 1 -->
             <Border StrokeShape="RoundRectangle 12"
                     Padding="16">
-                <Label Text="Card1"></Label>
+                <HorizontalStackLayout Spacing="8">
+                    <VerticalStackLayout Spacing="4">
+                        <Label Text="Card1" />
+                        <Label Text="A very long description about Card1" />
+                    </VerticalStackLayout>
+                    <Button Text="Play1"
+                            Clicked="DrivingOne" />
+                </HorizontalStackLayout>
             </Border>
                 
+            <!-- Card 2 -->
             <Border StrokeShape="RoundRectangle 12"
                     Padding="16">
-                <Label Text="Card2"></Label>
+                <HorizontalStackLayout Spacing="8">
+                    <VerticalStackLayout Spacing="4">
+                        <Label Text="Card2" />
+                        <Label Text="A very long description about Card2" />
+                    </VerticalStackLayout>
+                    <Button Text="Play2"
+                            Clicked="DrivingTwo" />
+                </HorizontalStackLayout>
             </Border>
             
+            <!-- Card 3 -->
             <Border StrokeShape="RoundRectangle 12"
                     Padding="16">
-                <Label Text="Card3"></Label>
+                <HorizontalStackLayout Spacing="8">
+                    <VerticalStackLayout Spacing="4">
+                        <Label Text="Card3" />
+                        <Label Text="A very long description about Card3" />
+                    </VerticalStackLayout>
+                    <Button Text="Play3"
+                            Clicked="DrivingThree" />
+                </HorizontalStackLayout>
             </Border>
             
         </VerticalStackLayout>
