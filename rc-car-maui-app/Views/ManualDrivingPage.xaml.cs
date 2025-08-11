@@ -2,15 +2,14 @@ using rc_car_maui_app.Services;
 
 namespace rc_car_maui_app.Views;
 
-public partial class ManualDrivingPage : ContentPage
+public partial class ManualDrivingPage
 {
     private readonly IDeviceOrientationService _orientationService;
 
     public ManualDrivingPage()
     {
         InitializeComponent();
-        _orientationService = Application.Current.Windows[0].Page.Handler.MauiContext.Services
-            .GetService<IDeviceOrientationService>();
+        _orientationService = DependencyService.Get<IDeviceOrientationService>();
     }
 
 

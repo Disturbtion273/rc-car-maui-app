@@ -1,10 +1,7 @@
 using System.Diagnostics;
 using rc_car_maui_app;
-using rc_car_maui_app.Helper;
 using rc_car_maui_app.Services;
 using UIKit;
-
-[assembly: Dependency(typeof(DeviceOrientationService))]
 
 namespace rc_car_maui_app;
 

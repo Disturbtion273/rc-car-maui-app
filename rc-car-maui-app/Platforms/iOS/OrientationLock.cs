@@ -1,6 +1,6 @@
 using UIKit;
 
-namespace rc_car_maui_app.Helper;
+namespace rc_car_maui_app;
 
 public static class OrientationLock
 {

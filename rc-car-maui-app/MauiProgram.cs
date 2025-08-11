@@ -1,5 +1,4 @@
 ﻿using Microsoft.Extensions.Logging;
-using rc_car_maui_app.Services;
 
 namespace rc_car_maui_app;
 
@@ -15,7 +14,6 @@ public static class MauiProgram
                 fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                 fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
             });
-        builder.Services.AddTransient<IDeviceOrientationService, DeviceOrientationService>();
 
 #if DEBUG
         builder.Logging.AddDebug();

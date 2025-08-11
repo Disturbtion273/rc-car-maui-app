@@ -1,5 +1,5 @@
 ﻿using Foundation;
-using rc_car_maui_app.Helper;
+using rc_car_maui_app.Services;
 using UIKit;
 
 namespace rc_car_maui_app;
@@ -9,6 +9,7 @@ public class AppDelegate : MauiUIApplicationDelegate
 {
     protected override MauiApp CreateMauiApp()
     {
+        DependencyService.Register<IDeviceOrientationService, DeviceOrientationService>();
         return MauiProgram.CreateMauiApp();
     }
 
