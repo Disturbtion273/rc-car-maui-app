@@ -9,26 +9,31 @@ namespace rc_car_maui_app.Websocket;
  */
 public static class WebsocketClient
 {
+    private static ClientWebSocket? client;
     private static WebsocketClientState state;
     private static Queue<string> queue = new Queue<string>();
 
+    public static event Action<WebsocketClientState>? StateChanged;
+    public static event Action<string, Color>? ConnectionInfoChanged; 
+    
     /**
-    * This method connects to the WebSocket server at the specified URI.
-    * It should only be called once, typically at application startup.
-    */
+     * This method connects to the WebSocket server at the specified URI.
+     * It should only be called once, typically at application startup.
+     * It triggers the connection failed event if the connection cannot be established.
+     */
     public static async Task Connect(string uri)
     {
-        using var client = new ClientWebSocket();
-
+        client = new ClientWebSocket();
         try
         {
             if (IsDisconnected())
             {
+                SetState(WebsocketClientState.Connecting);
                 await client.ConnectAsync(new Uri(uri), CancellationToken.None);
                 Console.WriteLine("Connected to WebSocket server.");
-                state = WebsocketClientState.Connected;
+                SetState(WebsocketClientState.Connected);
 
-                await Task.WhenAny(ReceiveTask(client), SendTask(client));
+                await Task.WhenAny(ReceiveTask(), SendTask());
             }
         }
         catch (WebSocketException wse) {
@@ -38,8 +43,27 @@ public static class WebsocketClient
             if (client.State is WebSocketState.Open or WebSocketState.CloseReceived) {
                 await client.CloseAsync(WebSocketCloseStatus.NormalClosure, "Client closing", CancellationToken.None);
                 Console.WriteLine("Connection closed.");
-                state = WebsocketClientState.Disconnected;
+                SetState(WebsocketClientState.Disconnected);
+                ConnectionInfoChanged?.Invoke("Successfully disconnected", Colors.Green);
             }
+
+            if (IsConnecting())
+            {
+                SetState(WebsocketClientState.Disconnected);
+                ConnectionInfoChanged?.Invoke("Unable to connect to the car", Colors.Red);
+            }
+        }
+    }
+
+    public static async Task Disconnect()
+    {
+        if (client?.State is WebSocketState.Open)
+        {
+            SetState(WebsocketClientState.Disconnecting);
+            await client.CloseAsync(WebSocketCloseStatus.NormalClosure, "Client closing", CancellationToken.None);
+            Console.WriteLine("Disconnected from WebSocket server.");
+            SetState(WebsocketClientState.Disconnected);
+            ConnectionInfoChanged?.Invoke("Successfully disconnected", Colors.Green);
         }
     }
 
@@ -78,16 +102,29 @@ public static class WebsocketClient
     }
 
     /**
+     * This method sets the current state of the WebSocket client.
+     * It triggers the StateChanged event if the state has changed.
+     */
+    public static void SetState(WebsocketClientState state)
+    {
+        if (WebsocketClient.state != state)
+        {
+            WebsocketClient.state = state;
+            StateChanged?.Invoke(state);
+        }
+    }
+
+    /**
      * Internal method that is handling sending messages to the WebSocket server.
      * It runs in a separate task and continuously checks the queue for messages to send.
      */
-    private static Task SendTask(ClientWebSocket client)
+    private static Task SendTask()
     {
         return Task.Run(async () =>
         {
             try
             {
-                while (client.State == WebSocketState.Open)
+                while (client?.State == WebSocketState.Open)
                 {
                     if (!queue.TryDequeue(out var queueItem))
                         continue;
@@ -99,6 +136,8 @@ public static class WebsocketClient
             catch (Exception ex)
             {
                 Console.WriteLine("Send error: " + ex.Message);
+                SetState(WebsocketClientState.Disconnected);
+                ConnectionInfoChanged?.Invoke("Unexpectedly disconnected from the car", Colors.Red);
             }
         });
     }
@@ -107,14 +146,14 @@ public static class WebsocketClient
      * Internal method that is handling receiving messages from the WebSocket server.
      * It runs in a separate task and continuously listens for incoming messages.
      */
-    private static Task ReceiveTask(ClientWebSocket client)
+    private static Task ReceiveTask()
     {
         return Task.Run(async () =>
         {
             var buffer = new byte[1024];
 
             try {
-                while (client.State == WebSocketState.Open) {
+                while (client?.State == WebSocketState.Open) {
                     var result = await client.ReceiveAsync(new ArraySegment<byte>(buffer), CancellationToken.None);
                     if (result.MessageType == WebSocketMessageType.Close) {
                         Console.WriteLine("Server requested close.");
@@ -127,6 +166,8 @@ public static class WebsocketClient
             }
             catch (Exception ex) {
                 Console.WriteLine("Receive error: " + ex.Message);
+                SetState(WebsocketClientState.Disconnected);
+                ConnectionInfoChanged?.Invoke("Unexpectedly disconnected from the car", Colors.Red);
             }
         });
     }

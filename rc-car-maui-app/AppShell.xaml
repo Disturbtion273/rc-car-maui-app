@@ -7,20 +7,20 @@
     Title="rc_car_maui_app">
     
     <TabBar>
-        <Tab Title="Driving" Icon="steering_wheel.png">
+        <Tab Title="Driving" Icon="steering_wheel">
             <ShellContent
                 Title="Driving Modes"
                 ContentTemplate="{DataTemplate views:DrivingPage}"
                 Route="DrivingPage"/>
         </Tab>
-        <Tab Title="Home" Icon="home.png">
+        <Tab Title="Home" Icon="home">
             <ShellContent
                 x:Name="HomeTab"
                 Title="Home"
                 ContentTemplate="{DataTemplate views:MainPage}"
                 Route="DrivingPage"/>
         </Tab>
-        <Tab Title="Settings" Icon="settings.png">
+        <Tab Title="Settings" Icon="settings">
             <ShellContent
                 Title="Settings"
                 ContentTemplate="{DataTemplate views:SettingsPage}"
