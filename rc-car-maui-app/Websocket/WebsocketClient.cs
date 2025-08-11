@@ -1,5 +1,6 @@
 using System.Net.WebSockets;
 using System.Text;
+using System.Text.Json;
 
 namespace rc_car_maui_app.Websocket;
 
@@ -14,7 +15,14 @@ public static class WebsocketClient
     private static Queue<string> queue = new Queue<string>();
 
     public static event Action<WebsocketClientState>? StateChanged;
-    public static event Action<string, Color>? ConnectionInfoChanged; 
+    public static event Action<string, Color>? ConnectionInfoChanged;
+
+    private static Dictionary<string, double> controlData = new Dictionary<string, double>();
+
+    public static void SetControlData(string key, double value)
+    {
+        controlData[key] = value;
+    }
     
     /**
      * This method connects to the WebSocket server at the specified URI.
@@ -33,7 +41,7 @@ public static class WebsocketClient
                 Console.WriteLine("Connected to WebSocket server.");
                 SetState(WebsocketClientState.Connected);
 
-                await Task.WhenAny(ReceiveTask(), SendTask());
+                await Task.WhenAny(ReceiveTask(), SendTask(), SendControlData());
             }
         }
         catch (WebSocketException wse) {
@@ -168,6 +176,19 @@ public static class WebsocketClient
                 Console.WriteLine("Receive error: " + ex.Message);
                 SetState(WebsocketClientState.Disconnected);
                 ConnectionInfoChanged?.Invoke("Unexpectedly disconnected from the car", Colors.Red);
+            }
+        });
+    }
+
+    private static Task SendControlData()
+    {
+        return Task.Run(async () =>
+        {
+            while (client?.State == WebSocketState.Open)
+            {
+                var json = JsonSerializer.Serialize(controlData);
+                Send(json);
+                await Task.Delay(10);
             }
         });
     }
