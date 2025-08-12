@@ -9,9 +9,9 @@ public partial class DrivingPage : ContentPage
     
     // these function serve as placeholder for now
     // for later these function should navigate to the corrected driving mode view
-    private void DrivingOne(object sender, EventArgs e)
+    private async void DrivingOne(object sender, EventArgs e)
     {
-        Console.WriteLine("First Driving Mode");
+        await Shell.Current.Navigation.PushModalAsync(new ManualDrivingPage());
     }
     
     private void DrivingTwo(object sender, EventArgs e)
