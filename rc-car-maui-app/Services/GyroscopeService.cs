@@ -9,21 +9,17 @@ public class GyroscopeService
         if (!OrientationSensor.IsSupported) return;
         OrientationSensor.ReadingChanged += (s, e) =>
         {
-            var q = e.Reading.Orientation; // quaternion
+            var q = e.Reading.Orientation;
             // Convert to roll in degrees
-            var sinr_cosp = 2 * (q.W * q.X + q.Y * q.Z);
-            var cosr_cosp = 1 - 2 * (q.X * q.X + q.Y * q.Y);
-            var roll = Math.Atan2(sinr_cosp, cosr_cosp) * 180.0 / Math.PI;
-
-            // Apply calibration
-            const double baselineRoll = 0.0;
-            var zeroedRoll = roll - baselineRoll;
+            var sinrCosp = 2 * (q.W * q.X + q.Y * q.Z);
+            var cosrCosp = 1 - 2 * (q.X * q.X + q.Y * q.Y);
+            var roll = Math.Atan2(sinrCosp, cosrCosp) * 180.0 / Math.PI;
 
             // Dead zone
-            if (Math.Abs(zeroedRoll) < 5)
-                zeroedRoll = 0;
+            if (Math.Abs(roll) < 5)
+                roll = 0;
 
-            double steering = Math.Clamp((zeroedRoll / 30.0 + 1) * 50.0, 0.0, 100.0);
+            double steering = Math.Clamp((roll / 30.0 + 1) * 50.0, 0.0, 100.0);
 
             WebsocketClient.SetControlData("steering", steering);
         };
@@ -33,10 +29,5 @@ public class GyroscopeService
     public void StopGyroscope()
     {
         OrientationSensor.Stop();
-    }
-
-    private void Gyroscope_ReadingChanged(object sender, GyroscopeChangedEventArgs e)
-    {
-        Console.WriteLine($"Gyroscope reading: {e.Reading}");
     }
 }
