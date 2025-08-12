@@ -6,6 +6,7 @@ public class GyroscopeService
 {
     public void StartGyroscope()
     {
+        if (!OrientationSensor.IsSupported) return;
         OrientationSensor.ReadingChanged += (s, e) =>
         {
             var q = e.Reading.Orientation; // quaternion
