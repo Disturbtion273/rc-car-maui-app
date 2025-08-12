@@ -44,11 +44,14 @@ public static class WebsocketClient
                 await Task.WhenAny(ReceiveTask(), SendTask(), SendControlData());
             }
         }
-        catch (WebSocketException wse) {
+        catch (WebSocketException wse)
+        {
             Console.WriteLine($"WebSocket error: {wse.Message}");
         }
-        finally {
-            if (client.State is WebSocketState.Open or WebSocketState.CloseReceived) {
+        finally
+        {
+            if (client.State is WebSocketState.Open or WebSocketState.CloseReceived)
+            {
                 await client.CloseAsync(WebSocketCloseStatus.NormalClosure, "Client closing", CancellationToken.None);
                 Console.WriteLine("Connection closed.");
                 SetState(WebsocketClientState.Disconnected);
@@ -160,10 +163,13 @@ public static class WebsocketClient
         {
             var buffer = new byte[1024];
 
-            try {
-                while (client?.State == WebSocketState.Open) {
+            try
+            {
+                while (client?.State == WebSocketState.Open)
+                {
                     var result = await client.ReceiveAsync(new ArraySegment<byte>(buffer), CancellationToken.None);
-                    if (result.MessageType == WebSocketMessageType.Close) {
+                    if (result.MessageType == WebSocketMessageType.Close)
+                    {
                         Console.WriteLine("Server requested close.");
                         break;
                     }
@@ -172,7 +178,8 @@ public static class WebsocketClient
                     Console.WriteLine("Received from server: " + response);
                 }
             }
-            catch (Exception ex) {
+            catch (Exception ex)
+            {
                 Console.WriteLine("Receive error: " + ex.Message);
                 SetState(WebsocketClientState.Disconnected);
                 ConnectionInfoChanged?.Invoke("Unexpectedly disconnected from the car", Colors.Red);
@@ -184,11 +191,20 @@ public static class WebsocketClient
     {
         return Task.Run(async () =>
         {
-            while (client?.State == WebSocketState.Open)
+            try
             {
-                var json = JsonSerializer.Serialize(controlData);
-                Send(json);
-                await Task.Delay(10);
+                while (client?.State == WebSocketState.Open)
+                {
+                    var json = JsonSerializer.Serialize(controlData);
+                    Send(json);
+                    await Task.Delay(10);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Send Control Data error: " + ex.Message);
+                SetState(WebsocketClientState.Disconnected);
+                ConnectionInfoChanged?.Invoke("Unexpectedly disconnected from the car", Colors.Red);
             }
         });
     }
