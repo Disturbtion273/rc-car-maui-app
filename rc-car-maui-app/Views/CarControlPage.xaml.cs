@@ -8,8 +8,12 @@ public partial class CarControlPage : ContentPage
         InitializeComponent();
     }
         private async void OnShowCameraClicked(object sender, EventArgs e)
-        {
-         await Shell.Current.GoToAsync("//CameraPage");   
+        { 
+         var testUrl = "http://10.0.2.2:5000";
+         await Shell.Current.GoToAsync("//CameraPage", new Dictionary<string, object>
+         {
+             {"StreamUrl", testUrl }
+         });   
         }
     private async void OnHomeClicked(object sender, EventArgs e)
     {
