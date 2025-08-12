@@ -3,6 +3,65 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="rc_car_maui_app.Views.DrivingPage">
-    <ContentPage.Content>
-    </ContentPage.Content>
+    <ScrollView>
+        <VerticalStackLayout Padding="20" 
+                             Spacing="40" 
+                             VerticalOptions="Center">
+            
+            <!-- Card 1 -->
+            <Border Style="{StaticResource CardStyle}">
+                <Grid ColumnDefinitions="*, Auto" RowDefinitions="Auto">
+                    <VerticalStackLayout Spacing="4" VerticalOptions="Start" Grid.Column="0">
+                        <Label Text="Manual" 
+                               Style="{StaticResource CardTitleLabel}"/>
+                        <Label Text="Give you full control to the car" 
+                               Style="{StaticResource CardSubtitleLabel}" />
+                    </VerticalStackLayout>
+                    <ImageButton 
+                        BackgroundColor="Transparent" 
+                        Padding="0"
+                        Source="{AppThemeBinding Light=play_light, Dark=play_dark}"
+                        Clicked="DrivingOne"
+                        Grid.Column="1" />
+                </Grid>
+            </Border>
+                
+            <!-- Card 2 -->
+            <Border Style="{StaticResource CardStyle}">
+                <Grid ColumnDefinitions="*, Auto" RowDefinitions="Auto">
+                    <VerticalStackLayout Spacing="4" VerticalOptions="Start" Grid.Column="0">
+                        <Label Text="Semi-AI" 
+                               Style="{StaticResource CardTitleLabel}"/>
+                        <Label Text="Give you full control to the car while having AI feature" 
+                               Style="{StaticResource CardSubtitleLabel}"/>
+                    </VerticalStackLayout>
+                    <ImageButton 
+                        BackgroundColor="Transparent" 
+                        Padding="0"
+                        Source="{AppThemeBinding Light=play_light, Dark=play_dark}"
+                        Clicked="DrivingTwo"
+                        Grid.Column="1" />
+                </Grid>
+            </Border>
+            
+            <!-- Card 3 -->
+            <Border Style="{StaticResource CardStyle}">
+                <Grid ColumnDefinitions="*, Auto" RowDefinitions="Auto">
+                    <VerticalStackLayout Spacing="4" VerticalOptions="Start" Grid.Column="0">
+                        <Label Text="Full AI" 
+                               Style="{StaticResource CardTitleLabel}"/>
+                        <Label Text="Car is fully controlled by AI" 
+                               Style="{StaticResource CardSubtitleLabel}"/>
+                    </VerticalStackLayout>
+                    <ImageButton 
+                        BackgroundColor="Transparent" 
+                        Padding="0"
+                        Source="{AppThemeBinding Light=play_light, Dark=play_dark}"
+                        Clicked="DrivingThree"
+                        Grid.Column="1" />
+                </Grid>
+            </Border>
+            
+        </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>
