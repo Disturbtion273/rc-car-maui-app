@@ -13,6 +13,7 @@ public static class WebsocketClient
     private static ClientWebSocket? client;
     private static WebsocketClientState state;
     private static Queue<string> queue = new Queue<string>();
+    private static string host;
 
     public static event Action<WebsocketClientState>? StateChanged;
     public static event Action<string, Color>? ConnectionInfoChanged;
@@ -29,7 +30,7 @@ public static class WebsocketClient
      * It should only be called once, typically at application startup.
      * It triggers the connection failed event if the connection cannot be established.
      */
-    public static async Task Connect(string uri)
+    public static async Task Connect(string host, int port = 9999)
     {
         client = new ClientWebSocket();
         try
@@ -37,9 +38,10 @@ public static class WebsocketClient
             if (IsDisconnected())
             {
                 SetState(WebsocketClientState.Connecting);
-                await client.ConnectAsync(new Uri(uri), CancellationToken.None);
+                await client.ConnectAsync(new Uri($"ws://{host}:{port}"), CancellationToken.None);
                 Console.WriteLine("Connected to WebSocket server.");
                 SetState(WebsocketClientState.Connected);
+                WebsocketClient.host = host;
 
                 await Task.WhenAny(ReceiveTask(), SendTask(), SendControlData());
             }
@@ -112,6 +114,14 @@ public static class WebsocketClient
         return state == WebsocketClientState.Disconnected;
     }
 
+    /**
+     * This method returns the host (IP-address) of the websocket connection
+     */
+    public static string GetHost()
+    {
+        return host;
+    }
+    
     /**
      * This method sets the current state of the WebSocket client.
      * It triggers the StateChanged event if the state has changed.

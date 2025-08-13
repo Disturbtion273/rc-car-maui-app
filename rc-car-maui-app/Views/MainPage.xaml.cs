@@ -68,7 +68,7 @@ public partial class MainPage : ContentPage
      */
     private void OnConnectClicked(object? sender, EventArgs e)
     {
-        _ = WebsocketClient.Connect($"ws://{IpEntry.Text}:9999");
+        _ = WebsocketClient.Connect(IpEntry.Text);
     }
 
     /**
