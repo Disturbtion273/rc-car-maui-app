@@ -5,7 +5,7 @@
              x:Class="rc_car_maui_app.Views.ManualDrivingPage">
     <ContentPage.Content>
         <Grid BackgroundColor="Red">
-            <WebView Source="http://192.168.189.25:7898" />
+            <WebView Source="{Binding WebViewUrl}" />
 
             <Slider Rotation="-90"
                     ValueChanged="Slider_OnValueChanged"
