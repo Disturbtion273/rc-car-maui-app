@@ -15,6 +15,14 @@ public static class MauiProgram
                 fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
             });
 
+#if ANDROID
+        Microsoft.Maui.Handlers.WebViewHandler.Mapper.AppendToMapping("MyZoomSettings", (handler, view) =>
+        {
+            handler.PlatformView.Settings.UseWideViewPort = true;
+            handler.PlatformView.SetInitialScale(1);
+        });
+#endif
+
 #if DEBUG
         builder.Logging.AddDebug();
 #endif

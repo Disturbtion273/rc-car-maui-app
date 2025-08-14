@@ -6,6 +6,8 @@ namespace rc_car_maui_app.Views;
 
 public partial class ManualDrivingPage
 {
+    public string WebViewUrl { get; }
+
     private readonly IDeviceOrientationService _orientationService;
     private readonly GyroscopeService _gyroscopeService;
 
@@ -14,6 +16,8 @@ public partial class ManualDrivingPage
         InitializeComponent();
         _gyroscopeService = new GyroscopeService();
         _orientationService = DependencyService.Get<IDeviceOrientationService>();
+        WebViewUrl = $"http://{WebsocketClient.GetHost()}:8080";
+        BindingContext = this;
     }
 
 
