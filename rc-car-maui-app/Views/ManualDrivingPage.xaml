@@ -2,6 +2,7 @@
 
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:rc_car_maui_app.Controls"
              x:Class="rc_car_maui_app.Views.ManualDrivingPage">
     <ContentPage.Content>
         <Grid BackgroundColor="Red">
@@ -18,6 +19,13 @@
                     VerticalOptions="End"
                     HorizontalOptions="End"
                     Margin="0, 0, 0, 20" />
+            
+            <HorizontalStackLayout HorizontalOptions="End" VerticalOptions="Start" Margin="0, 20, 50, 0">
+                <controls:OverlayBackground WidthRequest="26" HeightRequest="26" Padding="6" StrokeShape="Ellipse">
+                    <Border x:Name="WebsocketIndicator" StrokeShape="Ellipse"/>
+                </controls:OverlayBackground>
+                <!-- Place for the battery indicator --> 
+            </HorizontalStackLayout>
         </Grid>
     </ContentPage.Content>
 </ContentPage>
