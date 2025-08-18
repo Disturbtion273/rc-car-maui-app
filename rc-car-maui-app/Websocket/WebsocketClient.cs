@@ -158,7 +158,6 @@ public static class WebsocketClient
                     if (!queue.TryDequeue(out var queueItem))
                         continue;
                     
-                    Console.Write("Send to server: ");
                     await client.SendAsync(new ArraySegment<byte>(Encoding.UTF8.GetBytes(queueItem)), WebSocketMessageType.Text, true, CancellationToken.None);
                 }
             }
