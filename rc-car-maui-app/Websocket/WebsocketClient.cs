@@ -11,7 +11,7 @@ namespace rc_car_maui_app.Websocket;
 public static class WebsocketClient
 {
     private static ClientWebSocket? client;
-    private static WebsocketClientState state;
+    private static WebsocketClientState state = WebsocketClientState.Disconnected;
     private static Queue<string> queue = new Queue<string>();
     private static string host;
 
@@ -120,6 +120,14 @@ public static class WebsocketClient
     public static string GetHost()
     {
         return host;
+    }
+
+    /**
+     * This method returns the current state of the WebSocket client.
+     */
+    public static WebsocketClientState GetState()
+    {
+        return state;
     }
     
     /**

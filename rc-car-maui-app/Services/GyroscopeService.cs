@@ -28,6 +28,7 @@ public class GyroscopeService
 
     public void StopGyroscope()
     {
+        if (!OrientationSensor.IsSupported) return;
         OrientationSensor.Stop();
     }
 }
