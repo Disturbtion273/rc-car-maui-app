@@ -1,4 +1,4 @@
-using System.Text.Json;
+using rc_car_maui_app.Controls.Slider;
 using rc_car_maui_app.Services;
 using rc_car_maui_app.Websocket;
 
@@ -56,6 +56,6 @@ public partial class ManualDrivingPage
 
     private void Slider_OnDragCompleted(object? sender, EventArgs e)
     {
-        if (sender is Slider slider) slider.Value = 0;
+        if (sender is CustomSlider slider) slider.Value = 0;
     }
 }
