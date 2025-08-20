@@ -21,7 +21,7 @@
         <Nullable>enable</Nullable>
 
         <!-- Display name -->
-        <ApplicationTitle>rc-car-maui-app</ApplicationTitle>
+        <ApplicationTitle>DriveLink</ApplicationTitle>
 
         <!-- App Identifier -->
         <ApplicationId>com.companyname.rccarmauiapp</ApplicationId>
