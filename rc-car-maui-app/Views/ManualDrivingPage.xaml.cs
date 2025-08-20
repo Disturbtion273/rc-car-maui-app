@@ -68,7 +68,6 @@ public partial class ManualDrivingPage
 
         WebsocketClient.SetControlData("tilt", tilt);
         WebsocketClient.SetControlData("tiltSpeed", speed);
-        Console.WriteLine($"Tilt: {tilt}, Speed: {speed}");
     }
 
     private void Joystick_OnValueYChanged(object? sender, ValueChangedEventArgs e)
@@ -78,7 +77,6 @@ public partial class ManualDrivingPage
 
         WebsocketClient.SetControlData("pan", pan);
         WebsocketClient.SetControlData("panSpeed", speed);
-        Console.WriteLine($"Pan: {pan}, Speed: {speed}");
     }
 
     private void Joystick_OnDragCompleted(object? sender, EventArgs e)
