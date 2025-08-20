@@ -85,4 +85,11 @@ public partial class ManualDrivingPage
         joystick.ValueX = 0;
         joystick.ValueY = 0;
     }
+    
+    private async void OnBackButtonClicked(object sender, EventArgs e)
+    {
+        await Shell.Current.GoToAsync("..");
+    }
+    
 }
+
