@@ -89,7 +89,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <None Remove="Resources\Splash\splash1.png" />
+      <None Remove="Resources\Splash\splash3.png" />
     </ItemGroup>
 
 </Project>
