@@ -11,14 +11,7 @@
         <Grid BackgroundColor="Red">
             <WebView Source="{Binding WebViewUrl}" />
             
-            <controls:OverlayBackground Margin="50, 20, 0, 0"
-            WidthRequest="26"
-            HeightRequest="26"
-            HorizontalOptions="Start" VerticalOptions="Start">
-                <ImageButton
-                    Source="back_button.svg"
-                    Clicked="OnBackButtonClicked"/>
-            </controls:OverlayBackground>
+            <controls:OverlayBackButton/>
             
             <slider:CustomSlider Minimum="-100"
                                  Maximum="100"
