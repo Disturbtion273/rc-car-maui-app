@@ -8,7 +8,7 @@
              x:Class="rc_car_maui_app.Views.ManualDrivingPage">
 
     <ContentPage.Content>
-        <Grid BackgroundColor="Red">
+        <Grid x:Name="MainGrid" StyleClass="ColoredGrid" IgnoreSafeArea="True">
             <WebView Source="{Binding WebViewUrl}" />
 
             <controls:OverlayBackButton />
