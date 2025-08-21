@@ -57,6 +57,7 @@ public partial class ManualDrivingPage
     private void Slider_OnValueChanged(object? sender, ValueChangedEventArgs e)
     {
         WebsocketClient.SetControlData("speed", e.NewValue);
+        SpeedLabel.Text = Math.Abs((int)e.NewValue).ToString();
     }
 
     private void Slider_OnDragCompleted(object? sender, EventArgs e)
