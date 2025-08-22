@@ -14,6 +14,6 @@ public partial class OverlayBackButton : ContentView
     }
     private async void OnBackButtonClicked(object sender, EventArgs e)
     {
-        await Shell.Current.Navigation.PopAsync(animated: false);
+        await Shell.Current.Navigation.PopAsync(animated: true);
     }
 }
