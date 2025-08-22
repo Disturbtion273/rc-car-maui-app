@@ -84,8 +84,5 @@ public partial class ManualDrivingPage
         if (sender is not Joystick joystick) return;
         joystick.ValueX = 0;
         joystick.ValueY = 0;
-    }
-    
-
+    } 
 }
-
