@@ -21,22 +21,25 @@
                                  ValueChanged="Slider_OnValueChanged"
                                  DragCompleted="Slider_OnDragCompleted" />
 
-            <controls:OverlayBackground WidthRequest="80" HeightRequest="50" Margin="0, 0, 0, 40"
+            <controls:OverlayBackground WidthRequest="100" HeightRequest="50" Margin="0, 0, 0, 60"
                                         HorizontalOptions="Center" VerticalOptions="End">
-                <VerticalStackLayout HorizontalOptions="Center"
-                                     VerticalOptions="Center">
+                <HorizontalStackLayout HorizontalOptions="Center" VerticalOptions="Center" Spacing="5">
+                    <Image x:Name="ArrowImage" Source="minus" />
+                    <VerticalStackLayout HorizontalOptions="Center"
+                                         VerticalOptions="Center">
 
-                    <Label
-                        x:Name="SpeedLabel"
-                        Text="0"
-                        FontSize="18"
-                        HorizontalOptions="Center" />
+                        <Label
+                            x:Name="SpeedLabel"
+                            Text="0"
+                            FontSize="15"
+                            HorizontalOptions="Center" />
 
-                    <Label
-                        Text="km/h"
-                        FontSize="18"
-                        HorizontalOptions="Center" />
-                </VerticalStackLayout>
+                        <Label
+                            Text="km/h"
+                            FontSize="15"
+                            HorizontalOptions="Center" />
+                    </VerticalStackLayout>
+                </HorizontalStackLayout>
             </controls:OverlayBackground>
 
             <joystick:Joystick HorizontalOptions="Start"
