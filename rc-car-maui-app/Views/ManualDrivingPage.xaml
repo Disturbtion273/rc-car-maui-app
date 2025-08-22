@@ -10,7 +10,9 @@
     <ContentPage.Content>
         <Grid BackgroundColor="Red">
             <WebView Source="{Binding WebViewUrl}" />
-
+            
+            <controls:OverlayBackButton/>
+            
             <slider:CustomSlider Minimum="-100"
                                  Maximum="100"
                                  HorizontalOptions="End"
