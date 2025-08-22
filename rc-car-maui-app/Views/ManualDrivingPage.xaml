@@ -17,7 +17,7 @@
                                  Maximum="100"
                                  HorizontalOptions="End"
                                  VerticalOptions="End"
-                                 Margin="0, 0, 102, 20"
+                                 Margin="80, 20"
                                  ValueChanged="Slider_OnValueChanged"
                                  DragCompleted="Slider_OnDragCompleted" />
 
