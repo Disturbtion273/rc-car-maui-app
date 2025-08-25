@@ -8,7 +8,7 @@
              x:Class="rc_car_maui_app.Views.ManualDrivingPage">
 
     <ContentPage.Content>
-        <Grid BackgroundColor="Red">
+        <Grid x:Name="MainGrid" StyleClass="ColoredGrid" IgnoreSafeArea="True">
             <WebView Source="{Binding WebViewUrl}" />
 
             <controls:OverlayBackButton />
@@ -17,7 +17,7 @@
                                  Maximum="100"
                                  HorizontalOptions="End"
                                  VerticalOptions="End"
-                                 Margin="0, 0, 102, 20"
+                                 Margin="80, 20"
                                  ValueChanged="Slider_OnValueChanged"
                                  DragCompleted="Slider_OnDragCompleted" />
 
@@ -44,6 +44,7 @@
 
             <joystick:Joystick HorizontalOptions="Start"
                                VerticalOptions="End"
+                               Margin="10"
                                ValueXChanged="Joystick_OnValueXChanged"
                                ValueYChanged="Joystick_OnValueYChanged"
                                DragCompleted="Joystick_OnDragCompleted" />

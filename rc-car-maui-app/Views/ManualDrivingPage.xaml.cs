@@ -2,6 +2,9 @@ using rc_car_maui_app.Controls.Joystick;
 using rc_car_maui_app.Controls.Slider;
 using rc_car_maui_app.Services;
 using rc_car_maui_app.Websocket;
+#if ANDROID
+using AndroidX.Core.View;
+#endif
 
 namespace rc_car_maui_app.Views;
 
@@ -29,6 +32,10 @@ public partial class ManualDrivingPage
         BindingContext = this;
         WebsocketClient.StateChanged += WebsocketClientOnStateChanged;
         WebsocketIndicator.BackgroundColor = _websocketIndicatorColors[WebsocketClient.GetState()];
+        if (DeviceInfo.Platform == DevicePlatform.iOS)
+        {
+            MainGrid.Padding = new Thickness(50, 0);
+        }
     }
 
     private void WebsocketClientOnStateChanged(WebsocketClientState state)
