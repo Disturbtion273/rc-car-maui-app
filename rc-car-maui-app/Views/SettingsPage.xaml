@@ -6,8 +6,6 @@
              xmlns:labelSwitch="clr-namespace:rc_car_maui_app.Controls.LabelSwitch"
              xmlns:customPicker="clr-namespace:rc_car_maui_app.Controls.CustomPicker"
              x:Class="rc_car_maui_app.Views.SettingsPage">
-    
-    
     <ScrollView>
         <VerticalStackLayout Padding="32">
             
