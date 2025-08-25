@@ -49,4 +49,33 @@
     <SolidColorBrush x:Key="Gray600Brush" Color="{StaticResource Gray600}"/>
     <SolidColorBrush x:Key="Gray900Brush" Color="{StaticResource Gray900}"/>
     <SolidColorBrush x:Key="Gray950Brush" Color="{StaticResource Gray950}"/>
+    
+    <!-- Setting UI Custom Color Declaration -->
+    <!-- LabelSwitch -->
+    <Color x:Key="LsTrackL">#C1C3C5</Color>
+    <Color x:Key="LsTrackD">#A8000000</Color>
+    <Color x:Key="LsCapsuleL">#FFFFFF</Color>
+    <Color x:Key="LsCapsuleD">#05bfb5</Color>
+    <Color x:Key="LsSelTextL">#014D47</Color>
+    <Color x:Key="LsSelTextD">#014D47</Color>
+    <Color x:Key="LsUnselTextL">#2A2A2A</Color>
+    <Color x:Key="LsUnselTextD">#4103BFB5</Color>
+    
+    <!-- CustomSwitch -->
+    <Color x:Key="CsTrackOnL">#D9D9D9</Color>
+    <Color x:Key="CsTrackOnD">#A8000000</Color>
+    <Color x:Key="CsCapsuleOnL">#014D47</Color>
+    <Color x:Key="CsCapsuleOnD">#02ACA3</Color>
+    <Color x:Key="CsTrackOffL">#979797</Color>
+    <Color x:Key="CsTrackOffD">#016059</Color>
+    <Color x:Key="CsCapsuleOffL">#018076</Color>
+    <Color x:Key="CsCapsuleOffD">#019E95</Color>
+        
+    <!-- CustomPicker -->
+    <Color x:Key="CpTrackL">#D9D9D9</Color>
+    <Color x:Key="CpTrackD">#A8000000</Color>
+    <Color x:Key="CpTextL">#014D47</Color>
+    <Color x:Key="CpTextD">#03BFB5</Color>
+    <Color x:Key="CpPickerL">#014D47</Color>
+    <Color x:Key="CpPickerD">#03BFB5</Color>
 </ResourceDictionary>
