@@ -44,6 +44,7 @@
 
             <joystick:Joystick HorizontalOptions="Start"
                                VerticalOptions="End"
+                               Margin="10"
                                ValueXChanged="Joystick_OnValueXChanged"
                                ValueYChanged="Joystick_OnValueYChanged"
                                DragCompleted="Joystick_OnDragCompleted" />
