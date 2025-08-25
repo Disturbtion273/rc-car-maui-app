@@ -57,6 +57,34 @@ public partial class ManualDrivingPage
     private void Slider_OnValueChanged(object? sender, ValueChangedEventArgs e)
     {
         WebsocketClient.SetControlData("speed", e.NewValue);
+        var oldSpeed = (int)e.OldValue;
+        var speed = (int)e.NewValue;
+        SpeedLabel.Text = Math.Abs(speed).ToString();
+        UpdateUi(oldSpeed, speed);
+    }
+
+    private async void UpdateUi(int oldSpeed, int speed)
+    {
+        if (oldSpeed == 0 && speed > 0)
+        {
+            ArrowImage.Source = "arrow";
+            ArrowImage.Rotation = 0;
+        } else if (oldSpeed == 0 && speed < 0)
+        {
+            ArrowImage.Source = "arrow";
+            ArrowImage.Rotation = 180;
+        }
+        else if (oldSpeed != 0 && speed == 0)
+        {
+            ArrowImage.Source = "minus";
+            ArrowImage.Rotation = 0;
+        } else if (oldSpeed > 0 && speed < 0)
+        {
+            await ArrowImage.RotateTo(180, 250, Easing.CubicInOut);
+        } else if (oldSpeed < 0 && speed > 0)
+        {
+            await ArrowImage.RotateTo(0, 250, Easing.CubicInOut);
+        }
     }
 
     private void Slider_OnDragCompleted(object? sender, EventArgs e)
