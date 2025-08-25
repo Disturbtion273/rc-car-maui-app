@@ -1,6 +1,7 @@
 using System.Net.WebSockets;
 using System.Text;
 using System.Text.Json;
+using rc_car_maui_app.Services;
 
 namespace rc_car_maui_app.Websocket;
 
@@ -155,7 +156,7 @@ public static class WebsocketClient
             {
                 while (client?.State == WebSocketState.Open)
                 {
-                    if (!queue.TryDequeue(out var queueItem))
+                    if (!queue.TryDequeue(out var queueItem) && queueItem == null)
                         continue;
                     
                     await client.SendAsync(new ArraySegment<byte>(Encoding.UTF8.GetBytes(queueItem)), WebSocketMessageType.Text, true, CancellationToken.None);
@@ -193,6 +194,17 @@ public static class WebsocketClient
 
                     var response = Encoding.UTF8.GetString(buffer, 0, result.Count);
                     Console.WriteLine("Received from server: " + response);
+                    var jsonData = JsonSerializer.Deserialize<Dictionary<string, object>> (response);
+                    if (jsonData != null)
+                    {
+                        foreach (var keyValue in jsonData)
+                        {
+                            if (keyValue.Key == "battery")
+                            {
+                                BatteryService.Level = ((JsonElement)keyValue.Value).GetInt32();
+                            }
+                        }
+                    }
                 }
             }
             catch (Exception ex)

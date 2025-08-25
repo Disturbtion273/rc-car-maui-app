@@ -33,7 +33,10 @@ public partial class ManualDrivingPage
 
     private void WebsocketClientOnStateChanged(WebsocketClientState state)
     {
-        WebsocketIndicator.BackgroundColor = _websocketIndicatorColors[state];
+        MainThread.BeginInvokeOnMainThread(() =>
+        {
+            WebsocketIndicator.BackgroundColor = _websocketIndicatorColors[state];
+        });
     }
 
 
