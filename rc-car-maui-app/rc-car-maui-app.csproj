@@ -21,7 +21,7 @@
         <Nullable>enable</Nullable>
 
         <!-- Display name -->
-        <ApplicationTitle>rc-car-maui-app</ApplicationTitle>
+        <ApplicationTitle>DriveLink</ApplicationTitle>
 
         <!-- App Identifier -->
         <ApplicationId>com.companyname.rccarmauiapp</ApplicationId>
@@ -48,10 +48,9 @@
 
     <ItemGroup>
         <!-- App Icon -->
-        <MauiIcon Include="Resources\AppIcon\appicon.svg" ForegroundFile="Resources\AppIcon\appiconfg.svg" Color="#512BD4"/>
-
+        <MauiIcon Include="Resources\AppIcon\appicon.png" />
         <!-- Splash Screen -->
-        <MauiSplashScreen Include="Resources\Splash\splash.svg" Color="#512BD4" BaseSize="128,128"/>
+        <MauiSplashScreen Include="Resources\Splash\splash3.png" color="#0B182A"/>
 
         <!-- Images -->
         <MauiImage Include="Resources\Images\*"/>
@@ -87,6 +86,10 @@
             <DependentUpon>Manual Driving.xaml</DependentUpon>
             <SubType>Code</SubType>
         </Compile>
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Remove="Resources\Splash\splash3.png" />
     </ItemGroup>
 
 </Project>
