@@ -4,17 +4,6 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="rc_car_maui_app.Views.DrivingPage">
     
-    <Shell.TitleView>
-        <HorizontalStackLayout HorizontalOptions="Center">
-            <Label  Text="Driving Modes"
-                    TextColor="{AppThemeBinding 
-                        Light={StaticResource Primary},
-                        Dark={StaticResource Tertiary}}"
-                    FontSize="18"
-                    FontAttributes="Bold"
-                    VerticalOptions="Center" />
-        </HorizontalStackLayout>
-    </Shell.TitleView>
     
     <ScrollView>
         <VerticalStackLayout Padding="20" 

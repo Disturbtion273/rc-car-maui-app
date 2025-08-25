@@ -7,17 +7,6 @@
              xmlns:customPicker="clr-namespace:rc_car_maui_app.Controls.CustomPicker"
              x:Class="rc_car_maui_app.Views.SettingsPage">
     
-    <Shell.TitleView>
-        <HorizontalStackLayout HorizontalOptions="Center">
-            <Label  Text="Settings"
-                    TextColor="{AppThemeBinding 
-                        Light={StaticResource Primary},
-                        Dark={StaticResource Tertiary}}"
-                    FontSize="18"
-                    FontAttributes="Bold"
-                    VerticalOptions="Center" />
-        </HorizontalStackLayout>
-    </Shell.TitleView>
     
     <ScrollView>
         <VerticalStackLayout Padding="32">
