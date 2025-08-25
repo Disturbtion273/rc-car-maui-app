@@ -111,7 +111,7 @@
                                Grid.Column="0"/>
                         
                         <customSwitch:CustomSwitch
-                            IsToggled="True"
+                            x:Name="DarkModeSwitch"
                             Toggled="OnDarkModeToggled"
                             HorizontalOptions="End"
                             Grid.Column="1"/>
