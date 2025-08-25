@@ -16,6 +16,8 @@ public static class MauiProgram
             {
                 fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                 fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
+                fonts.AddFont("Rajdhani-Semibold.ttf", "RajdhaniSemibold");
+                fonts.AddFont("Rajdhani-Bold.ttf", "RajdhaniBold");
             });
 
         builder.Services.AddSingleton<IThemeService, ThemeService>();
