@@ -41,11 +41,11 @@
         <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'tizen'">6.5</SupportedOSPlatformVersion>
     </PropertyGroup>
 
-    <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
-      <CodesignKey>iPhone Developer</CodesignKey>
-      <CodesignProvision>iOS Team Provisioning Profile: com.dhbw-team.RC-Car</CodesignProvision>
+    <PropertyGroup Condition=" '$(Configuration)' == 'Debug' and '$(TargetFramework)' == 'net9.0-ios' ">
+        <CodesignKey>iPhone Developer</CodesignKey>
+        <CodesignProvision>iOS Team Provisioning Profile: com.dhbw-team.RC-Car</CodesignProvision>
     </PropertyGroup>
-    
+
     <ItemGroup>
         <!-- App Icon -->
         <MauiIcon Include="Resources\AppIcon\appicon.svg" ForegroundFile="Resources\AppIcon\appiconfg.svg" Color="#512BD4"/>
@@ -70,23 +70,23 @@
     </ItemGroup>
 
     <ItemGroup>
-      <MauiXaml Update="Views\MainPage.xaml">
-        <SubType>Designer</SubType>
-      </MauiXaml>
-      <MauiXaml Update="Views\Manual Driving.xaml">
-        <SubType>Designer</SubType>
-      </MauiXaml>
+        <MauiXaml Update="Views\MainPage.xaml">
+            <SubType>Designer</SubType>
+        </MauiXaml>
+        <MauiXaml Update="Views\Manual Driving.xaml">
+            <SubType>Designer</SubType>
+        </MauiXaml>
     </ItemGroup>
 
     <ItemGroup>
-      <Compile Update="Views\MainPage.xaml.cs">
-        <DependentUpon>MainPage.xaml</DependentUpon>
-        <SubType>Code</SubType>
-      </Compile>
-      <Compile Update="Views\Manual Driving.xaml.cs">
-        <DependentUpon>Manual Driving.xaml</DependentUpon>
-        <SubType>Code</SubType>
-      </Compile>
+        <Compile Update="Views\MainPage.xaml.cs">
+            <DependentUpon>MainPage.xaml</DependentUpon>
+            <SubType>Code</SubType>
+        </Compile>
+        <Compile Update="Views\Manual Driving.xaml.cs">
+            <DependentUpon>Manual Driving.xaml</DependentUpon>
+            <SubType>Code</SubType>
+        </Compile>
     </ItemGroup>
 
 </Project>
