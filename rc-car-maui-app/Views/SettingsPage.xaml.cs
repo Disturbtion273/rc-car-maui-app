@@ -4,9 +4,20 @@ namespace rc_car_maui_app.Views;
 
 public partial class SettingsPage : ContentPage
 {
+
+    private readonly IThemeService _theme;
+    private bool _initializing;
+    
     public SettingsPage()
     {
         InitializeComponent();
+        
+        _theme = ServiceHelper.GetService<IThemeService>();
+
+        // Switch auf gespeicherten Zustand setzen, Event dabei ignorieren
+        _initializing = true;
+        DarkModeSwitch.IsToggled = _theme.GetSaved() == ThemeSetting.Dark;
+        _initializing = false;
     }
     
     private void OnUnitToggled(object sender, ToggledEventArgs e)
@@ -66,13 +77,9 @@ public partial class SettingsPage : ContentPage
     
     private void OnDarkModeToggled(object sender, ToggledEventArgs e)
     {
-        if (e.Value)
-        {
-            Console.WriteLine("Dark Mode");
-        }
-        else
-        {
-            Console.WriteLine("Light Mode");
-        }
+        if (_initializing) return;
+        var setting = e.Value ? ThemeSetting.Dark : ThemeSetting.Light;
+        _theme.Apply(setting);   // sofort umschalten
+        _theme.Save(setting);    // speichern
     }
 }
