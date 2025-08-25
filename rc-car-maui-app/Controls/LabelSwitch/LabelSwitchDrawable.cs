@@ -3,13 +3,14 @@ namespace rc_car_maui_app.Controls.LabelSwitch;
 public class LabelSwitchDrawable : IDrawable
 {
     // Texts
-        public string LeftText { get; set; } = "KM/H";
-        public string RightText { get; set; } = "MP/H";
+        public string SelectedText { get; set; } = "KM/H";
+        public string UnselectedText { get; set; } = "MP/H";
 
         // Colors (customize via properties on the control)
-        public Color TrackColor { get; set; }    = Color.FromArgb("#00514a");
+        public Color TrackColor { get; set; }    = Color.FromArgb("#A8000000");
         public Color CapsuleColor { get; set; }  = Color.FromArgb("#05bfb5");
-        public Color TextColor { get; set; }     = Color.FromArgb("#002c28");
+        public Color SelectedTextColor { get; set; } = Colors.White;
+        public Color UnselectedTextColor { get; set; } = Colors.Black;
 
         // State
         public bool IsLeftSelected { get; set; }
@@ -83,14 +84,15 @@ public class LabelSwitchDrawable : IDrawable
             canvas.FontSize = fontSize;
             canvas.Font = Microsoft.Maui.Graphics.Font.Default;
 
-            // left text rect and draw
+            // left text rect
             var leftRect = new RectF(trackX, trackY, halfW, trackH);
-            canvas.FontColor = TextColor;
-            canvas.DrawString(LeftText, leftRect, HorizontalAlignment.Center, VerticalAlignment.Center);
+            canvas.FontColor = IsLeftSelected ? SelectedTextColor : UnselectedTextColor;
+            canvas.DrawString(UnselectedText, leftRect, HorizontalAlignment.Center, VerticalAlignment.Center);
 
-            // right text rect and draw
+            // right text rect
             var rightRect = new RectF(trackX + halfW, trackY, halfW, trackH);
-            canvas.DrawString(RightText, rightRect, HorizontalAlignment.Center, VerticalAlignment.Center);
+            canvas.FontColor = IsLeftSelected ? UnselectedTextColor : SelectedTextColor;
+            canvas.DrawString(SelectedText, rightRect, HorizontalAlignment.Center, VerticalAlignment.Center);
         }
 
         static float Lerp(float a, float b, float t) => a + (b - a) * t;

@@ -16,26 +16,34 @@ public class LabelSwitch : GraphicsView
         }
 
         // Texts
-        public static readonly BindableProperty LeftTextProperty =
-            BindableProperty.Create(nameof(LeftText), typeof(string), typeof(LabelSwitch), "KM/H", propertyChanged: OnAppearanceChanged);
-        public string LeftText { get => (string)GetValue(LeftTextProperty); set => SetValue(LeftTextProperty, value); }
+        public static readonly BindableProperty UnselectedTextProperty =
+            BindableProperty.Create(nameof(UnselectedText), typeof(string), typeof(LabelSwitch), "KM/H", propertyChanged: OnAppearanceChanged);
+        public string UnselectedText { get => (string)GetValue(UnselectedTextProperty); set => SetValue(UnselectedTextProperty, value); }
 
-        public static readonly BindableProperty RightTextProperty =
-            BindableProperty.Create(nameof(RightText), typeof(string), typeof(LabelSwitch), "MP/H", propertyChanged: OnAppearanceChanged);
-        public string RightText { get => (string)GetValue(RightTextProperty); set => SetValue(RightTextProperty, value); }
+        public static readonly BindableProperty SelectedTextProperty =
+            BindableProperty.Create(nameof(SelectedText), typeof(string), typeof(LabelSwitch), "MP/H", propertyChanged: OnAppearanceChanged);
+        public string SelectedText { get => (string)GetValue(SelectedTextProperty); set => SetValue(SelectedTextProperty, value); }
 
         // Colors
         public static readonly BindableProperty TrackColorProperty =
-            BindableProperty.Create(nameof(TrackColor), typeof(Color), typeof(LabelSwitch), Color.FromArgb("#00514a"), propertyChanged: OnAppearanceChanged);
+            BindableProperty.Create(nameof(TrackColor), typeof(Color), typeof(LabelSwitch), 
+                Color.FromArgb("#A8000000"), propertyChanged: OnAppearanceChanged);
         public Color TrackColor { get => (Color)GetValue(TrackColorProperty); set => SetValue(TrackColorProperty, value); }
 
         public static readonly BindableProperty CapsuleColorProperty =
-            BindableProperty.Create(nameof(CapsuleColor), typeof(Color), typeof(LabelSwitch), Color.FromArgb("#05bfb5"), propertyChanged: OnAppearanceChanged);
+            BindableProperty.Create(nameof(CapsuleColor), typeof(Color), typeof(LabelSwitch), 
+                Color.FromArgb("#03BFB5"), propertyChanged: OnAppearanceChanged);
         public Color CapsuleColor { get => (Color)GetValue(CapsuleColorProperty); set => SetValue(CapsuleColorProperty, value); }
 
-        public static readonly BindableProperty TextColorProperty =
-            BindableProperty.Create(nameof(TextColor), typeof(Color), typeof(LabelSwitch), Color.FromArgb("#002c28"), propertyChanged: OnAppearanceChanged);
-        public Color TextColor { get => (Color)GetValue(TextColorProperty); set => SetValue(TextColorProperty, value); }
+        public static readonly BindableProperty UnselectedTextColorProperty =
+            BindableProperty.Create(nameof(UnselectedTextColor), typeof(Color), typeof(LabelSwitch),
+                Color.FromArgb("#4103BFB5"), propertyChanged: OnAppearanceChanged);
+        public Color UnselectedTextColor { get => (Color)GetValue(UnselectedTextColorProperty); set => SetValue(UnselectedTextColorProperty, value); }
+
+        public static readonly BindableProperty SelectedTextColorProperty =
+            BindableProperty.Create(nameof(SelectedTextColor), typeof(Color), typeof(LabelSwitch),
+                Color.FromArgb("#014D47"), propertyChanged: OnAppearanceChanged);
+        public Color SelectedTextColor { get => (Color)GetValue(SelectedTextColorProperty); set => SetValue(SelectedTextColorProperty, value); }
 
         // Toggled event
         public event EventHandler<ToggledEventArgs> Toggled;
@@ -83,11 +91,12 @@ public class LabelSwitch : GraphicsView
 
         void UpdateDrawableFromProperties()
         {
-            _drawable.LeftText = LeftText;
-            _drawable.RightText = RightText;
+            _drawable.UnselectedText = UnselectedText;
+            _drawable.SelectedText = SelectedText;
             _drawable.TrackColor = TrackColor;
             _drawable.CapsuleColor = CapsuleColor;
-            _drawable.TextColor = TextColor;
+            _drawable.SelectedTextColor = SelectedTextColor;
+            _drawable.UnselectedTextColor = UnselectedTextColor;
             _drawable.IsLeftSelected = IsLeftSelected;
             _drawable.AnimatedPosition = IsLeftSelected ? 0f : 1f;
         }

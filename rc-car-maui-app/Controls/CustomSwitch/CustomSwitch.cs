@@ -15,25 +15,25 @@ public class CustomSwitch : GraphicsView
             set => SetValue(IsToggledProperty, value);
         }
 
-        // Appearance bindables (only the four you asked for)
+        // Appearance bindables
         public static readonly BindableProperty TrackColorOnProperty =
             BindableProperty.Create(nameof(TrackColorOn), typeof(Color), typeof(CustomSwitch),
-                Color.FromArgb("#002c28"), propertyChanged: OnAppearanceChanged);
+                Color.FromArgb("#A8000000"), propertyChanged: OnAppearanceChanged);
         public Color TrackColorOn { get => (Color)GetValue(TrackColorOnProperty); set => SetValue(TrackColorOnProperty, value); }
 
         public static readonly BindableProperty TrackColorOffProperty =
             BindableProperty.Create(nameof(TrackColorOff), typeof(Color), typeof(CustomSwitch),
-                Color.FromArgb("#00514a"), propertyChanged: OnAppearanceChanged);
+                Color.FromArgb("#016059"), propertyChanged: OnAppearanceChanged);
         public Color TrackColorOff { get => (Color)GetValue(TrackColorOffProperty); set => SetValue(TrackColorOffProperty, value); }
 
         public static readonly BindableProperty ThumbColorOnProperty =
             BindableProperty.Create(nameof(ThumbColorOn), typeof(Color), typeof(CustomSwitch),
-                Color.FromArgb("#05bfb5"), propertyChanged: OnAppearanceChanged);
+                Color.FromArgb("#02ACA3"), propertyChanged: OnAppearanceChanged);
         public Color ThumbColorOn { get => (Color)GetValue(ThumbColorOnProperty); set => SetValue(ThumbColorOnProperty, value); }
 
         public static readonly BindableProperty ThumbColorOffProperty =
             BindableProperty.Create(nameof(ThumbColorOff), typeof(Color), typeof(CustomSwitch),
-                Color.FromArgb("#02988f"), propertyChanged: OnAppearanceChanged);
+                Color.FromArgb("#019E95"), propertyChanged: OnAppearanceChanged);
         public Color ThumbColorOff { get => (Color)GetValue(ThumbColorOffProperty); set => SetValue(ThumbColorOffProperty, value); }
 
         // Toggled event

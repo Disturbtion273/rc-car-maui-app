@@ -4,6 +4,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:customSwitch="clr-namespace:rc_car_maui_app.Controls.CustomSwitch"
              xmlns:labelSwitch="clr-namespace:rc_car_maui_app.Controls.LabelSwitch"
+             xmlns:customPicker="clr-namespace:rc_car_maui_app.Controls.CustomPicker"
              x:Class="rc_car_maui_app.Views.SettingsPage">
     <ScrollView>
         <VerticalStackLayout Padding="32">
@@ -15,7 +16,7 @@
                      Color="{StaticResource PrimaryText}"
                      HorizontalOptions="Fill"
                      Margin="0,8, 0, 16" />
-            <Border BackgroundColor="#018076"
+            <Border BackgroundColor="#03BFB5"
                     StrokeShape="RoundRectangle 12">
                 <VerticalStackLayout>
                     
@@ -28,11 +29,6 @@
                         <labelSwitch:LabelSwitch
                             WidthRequest="100"
                             HeightRequest="30"
-                            LeftText="KM/H"
-                            RightText="MP/H"
-                            TrackColor="#00514a"
-                            CapsuleColor="#05bfb5"
-                            TextColor="#002c28"
                             IsLeftSelected="True"
                             HorizontalOptions="End"
                             Grid.Column="1"/>
@@ -83,7 +79,7 @@
                      Color="{StaticResource PrimaryText}"
                      HorizontalOptions="Fill"
                      Margin="0,8, 0, 16" />
-            <Border BackgroundColor="#018076"
+            <Border BackgroundColor="#03BFB5"
                     StrokeShape="RoundRectangle 12">
                 <VerticalStackLayout>
                     
@@ -93,15 +89,8 @@
                                VerticalTextAlignment="Center"
                                Grid.Column="0"/>
                         
-                        <labelSwitch:LabelSwitch
-                            WidthRequest="100"
-                            HeightRequest="30"
-                            LeftText="DE"
-                            RightText="EN"
-                            TrackColor="#00514a"
-                            CapsuleColor="#05bfb5"
-                            TextColor="#002c28"
-                            IsLeftSelected="True"
+                        <customPicker:CustomPicker
+                            SelectedIndex="{Binding SelectedLangIndex, Mode=TwoWay}"
                             HorizontalOptions="End"
                             Grid.Column="1"/>
                     </Grid>
