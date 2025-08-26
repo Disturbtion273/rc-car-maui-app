@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:loc="clr-namespace:rc_car_maui_app.Helpers"
              x:Class="rc_car_maui_app.Views.MainPage">
 
     <Grid>
@@ -10,7 +11,7 @@
                    HeightRequest="120"
                    WidthRequest="120"
                    HorizontalOptions="Center" />
-            <Label Text="Type in the IP of the car to connect to it"
+            <Label Text="{loc:Translate Typ in IP}"
                    Style="{StaticResource SubHeadline}" />
             <Border x:Name="IpEntryBorder" Stroke="Red">
                 <Border.StrokeShape>
