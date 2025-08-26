@@ -6,11 +6,8 @@
 
     <controls:OverlayBackground
         xmlns:controls="clr-namespace:rc_car_maui_app.Controls"
-        Margin="50,20,0,0"
         WidthRequest="26"
-        HeightRequest="26"
-        HorizontalOptions="Start"
-        VerticalOptions="Start">
+        HeightRequest="26">
 
         <ImageButton 
             Source="back_button"
