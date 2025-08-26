@@ -465,13 +465,14 @@
 
     
     <Style x:Key="CardTitleLabel" TargetType="Label">
-        <Setter Property="FontAttributes" Value="Bold" />
-        <Setter Property="FontSize" Value="18" />
+        <Setter Property="FontFamily" Value="RajdhaniSemiBold" />
+        <Setter Property="FontSize" Value="24" />
         <Setter Property="TextColor"
                 Value="{AppThemeBinding Light={StaticResource PrimaryText}, Dark={StaticResource SecondaryText}}" />
     </Style>
 
     <Style x:Key="CardSubtitleLabel" TargetType="Label">
+        <Setter Property="FontFamily" Value="OpenSansRegular" />
         <Setter Property="FontSize" Value="14" />
         <Setter Property="TextColor"
                 Value="{AppThemeBinding Light={StaticResource PrimaryText}, Dark={StaticResource SecondaryText}}" />
