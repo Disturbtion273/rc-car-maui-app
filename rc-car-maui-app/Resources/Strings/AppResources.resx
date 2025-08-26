@@ -1,3 +1,6 @@
 <root>
     <data name="Hello" xml:space="preserve"><value>Hello</value></data>
+    <data name="Typ in IP" xml:space="preserve">
+        <value>Type in the IP of the car to connect to it</value>
+    </data>
 </root>
