@@ -13,10 +13,10 @@
                    FontSize="20"
                    HorizontalTextAlignment="Center"/>
             <BoxView HeightRequest="1"
-                     Color="{StaticResource PrimaryText}"
+                     Style="{StaticResource LineDivide}"
                      HorizontalOptions="Fill"
                      Margin="0,8, 0, 16" />
-            <Border BackgroundColor="#03BFB5"
+            <Border Style="{StaticResource SettingCard}"
                     StrokeShape="RoundRectangle 12">
                 <VerticalStackLayout>
                     
@@ -32,7 +32,8 @@
                             IsLeftSelected="True"
                             Toggled="OnUnitToggled"
                             HorizontalOptions="End"
-                            Grid.Column="1"/>
+                            Grid.Column="1"
+                            Style="{StaticResource LabelSwitchColor}"/>
                     </Grid>
                     
                     <BoxView HeightRequest="1"
@@ -50,7 +51,8 @@
                             IsToggled="True"
                             Toggled="OnBatteryToggled"
                             HorizontalOptions="End"
-                            Grid.Column="1"/>
+                            Grid.Column="1"
+                            Style="{StaticResource CustomSwitchColor}"/>
                     </Grid>
                     
                     <BoxView HeightRequest="1"
@@ -68,7 +70,8 @@
                             IsToggled="False"
                             Toggled="OnSafeModeToggled"
                             HorizontalOptions="End"
-                            Grid.Column="1"/>
+                            Grid.Column="1"
+                            Style="{StaticResource CustomSwitchColor}"/>
                     </Grid>
                     
                 </VerticalStackLayout> 
@@ -79,10 +82,10 @@
                    Padding="0, 24, 0, 0"
                    HorizontalTextAlignment="Center"/>
             <BoxView HeightRequest="1"
-                     Color="{StaticResource PrimaryText}"
+                     Style="{StaticResource LineDivide}"
                      HorizontalOptions="Fill"
                      Margin="0,8, 0, 16" />
-            <Border BackgroundColor="#03BFB5"
+            <Border Style="{StaticResource SettingCard}"
                     StrokeShape="RoundRectangle 12">
                 <VerticalStackLayout>
                     
@@ -96,7 +99,8 @@
                             SelectedIndex="{Binding SelectedLangIndex, Mode=TwoWay}"
                             SelectedIndexChanged="SelectedLanguageChanged"
                             HorizontalOptions="End"
-                            Grid.Column="1"/>
+                            Grid.Column="1"
+                            Style="{StaticResource CustomPickerColor}"/>
                     </Grid>
                     
                     <BoxView HeightRequest="1"
@@ -114,7 +118,8 @@
                             x:Name="DarkModeSwitch"
                             Toggled="OnDarkModeToggled"
                             HorizontalOptions="End"
-                            Grid.Column="1"/>
+                            Grid.Column="1"
+                            Style="{StaticResource CustomSwitchColor}"/>
                     </Grid>
                     
                 </VerticalStackLayout> 

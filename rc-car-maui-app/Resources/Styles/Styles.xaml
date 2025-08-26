@@ -2,7 +2,10 @@
 <?xaml-comp compile="true" ?>
 <ResourceDictionary 
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:labelSwitch="clr-namespace:rc_car_maui_app.Controls.LabelSwitch"
+    xmlns:customSwitch="clr-namespace:rc_car_maui_app.Controls.CustomSwitch"
+    xmlns:customPicker="clr-namespace:rc_car_maui_app.Controls.CustomPicker">
 
     <Style TargetType="ActivityIndicator">
         <Setter Property="Color" Value="{AppThemeBinding Light={StaticResource Primary}, Dark={StaticResource White}}" />
@@ -475,6 +478,74 @@
         <Setter Property="FontSize" Value="14" />
         <Setter Property="TextColor"
                 Value="{AppThemeBinding Light={StaticResource PrimaryText}, Dark={StaticResource SecondaryText}}" />
+    </Style>
+    
+    <!-- Setting Page Custom Color -->
+    <Style x:Key="LineDivide" TargetType="BoxView">
+        <Setter Property="Color"
+                Value="{AppThemeBinding 
+                Light={StaticResource Black}, 
+                Dark={StaticResource White}}" />
+    </Style>
+    
+    <Style x:Key="SettingCard" TargetType="Border">
+        <Setter Property="BackgroundColor"
+                Value="{AppThemeBinding 
+                Light={StaticResource SecondaryDark}, 
+                Dark={StaticResource Tertiary}}" />
+    </Style>
+    
+    <Style x:Key="LabelSwitchColor" TargetType="labelSwitch:LabelSwitch">
+        <Setter Property="TrackColor"
+                Value="{AppThemeBinding 
+                Light={StaticResource LsTrackL}, 
+                Dark={StaticResource LsTrackD}}" />
+        <Setter Property="CapsuleColor"
+                Value="{AppThemeBinding 
+                Light={StaticResource LsCapsuleL}, 
+                Dark={StaticResource LsCapsuleD}}" />
+        <Setter Property="SelectedTextColor"
+                Value="{AppThemeBinding 
+                Light={StaticResource LsSelTextL}, 
+                Dark={StaticResource LsSelTextD}}" />
+        <Setter Property="UnselectedTextColor"
+                Value="{AppThemeBinding 
+                Light={StaticResource LsUnselTextL}, 
+                Dark={StaticResource LsUnselTextD}}" />
+    </Style>
+    
+    <Style x:Key="CustomSwitchColor" TargetType="customSwitch:CustomSwitch">
+        <Setter Property="TrackColorOn"
+                Value="{AppThemeBinding 
+                Light={StaticResource CsTrackOnL}, 
+                Dark={StaticResource CsTrackOnD}}" />
+        <Setter Property="CapsuleColorOn"
+                Value="{AppThemeBinding 
+                Light={StaticResource CsCapsuleOnL}, 
+                Dark={StaticResource CsCapsuleOnD}}" />
+        <Setter Property="TrackColorOff"
+                Value="{AppThemeBinding 
+                Light={StaticResource CsTrackOffL}, 
+                Dark={StaticResource CsTrackOffD}}" />
+        <Setter Property="CapsuleColorOff"
+                Value="{AppThemeBinding 
+                Light={StaticResource CsCapsuleOffL}, 
+                Dark={StaticResource CsCapsuleOffD}}" />
+    </Style>
+    
+    <Style x:Key="CustomPickerColor" TargetType="customPicker:CustomPicker">
+        <Setter Property="TrackColor"
+                Value="{AppThemeBinding 
+                Light={StaticResource CpTrackL}, 
+                Dark={StaticResource CpTrackD}}" />
+        <Setter Property="TextColor"
+                Value="{AppThemeBinding 
+                Light={StaticResource CpTextL}, 
+                Dark={StaticResource CpTextD}}" />
+        <Setter Property="PickerIconColor"
+                Value="{AppThemeBinding 
+                Light={StaticResource CpPickerL}, 
+                Dark={StaticResource CpPickerD}}" />
     </Style>
 
 </ResourceDictionary>
