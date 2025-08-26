@@ -123,4 +123,12 @@ public partial class ManualDrivingPage
         joystick.ValueX = 0;
         joystick.ValueY = 0;
     }
+
+    private void CameraResetButton_OnClicked(object? sender, EventArgs e)
+    {
+        WebsocketClient.SetControlData("pan", 0);
+        WebsocketClient.SetControlData("panSpeed", 0);
+        WebsocketClient.SetControlData("tilt", 0);
+        WebsocketClient.SetControlData("tiltSpeed", 0);
+    }
 }

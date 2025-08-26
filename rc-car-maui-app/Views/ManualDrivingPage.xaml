@@ -11,7 +11,12 @@
         <Grid x:Name="MainGrid" StyleClass="ColoredGrid" IgnoreSafeArea="True">
             <WebView Source="{Binding WebViewUrl}" />
 
-            <controls:OverlayBackButton />
+            <HorizontalStackLayout HorizontalOptions="Start" VerticalOptions="Start" Spacing="10" Margin="50,20,0,0">
+                <controls:OverlayBackButton />
+                <controls:OverlayBackground WidthRequest="26" HeightRequest="26">
+                    <ImageButton Source="camera_reset" Clicked="CameraResetButton_OnClicked"></ImageButton>
+                </controls:OverlayBackground>
+            </HorizontalStackLayout>
 
             <slider:CustomSlider Minimum="-100"
                                  Maximum="100"
