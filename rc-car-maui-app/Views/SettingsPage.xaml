@@ -96,6 +96,7 @@
                                Grid.Column="0"/>
                         
                         <customPicker:CustomPicker
+                            x:Name="LanguagePicker"
                             SelectedIndex="{Binding SelectedLangIndex, Mode=TwoWay}"
                             SelectedIndexChanged="SelectedLanguageChanged"
                             HorizontalOptions="End"
