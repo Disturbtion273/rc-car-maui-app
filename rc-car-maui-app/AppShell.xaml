@@ -5,25 +5,27 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:views="clr-namespace:rc_car_maui_app.Views"
+    xmlns:loc="clr-namespace:rc_car_maui_app.Helpers"
+
     Title="rc_car_maui_app">
 
     <TabBar>
-        <Tab Title="Driving" Icon="steering_wheel">
+        <Tab Title="{loc:Translate Driving}" Icon="steering_wheel">
             <ShellContent
-                Title="Driving Modes"
+                Title="{loc:Translate Driving Modes}"
                 ContentTemplate="{DataTemplate views:DrivingPage}"
                 Route="DrivingPage" />
         </Tab>
-        <Tab Title="Home" Icon="home">
+        <Tab Title="{loc:Translate Home}" Icon="home">
             <ShellContent
                 x:Name="HomeTab"
-                Title="Home"
+                Title="{loc:Translate Home}"
                 ContentTemplate="{DataTemplate views:MainPage}"
                 Route="DrivingPage" />
         </Tab>
-        <Tab Title="Settings" Icon="settings">
+        <Tab Title="{loc:Translate Settings}" Icon="settings">
             <ShellContent
-                Title="Settings"
+                Title="{loc:Translate Settings}"
                 ContentTemplate="{DataTemplate views:SettingsPage}"
                 Route="SettingsPage" />
         </Tab>
