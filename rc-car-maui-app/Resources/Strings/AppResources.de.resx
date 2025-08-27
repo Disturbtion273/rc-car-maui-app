@@ -57,4 +57,7 @@
     <data name="ManualSubtitle" xml:space="preserve">
         <value>Gibt dir die volle Kontrolle über das Auto</value>
     </data>
+    <data name="Typ in IP" xml:space="preserve">
+        <value>Gib die IP des Autos ein, um eine Verbindung herzustellen</value>
+    </data>
 </root>
