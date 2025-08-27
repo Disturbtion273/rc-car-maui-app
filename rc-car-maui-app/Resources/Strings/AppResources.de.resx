@@ -1,13 +1,7 @@
 <root>
     <data name="Home" xml:space="preserve"><value>Start</value></data>
-    <data name="Typ in IP" xml:space="preserve">
-        <value>Gib die IP des Autos ein, um eine Verbindung herzustellen</value>
-    </data>
     <data name="Manual" xml:space="preserve">
         <value>Manuell</value>
-    </data>
-    <data name="ManualSubtitle" xml:space="preserve">
-        <value>Give you full control to the car</value>
     </data>
     <data name="Semi-Ai" xml:space="preserve">
         <value>Halb-KI</value>
@@ -59,5 +53,8 @@
     </data>
     <data name="Disconnect" xml:space="preserve">
         <value>Trennen</value>
+    </data>
+    <data name="ManualSubtitle" xml:space="preserve">
+        <value>Gibt dir die volle Kontrolle über das Auto</value>
     </data>
 </root>

@@ -1,8 +1,5 @@
 <root>
     <data name="Home" xml:space="preserve"><value>Casa</value></data>
-    <data name="Typ in IP" xml:space="preserve">
-        <value>Escribe la IP del coche para conectarte a él</value>
-    </data>
     <data name="Manual" xml:space="preserve">
         <value>Manual</value>
     </data>
