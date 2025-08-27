@@ -1,6 +1,63 @@
 <root>
-    <data name="Hello" xml:space="preserve"><value>Hallo</value></data>
+    <data name="Home" xml:space="preserve"><value>Start</value></data>
     <data name="Typ in IP" xml:space="preserve">
         <value>Gib die IP des Autos ein, um eine Verbindung herzustellen</value>
+    </data>
+    <data name="Manual" xml:space="preserve">
+        <value>Manuell</value>
+    </data>
+    <data name="ManualSubtitle" xml:space="preserve">
+        <value>Give you full control to the car</value>
+    </data>
+    <data name="Semi-Ai" xml:space="preserve">
+        <value>Halb-KI</value>
+    </data>
+    <data name="SemiSubtitle" xml:space="preserve">
+        <value>Gibt dir die volle Kontrolle über das Auto, mit KI Unterstützung</value>
+    </data>
+    <data name="Full-Ai" xml:space="preserve">
+        <value>Voll-KI</value>
+    </data>
+    <data name="FullSubtitle" xml:space="preserve">
+        <value>Das Auto wird vollständig von der KI gesteuert</value>
+    </data>
+    <data name="Driving" xml:space="preserve">
+        <value>Fahren</value>
+    </data>
+    <data name="Settings" xml:space="preserve">
+        <value>Einstellungen</value>
+    </data>
+    <data name="Driving Modes" xml:space="preserve">
+        <value>Fahrmodi</value>
+    </data>
+    <data name="Driving related settings" xml:space="preserve">
+        <value>Fahrbezogene Einstellungen </value>
+    </data>
+    <data name="Speed Unit" xml:space="preserve">
+        <value>Geschwindigkeitseinheit:</value>
+    </data>
+    <data name="Show Battery" xml:space="preserve">
+        <value>Akkustand anzeigen:</value>
+    </data>
+    <data name="App related settings" xml:space="preserve">
+        <value>App-bezogene Einstellungen</value>
+    </data>
+    <data name="Language" xml:space="preserve">
+        <value>Sprache:</value>
+    </data>
+    <data name="Dark Mode" xml:space="preserve">
+        <value>Dunkelmodus:</value>
+    </data>
+    <data name="Safe Mode" xml:space="preserve">
+        <value>Sicherheitsmodus:</value>
+    </data>
+    <data name="Connected" xml:space="preserve">
+        <value>Erfolgreich mit dem Auto verbunden</value>
+    </data>
+    <data name="Connect" xml:space="preserve">
+        <value>Verbinden</value>
+    </data>
+    <data name="Disconnect" xml:space="preserve">
+        <value>Trennen</value>
     </data>
 </root>
