@@ -127,9 +127,4 @@ public partial class ManualDrivingPage
         joystick.ValueX = 0;
         joystick.ValueY = 0;
     }
-
-    private void CameraResetButton_OnClicked(object? sender, EventArgs e)
-    {
-        WebsocketClient.Send(JsonSerializer.Serialize(new { cameraReset = true }));
-    }
 }
