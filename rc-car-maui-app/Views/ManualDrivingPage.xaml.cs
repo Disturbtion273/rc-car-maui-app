@@ -1,4 +1,3 @@
-using System.Text.Json;
 using rc_car_maui_app.Controls.Joystick;
 using rc_car_maui_app.Controls.Slider;
 using rc_car_maui_app.Services;
@@ -28,8 +27,7 @@ public partial class ManualDrivingPage
             MainGrid.Padding = new Thickness(50, 0);
         }
     }
-
-
+    
     protected override void OnAppearing()
     {
         base.OnAppearing();
@@ -47,37 +45,9 @@ public partial class ManualDrivingPage
     private void Slider_OnValueChanged(object? sender, ValueChangedEventArgs e)
     {
         WebsocketClient.SetControlData("speed", e.NewValue);
-        var oldSpeed = (int)e.OldValue;
         var speed = (int)e.NewValue;
-        SpeedLabel.Text = Math.Abs(speed).ToString();
-        UpdateUi(oldSpeed, speed);
-    }
-
-    private async void UpdateUi(int oldSpeed, int speed)
-    {
-        if (oldSpeed == 0 && speed > 0)
-        {
-            ArrowImage.Source = "arrow";
-            ArrowImage.Rotation = 0;
-        }
-        else if (oldSpeed == 0 && speed < 0)
-        {
-            ArrowImage.Source = "arrow";
-            ArrowImage.Rotation = 180;
-        }
-        else if (oldSpeed != 0 && speed == 0)
-        {
-            ArrowImage.Source = "minus";
-            ArrowImage.Rotation = 0;
-        }
-        else if (oldSpeed > 0 && speed < 0)
-        {
-            await ArrowImage.RotateTo(180, 250, Easing.CubicInOut);
-        }
-        else if (oldSpeed < 0 && speed > 0)
-        {
-            await ArrowImage.RotateTo(0, 250, Easing.CubicInOut);
-        }
+        SpeedDisplayName.Speed = speed;
+        SpeedDisplayName.Direction = speed == 0 ? 0 : (speed > 0 ? 1 : -1);
     }
 
     private void Slider_OnDragCompleted(object? sender, EventArgs e)
