@@ -57,17 +57,7 @@
                                    Margin="0, 20, 50, 0"
                                    Spacing="10">
 
-                <controls:OverlayBackground WidthRequest="26"
-                                            HeightRequest="26"
-                                            Padding="6"
-                                            StrokeShape="Ellipse"
-                                            StrokeThickness="0">
-
-                    <Border x:Name="WebsocketIndicator"
-                            StrokeShape="Ellipse" />
-
-                </controls:OverlayBackground>
-
+                <controls:WebsocketIndicator />
                 <controls:BatteryIndicator />
             </HorizontalStackLayout>
         </Grid>

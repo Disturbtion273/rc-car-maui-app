@@ -16,14 +16,6 @@ public partial class ManualDrivingPage
     private readonly IDeviceOrientationService _orientationService;
     private readonly GyroscopeService _gyroscopeService;
 
-    private readonly Dictionary<WebsocketClientState, Color> _websocketIndicatorColors = new()
-    {
-        { WebsocketClientState.Disconnected, Colors.Red },
-        { WebsocketClientState.Connecting, Colors.DeepSkyBlue },
-        { WebsocketClientState.Connected, (Color)Application.Current.Resources["Green"] },
-        { WebsocketClientState.Disconnecting, Colors.Orange }
-    };
-
     public ManualDrivingPage()
     {
         InitializeComponent();
@@ -31,20 +23,10 @@ public partial class ManualDrivingPage
         _orientationService = DependencyService.Get<IDeviceOrientationService>();
         WebViewUrl = $"http://{WebsocketClient.GetHost()}:8080";
         BindingContext = this;
-        WebsocketClient.StateChanged += WebsocketClientOnStateChanged;
-        WebsocketIndicator.BackgroundColor = _websocketIndicatorColors[WebsocketClient.GetState()];
         if (DeviceInfo.Platform == DevicePlatform.iOS)
         {
             MainGrid.Padding = new Thickness(50, 0);
         }
-    }
-
-    private void WebsocketClientOnStateChanged(WebsocketClientState state)
-    {
-        MainThread.BeginInvokeOnMainThread(() =>
-        {
-            WebsocketIndicator.BackgroundColor = _websocketIndicatorColors[state];
-        });
     }
 
 
