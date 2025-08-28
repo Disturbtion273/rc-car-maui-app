@@ -1,3 +1,4 @@
+using System.Text.Json;
 using rc_car_maui_app.Controls.Joystick;
 using rc_car_maui_app.Controls.Slider;
 using rc_car_maui_app.Services;
@@ -76,7 +77,8 @@ public partial class ManualDrivingPage
         {
             ArrowImage.Source = "arrow";
             ArrowImage.Rotation = 0;
-        } else if (oldSpeed == 0 && speed < 0)
+        }
+        else if (oldSpeed == 0 && speed < 0)
         {
             ArrowImage.Source = "arrow";
             ArrowImage.Rotation = 180;
@@ -85,10 +87,12 @@ public partial class ManualDrivingPage
         {
             ArrowImage.Source = "minus";
             ArrowImage.Rotation = 0;
-        } else if (oldSpeed > 0 && speed < 0)
+        }
+        else if (oldSpeed > 0 && speed < 0)
         {
             await ArrowImage.RotateTo(180, 250, Easing.CubicInOut);
-        } else if (oldSpeed < 0 && speed > 0)
+        }
+        else if (oldSpeed < 0 && speed > 0)
         {
             await ArrowImage.RotateTo(0, 250, Easing.CubicInOut);
         }
@@ -126,9 +130,6 @@ public partial class ManualDrivingPage
 
     private void CameraResetButton_OnClicked(object? sender, EventArgs e)
     {
-        WebsocketClient.SetControlData("pan", 0);
-        WebsocketClient.SetControlData("panSpeed", 0);
-        WebsocketClient.SetControlData("tilt", 0);
-        WebsocketClient.SetControlData("tiltSpeed", 0);
+        WebsocketClient.Send(JsonSerializer.Serialize(new { cameraReset = true }));
     }
 }
