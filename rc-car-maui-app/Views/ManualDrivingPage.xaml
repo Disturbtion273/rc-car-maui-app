@@ -13,9 +13,7 @@
 
             <HorizontalStackLayout HorizontalOptions="Start" VerticalOptions="Start" Spacing="10" Margin="50,20,0,0">
                 <controls:OverlayBackButton />
-                <controls:OverlayBackground WidthRequest="26" HeightRequest="26">
-                    <ImageButton Source="camera_reset" Clicked="CameraResetButton_OnClicked"></ImageButton>
-                </controls:OverlayBackground>
+                <controls:CameraResetButton />
             </HorizontalStackLayout>
 
             <slider:CustomSlider Minimum="-100"
@@ -26,26 +24,7 @@
                                  ValueChanged="Slider_OnValueChanged"
                                  DragCompleted="Slider_OnDragCompleted" />
 
-            <controls:OverlayBackground WidthRequest="100" HeightRequest="50" Margin="0, 0, 0, 60"
-                                        HorizontalOptions="Center" VerticalOptions="End">
-                <HorizontalStackLayout HorizontalOptions="Center" VerticalOptions="Center" Spacing="5">
-                    <Image x:Name="ArrowImage" Source="minus" />
-                    <VerticalStackLayout HorizontalOptions="Center"
-                                         VerticalOptions="Center">
-
-                        <Label
-                            x:Name="SpeedLabel"
-                            Text="0"
-                            FontSize="15"
-                            HorizontalOptions="Center" />
-
-                        <Label
-                            Text="km/h"
-                            FontSize="15"
-                            HorizontalOptions="Center" />
-                    </VerticalStackLayout>
-                </HorizontalStackLayout>
-            </controls:OverlayBackground>
+            <controls:SpeedDisplay x:Name="SpeedDisplayName" />
 
             <joystick:Joystick HorizontalOptions="Start"
                                VerticalOptions="End"
@@ -59,17 +38,7 @@
                                    Margin="0, 20, 50, 0"
                                    Spacing="10">
 
-                <controls:OverlayBackground WidthRequest="26"
-                                            HeightRequest="26"
-                                            Padding="6"
-                                            StrokeShape="Ellipse"
-                                            StrokeThickness="0">
-
-                    <Border x:Name="WebsocketIndicator"
-                            StrokeShape="Ellipse" />
-
-                </controls:OverlayBackground>
-
+                <controls:WebsocketIndicator />
                 <controls:BatteryIndicator />
             </HorizontalStackLayout>
         </Grid>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:rc_car_maui_app.Controls"
+             x:Class="rc_car_maui_app.Controls.WebsocketIndicator">
+    
+    <controls:OverlayBackground WidthRequest="26"
+                                HeightRequest="26"
+                                Padding="6"
+                                StrokeShape="Ellipse"
+                                StrokeThickness="0">
+
+        <Border x:Name="IndicatorBorder"
+                StrokeShape="Ellipse" />
+
+    </controls:OverlayBackground>
+</ContentView>

@@ -1,4 +1,3 @@
-using System.Text.Json;
 using rc_car_maui_app.Controls.Joystick;
 using rc_car_maui_app.Controls.Slider;
 using rc_car_maui_app.Services;
@@ -16,14 +15,6 @@ public partial class ManualDrivingPage
     private readonly IDeviceOrientationService _orientationService;
     private readonly GyroscopeService _gyroscopeService;
 
-    private readonly Dictionary<WebsocketClientState, Color> _websocketIndicatorColors = new()
-    {
-        { WebsocketClientState.Disconnected, Colors.Red },
-        { WebsocketClientState.Connecting, Colors.DeepSkyBlue },
-        { WebsocketClientState.Connected, (Color)Application.Current.Resources["Green"] },
-        { WebsocketClientState.Disconnecting, Colors.Orange }
-    };
-
     public ManualDrivingPage()
     {
         InitializeComponent();
@@ -31,23 +22,12 @@ public partial class ManualDrivingPage
         _orientationService = DependencyService.Get<IDeviceOrientationService>();
         WebViewUrl = $"http://{WebsocketClient.GetHost()}:8080";
         BindingContext = this;
-        WebsocketClient.StateChanged += WebsocketClientOnStateChanged;
-        WebsocketIndicator.BackgroundColor = _websocketIndicatorColors[WebsocketClient.GetState()];
         if (DeviceInfo.Platform == DevicePlatform.iOS)
         {
             MainGrid.Padding = new Thickness(50, 0);
         }
     }
-
-    private void WebsocketClientOnStateChanged(WebsocketClientState state)
-    {
-        MainThread.BeginInvokeOnMainThread(() =>
-        {
-            WebsocketIndicator.BackgroundColor = _websocketIndicatorColors[state];
-        });
-    }
-
-
+    
     protected override void OnAppearing()
     {
         base.OnAppearing();
@@ -65,37 +45,9 @@ public partial class ManualDrivingPage
     private void Slider_OnValueChanged(object? sender, ValueChangedEventArgs e)
     {
         WebsocketClient.SetControlData("speed", e.NewValue);
-        var oldSpeed = (int)e.OldValue;
         var speed = (int)e.NewValue;
-        SpeedLabel.Text = Math.Abs(speed).ToString();
-        UpdateUi(oldSpeed, speed);
-    }
-
-    private async void UpdateUi(int oldSpeed, int speed)
-    {
-        if (oldSpeed == 0 && speed > 0)
-        {
-            ArrowImage.Source = "arrow";
-            ArrowImage.Rotation = 0;
-        }
-        else if (oldSpeed == 0 && speed < 0)
-        {
-            ArrowImage.Source = "arrow";
-            ArrowImage.Rotation = 180;
-        }
-        else if (oldSpeed != 0 && speed == 0)
-        {
-            ArrowImage.Source = "minus";
-            ArrowImage.Rotation = 0;
-        }
-        else if (oldSpeed > 0 && speed < 0)
-        {
-            await ArrowImage.RotateTo(180, 250, Easing.CubicInOut);
-        }
-        else if (oldSpeed < 0 && speed > 0)
-        {
-            await ArrowImage.RotateTo(0, 250, Easing.CubicInOut);
-        }
+        SpeedDisplayName.Speed = speed;
+        SpeedDisplayName.Direction = speed == 0 ? 0 : (speed > 0 ? 1 : -1);
     }
 
     private void Slider_OnDragCompleted(object? sender, EventArgs e)
@@ -126,10 +78,5 @@ public partial class ManualDrivingPage
         if (sender is not Joystick joystick) return;
         joystick.ValueX = 0;
         joystick.ValueY = 0;
-    }
-
-    private void CameraResetButton_OnClicked(object? sender, EventArgs e)
-    {
-        WebsocketClient.Send(JsonSerializer.Serialize(new { cameraReset = true }));
     }
 }
