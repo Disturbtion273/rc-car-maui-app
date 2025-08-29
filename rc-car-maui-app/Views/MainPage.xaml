@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:loc="clr-namespace:rc_car_maui_app.Helpers"
              x:Class="rc_car_maui_app.Views.MainPage">
 
     <Grid>
@@ -10,7 +11,7 @@
                    HeightRequest="120"
                    WidthRequest="120"
                    HorizontalOptions="Center" />
-            <Label Text="Type in the IP of the car to connect to it"
+            <Label Text="{loc:Translate Typ in IP}"
                    Style="{StaticResource SubHeadline}" />
             <Border x:Name="IpEntryBorder" Stroke="Red">
                 <Border.StrokeShape>
@@ -19,19 +20,19 @@
                 <Entry x:Name="IpEntry" Keyboard="Url" HorizontalTextAlignment="Center"
                        TextChanged="OnIpEntryChanged" />
             </Border>
-            <Button x:Name="ConnectionButton" Text="Connect" Clicked="OnConnectClicked" IsEnabled="False" />
+            <Button x:Name="ConnectionButton" Text="{loc:Translate Connect}" Clicked="OnConnectClicked" IsEnabled="False" />
             <Label x:Name="InformationLabel" IsVisible="False" HorizontalOptions="Center" />
         </VerticalStackLayout>
         
         <VerticalStackLayout x:Name="ConnectedLayout" IsVisible="False" Padding="35" Spacing="10"
                              VerticalOptions="Center" HorizontalOptions="Center">
-            <Label Text="Successfully connected to the car"
+            <Label Text="{loc:Translate Connected}"
                    Style="{StaticResource SubHeadline}" />
             <Image Source="check"
                    HeightRequest="120"
                    WidthRequest="120"
                    HorizontalOptions="Center" />
-            <Button Text="Disconnect" Clicked="OnDisconnectClicked" />
+            <Button Text="{loc:Translate Disconnect}" Clicked="OnDisconnectClicked" />
         </VerticalStackLayout>
         
         <Grid x:Name="LoaderOverlay"

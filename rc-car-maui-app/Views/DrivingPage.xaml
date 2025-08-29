@@ -2,6 +2,7 @@
 
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:loc="clr-namespace:rc_car_maui_app.Helpers"
              x:Class="rc_car_maui_app.Views.DrivingPage">
     <ScrollView>
         <VerticalStackLayout Padding="20" 
@@ -12,9 +13,9 @@
             <Border Style="{StaticResource CardStyle}">
                 <Grid ColumnDefinitions="*, Auto" RowDefinitions="Auto">
                     <VerticalStackLayout Spacing="4" VerticalOptions="Start" Grid.Column="0">
-                        <Label Text="Manual" 
+                        <Label Text="{loc:Translate Manual}" 
                                Style="{StaticResource CardTitleLabel}"/>
-                        <Label Text="Give you full control to the car" 
+                        <Label Text="{loc:Translate ManualSubtitle}" 
                                Style="{StaticResource CardSubtitleLabel}" />
                     </VerticalStackLayout>
                     <ImageButton 
@@ -30,9 +31,9 @@
             <Border Style="{StaticResource CardStyle}">
                 <Grid ColumnDefinitions="*, Auto" RowDefinitions="Auto">
                     <VerticalStackLayout Spacing="4" VerticalOptions="Start" Grid.Column="0">
-                        <Label Text="Semi-AI" 
+                        <Label Text="{loc:Translate Semi-Ai}" 
                                Style="{StaticResource CardTitleLabel}"/>
-                        <Label Text="Give you full control to the car while having AI feature" 
+                        <Label Text="{loc:Translate SemiSubtitle}" 
                                Style="{StaticResource CardSubtitleLabel}"/>
                     </VerticalStackLayout>
                     <ImageButton 
@@ -48,9 +49,9 @@
             <Border Style="{StaticResource CardStyle}">
                 <Grid ColumnDefinitions="*, Auto" RowDefinitions="Auto">
                     <VerticalStackLayout Spacing="4" VerticalOptions="Start" Grid.Column="0">
-                        <Label Text="Full AI" 
+                        <Label Text="{loc:Translate Full-Ai}" 
                                Style="{StaticResource CardTitleLabel}"/>
-                        <Label Text="Car is fully controlled by AI" 
+                        <Label Text="{loc:Translate FullSubtitle}" 
                                Style="{StaticResource CardSubtitleLabel}"/>
                     </VerticalStackLayout>
                     <ImageButton 

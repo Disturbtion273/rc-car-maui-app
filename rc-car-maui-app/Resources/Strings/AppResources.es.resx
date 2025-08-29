@@ -1,0 +1,63 @@
+<root>
+    <data name="Home" xml:space="preserve"><value>Casa</value></data>
+    <data name="Manual" xml:space="preserve">
+        <value>Manual</value>
+    </data>
+    <data name="ManualSubtitle" xml:space="preserve">
+        <value>Te da el control total del coche</value>
+    </data>
+    <data name="Semi-Ai" xml:space="preserve">
+        <value>Semi-IA</value>
+    </data>
+    <data name="SemiSubtitle" xml:space="preserve">
+        <value>Te da el control total del coche mientras tienes la función de IA</value>
+    </data>
+    <data name="Full-Ai" xml:space="preserve">
+        <value>IA completa</value>
+    </data>
+    <data name="FullSubtitle" xml:space="preserve">
+        <value>El coche está completamente controlado por la IA</value>
+    </data>
+    <data name="Driving" xml:space="preserve">
+        <value>Conducción</value>
+    </data>
+    <data name="Settings" xml:space="preserve">
+        <value>Configuración</value>
+    </data>
+    <data name="Driving Modes" xml:space="preserve">
+        <value>Modos de conducción</value>
+    </data>
+    <data name="Driving related settings" xml:space="preserve">
+        <value>Configuraciones relacionadas con la conducción</value>
+    </data>
+    <data name="Speed Unit" xml:space="preserve">
+        <value>Unidad de velocidad:</value>
+    </data>
+    <data name="Show Battery" xml:space="preserve">
+        <value>Mostrar batería:</value>
+    </data>
+    <data name="App related settings" xml:space="preserve">
+        <value>Configuraciones relacionadas con la aplicación</value>
+    </data>
+    <data name="Dark Mode" xml:space="preserve">
+        <value>Modo oscuro:</value>
+    </data>
+    <data name="Language" xml:space="preserve">
+        <value>Idioma:</value>
+    </data>
+    <data name="Safe Mode" xml:space="preserve">
+        <value>Modo seguro:</value>
+    </data>
+    <data name="Connected" xml:space="preserve">
+        <value>Conectado exitosamente al coche</value>
+    </data>
+    <data name="Connect" xml:space="preserve">
+        <value>Conectar</value>
+    </data>
+    <data name="Disconnect" xml:space="preserve">
+        <value>Desconectar</value>
+    </data>
+    <data name="Typ in IP" xml:space="preserve">
+        <value>Escribe la IP del coche para conectarte a él</value>
+    </data>
+</root>
