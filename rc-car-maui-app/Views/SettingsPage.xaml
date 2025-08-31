@@ -48,7 +48,7 @@
                                Grid.Column="0"/>
                         
                         <customSwitch:CustomSwitch
-                            IsToggled="True"
+                            x:Name="BatterySwitch"
                             Toggled="OnBatteryToggled"
                             HorizontalOptions="End"
                             Grid.Column="1"
