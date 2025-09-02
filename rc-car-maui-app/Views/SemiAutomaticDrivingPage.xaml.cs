@@ -1,3 +1,4 @@
+using rc_car_maui_app.Controls;
 using rc_car_maui_app.Controls.Joystick;
 using rc_car_maui_app.Controls.Slider;
 using rc_car_maui_app.Services;
@@ -23,6 +24,7 @@ public partial class SemiAutomaticDrivingPage : ContentPage
         {
             MainGrid.Padding = new Thickness(50, 0);
         }
+        WebsocketClient.NotificationReceived += WebsocketClientOnNotificationReceived;
     }
 
     protected override void OnAppearing()
@@ -37,6 +39,17 @@ public partial class SemiAutomaticDrivingPage : ContentPage
         _orientationService.SetPortrait();
         _gyroscopeService.StopGyroscope();
         base.OnDisappearing();
+    }
+    
+    private void WebsocketClientOnNotificationReceived(Notification? notification)
+    {
+        if (notification != null)
+        {
+            MainThread.BeginInvokeOnMainThread(async () =>
+            {
+                await notification.Show(MainGrid);
+            });
+        }
     }
 
     private void Slider_OnValueChanged(object? sender, ValueChangedEventArgs e)
