@@ -1,4 +1,6 @@
 using rc_car_maui_app.Controls.CustomPicker;
+using Microsoft.Maui.Storage;
+using rc_car_maui_app.Helpers;
 
 namespace rc_car_maui_app.Views;
 
@@ -7,7 +9,18 @@ public partial class SettingsPage : ContentPage
 
     private readonly IThemeService _theme;
     private bool _initializing;
+    private bool _initBattery;
     
+    protected override void OnAppearing()
+    {
+        base.OnAppearing();
+        
+        _initBattery = true;
+        var enabled = Preferences.Get(SettingsKeys.ShowBatteryIndicator, true);
+        BatterySwitch.IsToggled = enabled;
+        _initBattery = false;
+        
+    }
     public SettingsPage()
     {
         InitializeComponent();
@@ -34,14 +47,9 @@ public partial class SettingsPage : ContentPage
     
     private void OnBatteryToggled(object sender, ToggledEventArgs e)
     {
-        if (e.Value)
-        {
-            Console.WriteLine("Show Battery: ON");
-        }
-        else
-        {
-            Console.WriteLine("Show Battery: OFF");
-        }
+        if (_initBattery) return;
+        Preferences.Set(SettingsKeys.ShowBatteryIndicator, e.Value);
+        MessagingCenter.Send<object, bool>(this, SettingsKeys.ShowBatteryIndicatorChanged, e.Value);
     }
     
     private void OnSafeModeToggled(object sender, ToggledEventArgs e)
