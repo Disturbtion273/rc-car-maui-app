@@ -6,11 +6,20 @@
              xmlns:labelSwitch="clr-namespace:rc_car_maui_app.Controls.LabelSwitch"
              xmlns:customPicker="clr-namespace:rc_car_maui_app.Controls.CustomPicker"
              x:Class="rc_car_maui_app.Views.SettingsPage">
+    
+    <Shell.TitleView>
+        <Grid HorizontalOptions="Fill" VerticalOptions="Fill">
+            <Label
+                Text="Setting"
+                Style="{StaticResource CustomTitleLabel}" />
+        </Grid>
+    </Shell.TitleView>
+    
     <ScrollView>
         <VerticalStackLayout Padding="32">
             
             <Label Text="Driving related settings"
-                   FontSize="20"
+                   Style="{StaticResource SettingLabel}"
                    HorizontalTextAlignment="Center"/>
             <BoxView HeightRequest="1"
                      Style="{StaticResource LineDivide}"
@@ -22,7 +31,7 @@
                     
                     <Grid ColumnDefinitions="Auto, *" VerticalOptions="Fill" Padding="20, 15">
                         <Label Text="Speed Unit:" 
-                               Style="{StaticResource CardTitleLabel}"
+                               Style="{StaticResource SettingCardLabel}"
                                VerticalTextAlignment="Center"
                                Grid.Column="0"/>
                         
@@ -43,7 +52,7 @@
                     
                     <Grid ColumnDefinitions="Auto, *" VerticalOptions="Fill" Padding="20, 15">
                         <Label Text="Show Battery:" 
-                               Style="{StaticResource CardTitleLabel}"
+                               Style="{StaticResource SettingCardLabel}"
                                VerticalTextAlignment="Center"
                                Grid.Column="0"/>
                         
@@ -62,7 +71,7 @@
                     
                     <Grid ColumnDefinitions="Auto, *" VerticalOptions="Fill" Padding="20, 15">
                         <Label Text="Safe Mode:" 
-                               Style="{StaticResource CardTitleLabel}"
+                               Style="{StaticResource SettingCardLabel}"
                                VerticalTextAlignment="Center"
                                Grid.Column="0"/>
                         
@@ -78,7 +87,7 @@
             </Border>
             
             <Label Text="App related settings"
-                   FontSize="20"
+                   Style="{StaticResource SettingLabel}"
                    Padding="0, 24, 0, 0"
                    HorizontalTextAlignment="Center"/>
             <BoxView HeightRequest="1"
@@ -91,7 +100,7 @@
                     
                     <Grid ColumnDefinitions="Auto, *" VerticalOptions="Fill" Padding="20, 15">
                         <Label Text="Language:" 
-                               Style="{StaticResource CardTitleLabel}"
+                               Style="{StaticResource SettingCardLabel}"
                                VerticalTextAlignment="Center"
                                Grid.Column="0"/>
                         
@@ -110,7 +119,7 @@
                     
                     <Grid ColumnDefinitions="Auto, *" VerticalOptions="Fill" Padding="20, 15">
                         <Label Text="Dark Mode:" 
-                               Style="{StaticResource CardTitleLabel}"
+                               Style="{StaticResource SettingCardLabel}"
                                VerticalTextAlignment="Center"
                                Grid.Column="0"/>
                         
