@@ -1,6 +1,7 @@
 using System.Net.WebSockets;
 using System.Text;
 using System.Text.Json;
+using rc_car_maui_app.Enums;
 using rc_car_maui_app.Services;
 
 namespace rc_car_maui_app.Websocket;
@@ -25,7 +26,12 @@ public static class WebsocketClient
     {
         controlData[key] = value;
     }
-    
+
+    public static void SetDrivingMode(DrivingMode mode)
+    {
+        Send(JsonSerializer.Serialize(new { drivingMode = mode.ToString().ToLower() }));
+    }
+
     /**
      * This method connects to the WebSocket server at the specified URI.
      * It should only be called once, typically at application startup.
