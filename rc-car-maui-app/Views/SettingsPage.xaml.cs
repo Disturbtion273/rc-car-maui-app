@@ -21,6 +21,13 @@ public partial class SettingsPage : ContentPage
         BatterySwitch.IsToggled = enabled;
         _initBattery = false;
         
+        LanguagePicker.SelectedIndex = Localization.CurrentCode switch
+        {
+            "de" => 1,
+            "es" => 2,
+            _    => 0
+        };
+        
     }
     public SettingsPage()
     {
@@ -80,16 +87,6 @@ public partial class SettingsPage : ContentPage
         Preferences.Set("AppLanguage", code);
         Localization.SetCulture(code);  
 
-    }
-    protected override void OnAppearing()
-    {
-        base.OnAppearing();
-        LanguagePicker.SelectedIndex = Localization.CurrentCode switch
-        {
-            "de" => 1,
-            "es" => 2,
-            _    => 0
-        };
     }
 
     private void OnDarkModeToggled(object sender, ToggledEventArgs e)
