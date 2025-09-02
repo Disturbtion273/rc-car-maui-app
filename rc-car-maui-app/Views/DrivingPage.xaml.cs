@@ -9,14 +9,14 @@ public partial class DrivingPage : ContentPage
     
     // these function serve as placeholder for now
     // for later these function should navigate to the corrected driving mode view
-    private async void DrivingOne(object sender, EventArgs e)
+    private async void ManualDriving(object sender, EventArgs e)
     {
         await Shell.Current.Navigation.PushModalAsync(new ManualDrivingPage());
     }
     
-    private void DrivingTwo(object sender, EventArgs e)
+    private async void SemiAutomaticDriving(object sender, EventArgs e)
     {
-        Console.WriteLine("Second Driving Mode");
+        await Shell.Current.Navigation.PushModalAsync(new SemiAutomaticDrivingPage());
     }
     
     private void DrivingThree(object sender, EventArgs e)
