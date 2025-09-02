@@ -21,7 +21,7 @@
                         BackgroundColor="Transparent" 
                         Padding="0"
                         Source="{AppThemeBinding Light=play_light, Dark=play_dark}"
-                        Clicked="DrivingOne"
+                        Clicked="ManualDriving"
                         Grid.Column="1" />
                 </Grid>
             </Border>
@@ -39,7 +39,7 @@
                         BackgroundColor="Transparent" 
                         Padding="0"
                         Source="{AppThemeBinding Light=play_light, Dark=play_dark}"
-                        Clicked="DrivingTwo"
+                        Clicked="SemiAutomaticDriving"
                         Grid.Column="1" />
                 </Grid>
             </Border>
