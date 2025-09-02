@@ -5,6 +5,8 @@
              xmlns:customSwitch="clr-namespace:rc_car_maui_app.Controls.CustomSwitch"
              xmlns:labelSwitch="clr-namespace:rc_car_maui_app.Controls.LabelSwitch"
              xmlns:customPicker="clr-namespace:rc_car_maui_app.Controls.CustomPicker"
+             xmlns:loc="clr-namespace:rc_car_maui_app.Helpers"
+             
              x:Class="rc_car_maui_app.Views.SettingsPage">
     
     <Shell.TitleView>
@@ -18,7 +20,7 @@
     <ScrollView>
         <VerticalStackLayout Padding="32">
             
-            <Label Text="Driving related settings"
+            <Label Text="{loc:Translate Driving related settings}"
                    Style="{StaticResource SettingLabel}"
                    HorizontalTextAlignment="Center"/>
             <BoxView HeightRequest="1"
@@ -30,7 +32,7 @@
                 <VerticalStackLayout>
                     
                     <Grid ColumnDefinitions="Auto, *" VerticalOptions="Fill" Padding="20, 15">
-                        <Label Text="Speed Unit:" 
+                        <Label Text="{loc:Translate Speed Unit}" 
                                Style="{StaticResource SettingCardLabel}"
                                VerticalTextAlignment="Center"
                                Grid.Column="0"/>
@@ -51,7 +53,7 @@
                              HorizontalOptions="Fill"/>
                     
                     <Grid ColumnDefinitions="Auto, *" VerticalOptions="Fill" Padding="20, 15">
-                        <Label Text="Show Battery:" 
+                        <Label Text="{loc:Translate Show Battery}" 
                                Style="{StaticResource SettingCardLabel}"
                                VerticalTextAlignment="Center"
                                Grid.Column="0"/>
@@ -70,7 +72,7 @@
                              HorizontalOptions="Fill"/>
                     
                     <Grid ColumnDefinitions="Auto, *" VerticalOptions="Fill" Padding="20, 15">
-                        <Label Text="Safe Mode:" 
+                        <Label Text="{loc:Translate Safe Mode}" 
                                Style="{StaticResource SettingCardLabel}"
                                VerticalTextAlignment="Center"
                                Grid.Column="0"/>
@@ -86,7 +88,7 @@
                 </VerticalStackLayout> 
             </Border>
             
-            <Label Text="App related settings"
+            <Label Text="{loc:Translate App related settings}"
                    Style="{StaticResource SettingLabel}"
                    Padding="0, 24, 0, 0"
                    HorizontalTextAlignment="Center"/>
@@ -99,12 +101,13 @@
                 <VerticalStackLayout>
                     
                     <Grid ColumnDefinitions="Auto, *" VerticalOptions="Fill" Padding="20, 15">
-                        <Label Text="Language:" 
+                        <Label Text="{loc:Translate Language}" 
                                Style="{StaticResource SettingCardLabel}"
                                VerticalTextAlignment="Center"
                                Grid.Column="0"/>
                         
                         <customPicker:CustomPicker
+                            x:Name="LanguagePicker"
                             SelectedIndex="{Binding SelectedLangIndex, Mode=TwoWay}"
                             SelectedIndexChanged="SelectedLanguageChanged"
                             HorizontalOptions="End"
@@ -118,7 +121,7 @@
                              HorizontalOptions="Fill"/>
                     
                     <Grid ColumnDefinitions="Auto, *" VerticalOptions="Fill" Padding="20, 15">
-                        <Label Text="Dark Mode:" 
+                        <Label Text="{loc:Translate Dark Mode}" 
                                Style="{StaticResource SettingCardLabel}"
                                VerticalTextAlignment="Center"
                                Grid.Column="0"/>

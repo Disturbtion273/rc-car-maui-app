@@ -1,4 +1,5 @@
 using rc_car_maui_app.Controls.CustomPicker;
+using System.Globalization;  
 using Microsoft.Maui.Storage;
 using rc_car_maui_app.Helpers;
 
@@ -64,25 +65,33 @@ public partial class SettingsPage : ContentPage
         }
     }
     
-    private void SelectedLanguageChanged(object sender, EventArgs e)
+    private async void SelectedLanguageChanged(object sender, EventArgs e)
     {
         var picker = (CustomPicker)sender;
-        string lang = picker.Items[picker.SelectedIndex];
+        var selected = picker.Items[picker.SelectedIndex]; // "DE", "EN", "ES/SP"
 
-        switch (lang)
+        var code = selected switch
         {
-            case "DE":
-                Console.WriteLine("German selected");
-                break;
-            case "EN":
-                Console.WriteLine("English selected");
-                break;
-            case "SP":
-                Console.WriteLine("Spanish selected");
-                break;
-        }
+            "DE" => "de",
+            "ES" or "SP" => "es",
+            _            => "en"
+        };
+
+        Preferences.Set("AppLanguage", code);
+        Localization.SetCulture(code);  
+
     }
-    
+    protected override void OnAppearing()
+    {
+        base.OnAppearing();
+        LanguagePicker.SelectedIndex = Localization.CurrentCode switch
+        {
+            "de" => 1,
+            "es" => 2,
+            _    => 0
+        };
+    }
+
     private void OnDarkModeToggled(object sender, ToggledEventArgs e)
     {
         if (_initializing) return;
