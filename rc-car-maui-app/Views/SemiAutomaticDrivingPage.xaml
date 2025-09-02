@@ -3,10 +3,9 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:controls="clr-namespace:rc_car_maui_app.Controls"
-             xmlns:joystick="clr-namespace:rc_car_maui_app.Controls.Joystick"
              xmlns:slider="clr-namespace:rc_car_maui_app.Controls.Slider"
-             x:Class="rc_car_maui_app.Views.ManualDrivingPage">
-
+             xmlns:joystick="clr-namespace:rc_car_maui_app.Controls.Joystick"
+             x:Class="rc_car_maui_app.Views.SemiAutomaticDrivingPage">
     <ContentPage.Content>
         <Grid x:Name="MainGrid" StyleClass="ColoredGrid" IgnoreSafeArea="True">
             <WebView Source="{Binding WebViewUrl}" />
