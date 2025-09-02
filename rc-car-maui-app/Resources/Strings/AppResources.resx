@@ -1,0 +1,63 @@
+<root>
+    <data name="Home" xml:space="preserve"><value>Home</value></data>
+    <data name="Manual" xml:space="preserve">
+        <value>Manual</value>
+    </data>
+    <data name="ManualSubtitle" xml:space="preserve">
+        <value>Give you full control to the car</value>
+    </data>
+    <data name="Semi-Ai" xml:space="preserve">
+        <value>Semi-AI</value>
+    </data>
+    <data name="SemiSubtitle" xml:space="preserve">
+        <value>Give you full control to the car while having AI feature</value>
+    </data>
+    <data name="Full-Ai" xml:space="preserve">
+        <value>Full-AI</value>
+    </data>
+    <data name="FullSubtitle" xml:space="preserve">
+        <value>Car is fully controlled by AI</value>
+    </data>
+    <data name="Driving" xml:space="preserve">
+        <value>Driving</value>
+    </data>
+    <data name="Settings" xml:space="preserve">
+        <value>Settings</value>
+    </data>
+    <data name="Driving Modes" xml:space="preserve">
+        <value>Driving Modes</value>
+    </data>
+    <data name="Driving related settings" xml:space="preserve">
+        <value>Driving related settings</value>
+    </data>
+    <data name="Speed Unit" xml:space="preserve">
+        <value>Speed Unit:</value>
+    </data>
+    <data name="Show Battery" xml:space="preserve">
+        <value>Show Battery:</value>
+    </data>
+    <data name="App related settings" xml:space="preserve">
+        <value>App related settings</value>
+    </data>
+    <data name="Language" xml:space="preserve">
+        <value>Language:</value>
+    </data>
+    <data name="Dark Mode" xml:space="preserve">
+        <value>Dark Mode:</value>
+    </data>
+    <data name="Safe Mode" xml:space="preserve">
+        <value>Safe Mode:</value>
+    </data>
+    <data name="Connected" xml:space="preserve">
+        <value>Successfully connected to the car</value>
+    </data>
+    <data name="Connect" xml:space="preserve">
+        <value>Connect</value>
+    </data>
+    <data name="Disconnect" xml:space="preserve">
+        <value>Disconnect</value>
+    </data>
+    <data name="Typ in IP" xml:space="preserve">
+        <value>Type in the IP of the car to connect to it</value>
+    </data>
+</root>
