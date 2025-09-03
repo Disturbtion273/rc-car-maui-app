@@ -1,5 +1,6 @@
 using rc_car_maui_app.Controls.Joystick;
 using rc_car_maui_app.Controls.Slider;
+using rc_car_maui_app.Helpers;
 using rc_car_maui_app.Services;
 using rc_car_maui_app.Websocket;
 #if ANDROID
@@ -33,6 +34,11 @@ public partial class ManualDrivingPage
         base.OnAppearing();
         _orientationService.SetLandscape();
         _gyroscopeService.StartGyroscope();
+        if (Preferences.Get(SettingsKeys.SafeModeEnabled, false))
+        {
+            Slider.Maximum = 70;
+            Slider.Minimum = -70;
+        }
     }
 
     protected override void OnDisappearing()

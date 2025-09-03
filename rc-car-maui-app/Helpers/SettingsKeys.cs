@@ -4,5 +4,7 @@ namespace rc_car_maui_app.Helpers
     {
         public const string ShowBatteryIndicator = "ShowBatteryIndicator";
         public const string ShowBatteryIndicatorChanged = "ShowBatteryIndicatorChanged"; 
+        public const string SafeModeEnabled = "SafeModeenabled";
+        public const string UseKmH = "UseKmH";
     }
 }
