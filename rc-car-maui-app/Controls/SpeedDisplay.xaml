@@ -29,7 +29,8 @@
                     HorizontalOptions="Center" />
 
                 <Label
-                    Text="km/h"
+                    x:Name="UnitLabel"
+                    Text=""
                     FontSize="15"
                     HorizontalOptions="Center" />
             </VerticalStackLayout>

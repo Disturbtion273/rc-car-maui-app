@@ -25,6 +25,7 @@ public partial class SemiAutomaticDrivingPage : ContentPage
             MainGrid.Padding = new Thickness(50, 0);
         }
         WebsocketClient.NotificationReceived += WebsocketClientOnNotificationReceived;
+        WebsocketClient.SpeedLimitReceived += WebsocketClientOnSpeedLimitReceived;
     }
 
     protected override void OnAppearing()
@@ -49,6 +50,19 @@ public partial class SemiAutomaticDrivingPage : ContentPage
             {
                 await notification.Show(MainGrid);
             });
+        }
+    }
+    
+    private void WebsocketClientOnSpeedLimitReceived(string value)
+    {
+        if (value == "dreissig")
+        {
+            Slider.Maximum = 30;
+            Slider.Minimum = -30;
+        } else if (value == "fuenfzig")
+        {
+            Slider.Maximum = 50;
+            Slider.Minimum = -50;
         }
     }
 

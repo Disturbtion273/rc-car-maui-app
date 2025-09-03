@@ -1,3 +1,5 @@
+using rc_car_maui_app.Helpers;
+
 namespace rc_car_maui_app.Controls;
 
 public partial class SpeedDisplay : ContentView
@@ -24,11 +26,22 @@ public partial class SpeedDisplay : ContentView
     public SpeedDisplay()
     {
         InitializeComponent();
+        bool useMpH = Preferences.Get(SettingsKeys.UseMpH, false);
+        Console.WriteLine(useMpH);
+        UnitLabel.Text = useMpH ? "mp/h" : "km/h";
+
     }
     private static void OnSpeedChanged(BindableObject bindable, object oldValue, object newValue)
     {
         if (bindable is SpeedDisplay control)
-            control.SpeedLabel.Text = Math.Abs((int)newValue).ToString();
+        {
+            int value = Math.Abs((int)newValue);
+            if (Preferences.Get(SettingsKeys.UseMpH, false))
+            {
+                value = (int)Math.Round(value * 0.621371);
+            }
+            control.SpeedLabel.Text = value.ToString();
+        }
     }
     
     private static async void OnDirectionChanged(BindableObject bindable, object oldValue, object newValue)
