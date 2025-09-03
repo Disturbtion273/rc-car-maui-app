@@ -1,7 +1,9 @@
 using System.Net.WebSockets;
 using System.Text;
 using System.Text.Json;
+using rc_car_maui_app.Controls;
 using rc_car_maui_app.Enums;
+using rc_car_maui_app.Helpers;
 using rc_car_maui_app.Services;
 
 namespace rc_car_maui_app.Websocket;
@@ -19,6 +21,7 @@ public static class WebsocketClient
 
     public static event Action<WebsocketClientState>? StateChanged;
     public static event Action<string, Color>? ConnectionInfoChanged;
+    public static event Action<Notification?>? NotificationReceived;
 
     private static Dictionary<string, double> controlData = new Dictionary<string, double>();
 
@@ -200,7 +203,7 @@ public static class WebsocketClient
 
                     var response = Encoding.UTF8.GetString(buffer, 0, result.Count);
                     Console.WriteLine("Received from server: " + response);
-                    var jsonData = JsonSerializer.Deserialize<Dictionary<string, object>> (response);
+                    var jsonData = JsonSerializer.Deserialize<Dictionary<string, object>>(response);
                     if (jsonData != null)
                     {
                         foreach (var keyValue in jsonData)
@@ -208,6 +211,10 @@ public static class WebsocketClient
                             if (keyValue.Key == "battery")
                             {
                                 BatteryService.Level = ((JsonElement)keyValue.Value).GetInt32();
+                            }
+                            else if (keyValue.Key == "label")
+                            {
+                                NotificationReceived?.Invoke(Notifications.Of(((JsonElement)keyValue.Value).ToString()));
                             }
                         }
                     }
