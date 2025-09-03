@@ -3,6 +3,14 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:loc="clr-namespace:rc_car_maui_app.Helpers"
              x:Class="rc_car_maui_app.Views.MainPage">
+    
+    <Shell.TitleView>
+        <Grid HorizontalOptions="Fill" VerticalOptions="Fill">
+            <Label
+                Text="Home"
+                Style="{StaticResource CustomTitleLabel}" />
+        </Grid>
+    </Shell.TitleView>
 
     <Grid>
         <VerticalStackLayout x:Name="DisconnectedLayout" Padding="35" Spacing="30" VerticalOptions="Center"
@@ -20,7 +28,9 @@
                 <Entry x:Name="IpEntry" Keyboard="Url" HorizontalTextAlignment="Center"
                        TextChanged="OnIpEntryChanged" />
             </Border>
-            <Button x:Name="ConnectionButton" Text="{loc:Translate Connect}" Clicked="OnConnectClicked" IsEnabled="False" />
+            <Button x:Name="ConnectionButton" 
+                    Text="{loc:Translate Connect}" FontFamily="RajdhaniSemiBold"
+                    Clicked="OnConnectClicked" IsEnabled="False" />
             <Label x:Name="InformationLabel" IsVisible="False" HorizontalOptions="Center" />
         </VerticalStackLayout>
         

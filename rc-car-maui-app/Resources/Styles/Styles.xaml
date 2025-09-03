@@ -195,8 +195,9 @@
     </Style>
 
     <Style TargetType="Label" x:Key="SubHeadline">
-        <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource MidnightBlue}, Dark={StaticResource White}}" />
+        <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource SecondaryText}, Dark={StaticResource PrimaryText}}" />
         <Setter Property="FontSize" Value="24" />
+        <Setter Property="FontFamily" Value="RajdhaniSemiBold" />
         <Setter Property="HorizontalOptions" Value="Center" />
         <Setter Property="HorizontalTextAlignment" Value="Center" />
     </Style>
@@ -441,6 +442,16 @@
         <Setter Property="TabBarForegroundColor" Value="{AppThemeBinding Light={StaticResource Secondary}, Dark={StaticResource Tertiary}}" />
         <Setter Property="TabBarUnselectedColor" Value="{AppThemeBinding Light={StaticResource Primary}, Dark={StaticResource PrimaryDark}}" />
     </Style>
+    
+    <Style x:Key="CustomTitleLabel" TargetType="Label">
+        <Setter Property="FontFamily" Value="RajdhaniSemiBold" />
+        <Setter Property="FontSize" Value="24" />
+        <Setter Property="VerticalOptions" Value="Center" />
+        <Setter Property="HorizontalOptions" Value="Center" />
+        <Setter Property="HorizontalTextAlignment" Value="Center" />
+        <Setter Property="TextColor" 
+                Value="{AppThemeBinding Light={StaticResource LsSelTextL}, Dark={StaticResource Tertiary}}" />
+    </Style>
 
     <Style TargetType="NavigationPage">
         <Setter Property="BarBackgroundColor" Value="{AppThemeBinding Light={StaticResource White}, Dark={StaticResource OffBlack}}" />
@@ -468,13 +479,14 @@
 
     
     <Style x:Key="CardTitleLabel" TargetType="Label">
-        <Setter Property="FontAttributes" Value="Bold" />
-        <Setter Property="FontSize" Value="18" />
+        <Setter Property="FontFamily" Value="RajdhaniSemiBold" />
+        <Setter Property="FontSize" Value="24" />
         <Setter Property="TextColor"
                 Value="{AppThemeBinding Light={StaticResource PrimaryText}, Dark={StaticResource SecondaryText}}" />
     </Style>
 
     <Style x:Key="CardSubtitleLabel" TargetType="Label">
+        <Setter Property="FontFamily" Value="OpenSansRegular" />
         <Setter Property="FontSize" Value="14" />
         <Setter Property="TextColor"
                 Value="{AppThemeBinding Light={StaticResource PrimaryText}, Dark={StaticResource SecondaryText}}" />
@@ -493,6 +505,20 @@
                 Value="{AppThemeBinding 
                 Light={StaticResource SecondaryDark}, 
                 Dark={StaticResource Tertiary}}" />
+    </Style>
+    
+    <Style x:Key="SettingLabel" TargetType="Label">
+        <Setter Property="FontFamily" Value="RajdhaniSemiBold" />
+        <Setter Property="FontSize" Value="22" />
+        <Setter Property="TextColor"
+                Value="{AppThemeBinding Light={StaticResource SecondaryText}, Dark={StaticResource PrimaryText}}" />
+    </Style>
+    
+    <Style x:Key="SettingCardLabel" TargetType="Label">
+        <Setter Property="FontFamily" Value="RajdhaniSemiBold" />
+        <Setter Property="FontSize" Value="20" />
+        <Setter Property="TextColor"
+                Value="{AppThemeBinding Light={StaticResource PrimaryText}, Dark={StaticResource SecondaryText}}" />
     </Style>
     
     <Style x:Key="LabelSwitchColor" TargetType="labelSwitch:LabelSwitch">
