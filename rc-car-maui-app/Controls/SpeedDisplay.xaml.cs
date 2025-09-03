@@ -26,9 +26,9 @@ public partial class SpeedDisplay : ContentView
     public SpeedDisplay()
     {
         InitializeComponent();
-        bool useKmH = Preferences.Get(SettingsKeys.UseKmH, false);
-
-        UnitLabel.Text = useKmH ? "km/h" : "mp/h";
+        bool useMpH = Preferences.Get(SettingsKeys.UseMpH, false);
+        Console.WriteLine(useMpH);
+        UnitLabel.Text = useMpH ? "mp/h" : "km/h";
 
     }
     private static void OnSpeedChanged(BindableObject bindable, object oldValue, object newValue)
@@ -36,7 +36,7 @@ public partial class SpeedDisplay : ContentView
         if (bindable is SpeedDisplay control)
         {
             int value = Math.Abs((int)newValue);
-            if (!Preferences.Get(SettingsKeys.UseKmH, false))
+            if (Preferences.Get(SettingsKeys.UseMpH, false))
             {
                 value = (int)Math.Round(value * 0.621371);
             }

@@ -41,7 +41,7 @@ public partial class SettingsPage : ContentPage
     
     private void OnUnitToggled(object sender, ToggledEventArgs e)
     {
-        Preferences.Set(SettingsKeys.UseKmH, e.Value);
+        Preferences.Set(SettingsKeys.UseMpH, !e.Value);
     }
     
     private void OnBatteryToggled(object sender, ToggledEventArgs e)
