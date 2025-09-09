@@ -1,4 +1,6 @@
+using System.Text.Json;
 using rc_car_maui_app.Controls;
+using rc_car_maui_app.Websocket;
 
 namespace rc_car_maui_app.Helpers;
 
@@ -10,7 +12,20 @@ public static class Notifications
         { "achtung", new Notification("street_attention_sign", "Caution: Caution Sign ahead!") },
         { "sackgasse", new Notification("street_dead_end_sign", "Caution: Dead End ahead!") },
         { "unbegrenzt", new Notification("street_unlimited_sign", "Caution: Unlimited ahead!") },
-        { "kreuzung", new Notification("street_straight_or_turn_right_sign", "Caution: Straight Or Turn Right ahead!") },
+        {
+            "kreuzung", new Notification("street_straight_or_turn_right_sign", "Caution: Straight Or Turn Right ahead!",
+                new Notification.UserOptions("Go Straight", "Turn Right",
+                    () =>
+                    {
+                        WebsocketClient.Send(JsonSerializer.Serialize(new { intersectionDirection = "left" }));
+                    },
+                    () =>
+                    {
+                        WebsocketClient.Send(JsonSerializer.Serialize(new { intersectionDirection = "right" }));
+                    }
+                )
+            )
+        },
         { "abbiegen", new Notification("street_turn_right_sign", "Caution: Turn Right Ahead!") },
         { "durchfahrt_verboten", new Notification("street_no_entry_sign", "Caution: No Entry Ahead!") },
         { "dreissig", new Notification("street_30_sign", "Caution: Speed limit ahead!") },

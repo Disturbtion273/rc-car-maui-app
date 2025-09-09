@@ -9,9 +9,33 @@
              Margin="0, 30, 0, 0">
     
     <controls:OverlayBackground Padding="10, 5">
-        <HorizontalStackLayout Spacing="15">
-            <Image x:Name="Sign" />
-            <Label x:Name="Label" VerticalOptions="Center" FontSize="12" FontAttributes="Bold"/>
-        </HorizontalStackLayout>
+        <VerticalStackLayout>
+            <HorizontalStackLayout Spacing="15">
+                <Image x:Name="Sign" />
+                <Label x:Name="Label" VerticalOptions="Center" FontSize="12" FontAttributes="Bold" />
+            </HorizontalStackLayout>
+
+            <BoxView x:Name="Separator" HeightRequest="1" BackgroundColor="White" Margin="0,5,0,5" IsVisible="False" />
+
+            <Grid x:Name="Options" ColumnDefinitions="*,*" HeightRequest="25" IsVisible="False">
+                <Button x:Name="LeftButton"
+                        Grid.Column="0"
+                        BackgroundColor="Transparent"
+                        TextColor="White"
+                        FontSize="12"
+                        MaximumHeightRequest="25"
+                        HeightRequest="25" />
+
+                <BoxView WidthRequest="1" BackgroundColor="White" Grid.Column="1" HorizontalOptions="Start" />
+
+                <Button x:Name="RightButton"
+                        Grid.Column="1"
+                        BackgroundColor="Transparent"
+                        TextColor="White"
+                        FontSize="12"
+                        MaximumHeightRequest="25"
+                        HeightRequest="25" />
+            </Grid>
+        </VerticalStackLayout>
     </controls:OverlayBackground>
 </ContentView>
