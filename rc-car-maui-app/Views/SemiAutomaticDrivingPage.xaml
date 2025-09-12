@@ -17,6 +17,7 @@
 
             <slider:CustomSlider Minimum="-100"
                                  Maximum="100"
+                                 x:Name="Slider"
                                  HorizontalOptions="End"
                                  VerticalOptions="End"
                                  Margin="80, 20"
