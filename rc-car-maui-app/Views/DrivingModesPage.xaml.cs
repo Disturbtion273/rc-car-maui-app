@@ -24,9 +24,9 @@ public partial class DrivingModesPage : ContentPage
         await Shell.Current.Navigation.PushModalAsync(new SemiAutomaticDrivingPage());
     }
     
-    private void DrivingThree(object sender, EventArgs e)
+    private async void DrivingThree(object sender, EventArgs e)
     {
         WebsocketClient.SetDrivingMode(DrivingMode.Automatic);
-        Console.WriteLine("Third Driving Mode");
+        await Shell.Current.Navigation.PushModalAsync(new AutomaticDrivingPage());
     }
 }
