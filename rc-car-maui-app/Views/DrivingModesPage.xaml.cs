@@ -3,9 +3,9 @@ using rc_car_maui_app.Websocket;
 
 namespace rc_car_maui_app.Views;
 
-public partial class DrivingPage : ContentPage
+public partial class DrivingModesPage : ContentPage
 {
-    public DrivingPage()
+    public DrivingModesPage()
     {
         InitializeComponent();
     }

@@ -13,7 +13,7 @@
         <Tab Title="{loc:Translate Driving}" Icon="steering_wheel">
             <ShellContent
                 Title="{loc:Translate Driving Modes}"
-                ContentTemplate="{DataTemplate views:DrivingPage}"
+                ContentTemplate="{DataTemplate views:DrivingModesPage}"
                 Route="DrivingPage" />
         </Tab>
         <Tab Title="{loc:Translate Home}" Icon="home">

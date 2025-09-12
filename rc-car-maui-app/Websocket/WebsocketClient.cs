@@ -22,6 +22,7 @@ public static class WebsocketClient
     public static event Action<WebsocketClientState>? StateChanged;
     public static event Action<string, Color>? ConnectionInfoChanged;
     public static event Action<Notification?>? NotificationReceived;
+    public static event Action<int>? SpeedInfoChanged;
 
     private static Dictionary<string, double> controlData = new Dictionary<string, double>();
 
@@ -215,6 +216,10 @@ public static class WebsocketClient
                             else if (keyValue.Key == "label")
                             {
                                 NotificationReceived?.Invoke(Notifications.Of(((JsonElement)keyValue.Value).ToString()));
+                            }
+                            else if (keyValue.Key == "speed")
+                            {
+                                SpeedInfoChanged?.Invoke(((JsonElement)keyValue.Value).GetInt32());
                             }
                         }
                     }
