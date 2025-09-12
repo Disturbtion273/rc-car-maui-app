@@ -23,6 +23,7 @@ public static class WebsocketClient
     public static event Action<string, Color>? ConnectionInfoChanged;
     public static event Action<Notification?>? NotificationReceived;
     public static event Action<string>? SpeedLimitReceived;
+    public static event Action<int>? SpeedInfoChanged;
 
     private static Dictionary<string, double> controlData = new Dictionary<string, double>();
 
@@ -168,9 +169,8 @@ public static class WebsocketClient
                 {
                     if (!queue.TryDequeue(out var queueItem) || queueItem == null)
                         continue;
-
-                    await client.SendAsync(new ArraySegment<byte>(Encoding.UTF8.GetBytes(queueItem)),
-                        WebSocketMessageType.Text, true, CancellationToken.None);
+                    
+                    await client.SendAsync(new ArraySegment<byte>(Encoding.UTF8.GetBytes(queueItem)), WebSocketMessageType.Text, true, CancellationToken.None);
                 }
             }
             catch (Exception ex)
@@ -222,6 +222,10 @@ public static class WebsocketClient
                                 {
                                     SpeedLimitReceived?.Invoke(value);
                                 }
+                            }
+                            else if (keyValue.Key == "speed")
+                            {
+                                SpeedInfoChanged?.Invoke(((JsonElement)keyValue.Value).GetInt32());
                             }
                         }
                     }
