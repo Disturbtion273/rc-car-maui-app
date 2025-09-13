@@ -166,7 +166,7 @@ public static class WebsocketClient
             {
                 while (client?.State == WebSocketState.Open)
                 {
-                    if (!queue.TryDequeue(out var queueItem) && queueItem == null)
+                    if (!queue.TryDequeue(out var queueItem) || queueItem == null)
                         continue;
 
                     await client.SendAsync(new ArraySegment<byte>(Encoding.UTF8.GetBytes(queueItem)),
