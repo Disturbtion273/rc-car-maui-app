@@ -34,5 +34,10 @@ public partial class SemiAutomaticDrivingPage : AbstractInteractiveDrivingPage
             Slider.Maximum = 50;
             Slider.Minimum = -50;
         }
+        else if (value == "unbegrenzt")
+        {
+            Slider.Maximum = 100;
+            Slider.Minimum = -100;
+        }
     }
 }
