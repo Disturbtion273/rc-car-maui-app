@@ -9,6 +9,7 @@ namespace rc_car_maui_app.Views;
 public abstract partial class AbstractInteractiveDrivingPage : AbstractDrivingPage
 {
     private readonly GyroscopeService _gyroscopeService;
+    protected CustomSlider Slider;
     
     protected AbstractInteractiveDrivingPage()
     {
@@ -33,12 +34,12 @@ public abstract partial class AbstractInteractiveDrivingPage : AbstractDrivingPa
     {
         AddToTopLeftLayout(new CameraResetButton());
         
-        CustomSlider slider = new CustomSlider();
-        slider.Minimum = -100;
-        slider.Maximum = 100;
-        slider.ValueChanged += Slider_OnValueChanged;
-        slider.DragCompleted += Slider_OnDragCompleted;
-        AddToGrid(slider, LayoutOptions.End, LayoutOptions.End, new Thickness(80, 20));
+        Slider = new CustomSlider();
+        Slider.Minimum = -100;
+        Slider.Maximum = 100;
+        Slider.ValueChanged += Slider_OnValueChanged;
+        Slider.DragCompleted += Slider_OnDragCompleted;
+        AddToGrid(Slider, LayoutOptions.End, LayoutOptions.End, new Thickness(80, 20));
         
         Joystick joystick = new Joystick();
         joystick.ValueXChanged += Joystick_OnValueXChanged;
