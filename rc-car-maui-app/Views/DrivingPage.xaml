@@ -30,8 +30,8 @@
                                 Padding="12"
                                 WidthRequest="5"
                                 TranslationY="-7"
-                                Source="{AppThemeBinding Light=tutorial_light, Dark=tutorial_dark}" />
-                                <!-- Clicked="ManualDriving" /> -->
+                                Source="{AppThemeBinding Light=tutorial_light, Dark=tutorial_dark}"
+                                Clicked="ManualTutorial" />
                         </HorizontalStackLayout>
                         <Label Text="{loc:Translate ManualSubtitle}" 
                                Style="{StaticResource CardSubtitleLabel}" />
@@ -57,8 +57,8 @@
                                 Padding="12"
                                 WidthRequest="5"
                                 TranslationY="-7"
-                                Source="{AppThemeBinding Light=tutorial_light, Dark=tutorial_dark}" />
-                            <!-- Clicked="ManualDriving" /> -->
+                                Source="{AppThemeBinding Light=tutorial_light, Dark=tutorial_dark}"
+                                Clicked="SemiAiTutorial" />
                         </HorizontalStackLayout>
                         <Label Text="{loc:Translate SemiSubtitle}" 
                                Style="{StaticResource CardSubtitleLabel}"/>
@@ -84,8 +84,8 @@
                                 Padding="12"
                                 WidthRequest="5"
                                 TranslationY="-7"
-                                Source="{AppThemeBinding Light=tutorial_light, Dark=tutorial_dark}" />
-                            <!-- Clicked="ManualDriving" /> -->
+                                Source="{AppThemeBinding Light=tutorial_light, Dark=tutorial_dark}"
+                                Clicked="FullAiTutorial" />
                         </HorizontalStackLayout>
                         <Label Text="{loc:Translate FullSubtitle}" 
                                Style="{StaticResource CardSubtitleLabel}"/>

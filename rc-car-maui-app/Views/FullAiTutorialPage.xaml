@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="rc_car_maui_app.Views.FullAiTutorialPage">
+    <Grid>
+        <Border
+            BackgroundColor="White"
+            Padding="16"
+            HorizontalOptions="Center"
+            VerticalOptions="Center"
+            WidthRequest="320">
+            
+            <StackLayout>
+                <Label Text="This is full ai tutorial"/>
+                
+                <Button
+                    Text="Close"
+                    HorizontalOptions="Center"
+                    Clicked="BackButton" />
+            </StackLayout>
+            
+        </Border>
+    </Grid>
+</ContentPage>

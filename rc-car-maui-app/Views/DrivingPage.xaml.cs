@@ -29,4 +29,19 @@ public partial class DrivingPage : ContentPage
         WebsocketClient.SetDrivingMode(DrivingMode.Automatic);
         Console.WriteLine("Third Driving Mode");
     }
+
+    async void ManualTutorial(object sender, EventArgs e)
+    {
+        await Shell.Current.Navigation.PushModalAsync(new ManualTutorialPage(), animated: true);
+    }
+    
+    async void SemiAiTutorial(object sender, EventArgs e)
+    {
+        await Shell.Current.Navigation.PushModalAsync(new SemiAiTutorialPage(), animated: true);
+    }
+    
+    async void FullAiTutorial(object sender, EventArgs e)
+    {
+        await Shell.Current.Navigation.PushModalAsync(new FullAiTutorialPage(), animated: true);
+    }
 }
