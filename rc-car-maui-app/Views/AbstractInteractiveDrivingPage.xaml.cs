@@ -50,7 +50,7 @@ public abstract partial class AbstractInteractiveDrivingPage : AbstractDrivingPa
     
     private void Slider_OnValueChanged(object? sender, ValueChangedEventArgs e)
     {
-        WebsocketClient.SetControlData("speed", e.NewValue);
+        WebsocketClient.SetControlData("speed", (int)e.NewValue);
         SpeedDisplayControl.UpdateControls((int)e.NewValue);
     }
 
@@ -65,7 +65,7 @@ public abstract partial class AbstractInteractiveDrivingPage : AbstractDrivingPa
         var speed = tilt == 0 ? 0 : Math.Abs(Math.Round(e.NewValue, 2)) * 100;
 
         WebsocketClient.SetControlData("tilt", tilt);
-        WebsocketClient.SetControlData("tiltSpeed", speed);
+        WebsocketClient.SetControlData("tiltSpeed", (int)speed);
     }
 
     private void Joystick_OnValueYChanged(object? sender, ValueChangedEventArgs e)
@@ -74,7 +74,7 @@ public abstract partial class AbstractInteractiveDrivingPage : AbstractDrivingPa
         var speed = pan == 0 ? 0 : Math.Abs(Math.Round(e.NewValue, 2)) * 100;
 
         WebsocketClient.SetControlData("pan", pan);
-        WebsocketClient.SetControlData("panSpeed", speed);
+        WebsocketClient.SetControlData("panSpeed", (int)speed);
     }
 
     private void Joystick_OnDragCompleted(object? sender, EventArgs e)

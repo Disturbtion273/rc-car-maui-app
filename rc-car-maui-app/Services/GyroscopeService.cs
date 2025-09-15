@@ -21,7 +21,7 @@ public class GyroscopeService
 
             double steering = Math.Clamp((roll / 30.0 + 1) * 50.0, 0.0, 100.0);
 
-            WebsocketClient.SetControlData("steering", steering);
+            WebsocketClient.SetControlData("steering", (int)steering);
         };
         OrientationSensor.Start(SensorSpeed.Game);
     }

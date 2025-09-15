@@ -1,6 +1,8 @@
+using System.Globalization;
 using System.Net.WebSockets;
 using System.Text;
 using System.Text.Json;
+using System.Text.Json.Serialization;
 using rc_car_maui_app.Controls;
 using rc_car_maui_app.Enums;
 using rc_car_maui_app.Helpers;
@@ -25,9 +27,10 @@ public static class WebsocketClient
     public static event Action<string>? SpeedLimitReceived;
     public static event Action<int>? SpeedInfoChanged;
 
-    private static Dictionary<string, double> controlData = new Dictionary<string, double>();
+    private static Dictionary<string, int> controlData = new ();
+    private static Dictionary<string, int> sentControlData = new ();
 
-    public static void SetControlData(string key, double value)
+    public static void SetControlData(string key, int value)
     {
         controlData[key] = value;
     }
@@ -248,8 +251,14 @@ public static class WebsocketClient
             {
                 while (client?.State == WebSocketState.Open)
                 {
-                    var json = JsonSerializer.Serialize(controlData);
-                    Send(json);
+                    // Only send control data if it has changed
+                    if (controlData.Any(kv => !sentControlData.TryGetValue(kv.Key, out var val) || val != kv.Value))
+                    {
+                        var json = JsonSerializer.Serialize(controlData);
+                        Send(json);
+                        sentControlData = new Dictionary<string, int>(controlData);
+                    }
+
                     await Task.Delay(10);
                 }
             }
