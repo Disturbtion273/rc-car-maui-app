@@ -11,7 +11,7 @@
           StyleClass="ColoredGrid"
           IgnoreSafeArea="True">
         
-        <WebView Source="{Binding WebViewUrl, Source={x:Reference ThisPage}}" />
+        <WebView Source="{Binding WebViewUrl}" />
 
         <HorizontalStackLayout x:Name="TopLeftLayout" 
                                HorizontalOptions="Start" 
