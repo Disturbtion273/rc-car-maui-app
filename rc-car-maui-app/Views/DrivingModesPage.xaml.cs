@@ -3,9 +3,9 @@ using rc_car_maui_app.Websocket;
 
 namespace rc_car_maui_app.Views;
 
-public partial class DrivingPage : ContentPage
+public partial class DrivingModesPage : ContentPage
 {
-    public DrivingPage()
+    public DrivingModesPage()
     {
         InitializeComponent();
     }
@@ -24,9 +24,9 @@ public partial class DrivingPage : ContentPage
         await Shell.Current.Navigation.PushModalAsync(new SemiAutomaticDrivingPage());
     }
     
-    private void DrivingThree(object sender, EventArgs e)
+    private async void DrivingThree(object sender, EventArgs e)
     {
         WebsocketClient.SetDrivingMode(DrivingMode.Automatic);
-        Console.WriteLine("Third Driving Mode");
+        await Shell.Current.Navigation.PushModalAsync(new AutomaticDrivingPage());
     }
 }

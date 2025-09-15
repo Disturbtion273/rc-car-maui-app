@@ -3,7 +3,7 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:loc="clr-namespace:rc_car_maui_app.Helpers"
-             x:Class="rc_car_maui_app.Views.DrivingPage">
+             x:Class="rc_car_maui_app.Views.DrivingModesPage">
     
     <Shell.TitleView>
         <Grid HorizontalOptions="Fill" VerticalOptions="Fill">
