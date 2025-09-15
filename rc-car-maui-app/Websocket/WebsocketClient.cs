@@ -205,29 +205,35 @@ public static class WebsocketClient
 
                     var response = Encoding.UTF8.GetString(buffer, 0, result.Count);
                     Console.WriteLine("Received from server: " + response);
-                    var jsonData = JsonSerializer.Deserialize<Dictionary<string, object>>(response);
-                    if (jsonData != null)
+                    try
                     {
-                        foreach (var keyValue in jsonData)
+                        var jsonData = JsonSerializer.Deserialize<Dictionary<string, object>>(response);
+                        if (jsonData != null)
                         {
-                            if (keyValue.Key == "battery")
+                            foreach (var keyValue in jsonData)
                             {
-                                BatteryService.Level = ((JsonElement)keyValue.Value).GetInt32();
-                            }
-                            else if (keyValue.Key == "label")
-                            {
-                                string value = ((JsonElement)keyValue.Value).ToString();
-                                NotificationReceived?.Invoke(Notifications.Of(value));
-                                if (Preferences.Get(SettingsKeys.SafeModeEnabled, false))
+                                if (keyValue.Key == "battery")
                                 {
-                                    SpeedLimitReceived?.Invoke(value);
+                                    BatteryService.Level = ((JsonElement)keyValue.Value).GetInt32();
+                                }
+                                else if (keyValue.Key == "label")
+                                {
+                                    string value = ((JsonElement)keyValue.Value).ToString();
+                                    NotificationReceived?.Invoke(Notifications.Of(value));
+                                    if (Preferences.Get(SettingsKeys.SafeModeEnabled, false))
+                                    {
+                                        SpeedLimitReceived?.Invoke(value);
+                                    }
+                                }
+                                else if (keyValue.Key == "speed")
+                                {
+                                    SpeedInfoChanged?.Invoke(((JsonElement)keyValue.Value).GetInt32());
                                 }
                             }
-                            else if (keyValue.Key == "speed")
-                            {
-                                SpeedInfoChanged?.Invoke(((JsonElement)keyValue.Value).GetInt32());
-                            }
                         }
+                    } catch (JsonException)
+                    {
+                        Console.WriteLine("Received invalid JSON data: " + response);
                     }
                 }
             }
