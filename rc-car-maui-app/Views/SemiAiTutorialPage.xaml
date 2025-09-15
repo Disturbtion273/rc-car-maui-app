@@ -2,23 +2,28 @@
 
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="rc_car_maui_app.Views.SemiAiTutorialPage">
+             x:Class="rc_car_maui_app.Views.SemiAiTutorialPage"
+            BackgroundColor="#80000000">
     <Grid>
         <Border
-            BackgroundColor="White"
             Padding="16"
             HorizontalOptions="Center"
             VerticalOptions="Center"
-            WidthRequest="320">
+            WidthRequest="350"
+            Style="{StaticResource SettingCard}"
+            StrokeShape = "RoundRectangle 12">
             
-            <StackLayout>
-                <Label Text="This is semi ai tutorial"/>
+            <VerticalStackLayout>
+                <Label Text="Semi-AI Mode"
+                       Style="{StaticResource SettingCardLabel}"
+                       HorizontalOptions="Center"/>
                 
                 <Button
                     Text="Close"
+                    FontFamily="RajdhaniSemiBold"
                     HorizontalOptions="Center"
                     Clicked="BackButton" />
-            </StackLayout>
+            </VerticalStackLayout>
             
         </Border>
     </Grid>
