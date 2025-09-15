@@ -8,7 +8,7 @@
     <Shell.TitleView>
         <Grid HorizontalOptions="Fill" VerticalOptions="Fill">
             <Label
-                Text="Driving"
+                Text="{loc:Translate Driving}"
                 Style="{StaticResource CustomTitleLabel}" />
         </Grid>
     </Shell.TitleView>

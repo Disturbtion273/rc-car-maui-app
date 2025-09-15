@@ -7,7 +7,7 @@
     <Shell.TitleView>
         <Grid HorizontalOptions="Fill" VerticalOptions="Fill">
             <Label
-                Text="Home"
+                Text="{loc:Translate Home}"
                 Style="{StaticResource CustomTitleLabel}" />
         </Grid>
     </Shell.TitleView>
