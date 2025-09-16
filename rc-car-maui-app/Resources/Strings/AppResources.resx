@@ -60,4 +60,61 @@
     <data name="Typ in IP" xml:space="preserve">
         <value>Type in the IP of the car to connect to it</value>
     </data>
+    <data name="Manual Mode" xml:space="preserve">
+        <value>Manual Mode</value>
+    </data>
+    <data name="Semi-AI Mode" xml:space="preserve">
+        <value>Semi-AI Mode</value>
+    </data>
+    <data name="Full-AI Mode" xml:space="preserve">
+        <value>Full-AI Mode</value>
+    </data>
+    <data name="Navigate back" xml:space="preserve">
+        <value>Navigate back</value>
+    </data>
+    <data name="Camera re-center" xml:space="preserve">
+        <value>Camera re-center</value>
+    </data>
+    <data name="Connection status" xml:space="preserve">
+        <value>Connection status</value>
+    </data>
+    <data name="Cars battery" xml:space="preserve">
+        <value>Car's battery</value>
+    </data>
+    <data name="Cars speed" xml:space="preserve">
+        <value>Car's velocity</value>
+    </data>
+    <data name="Camera movement" xml:space="preserve">
+        <value>Camera movement</value>
+    </data>
+    <data name="Driving slider" xml:space="preserve">
+        <value>Driving slider</value>
+    </data>
+    <data name="Cars battery" xml:space="preserve">
+        <value />
+    </data>
+    <data name="Driving tutorial" xml:space="preserve">
+        <value>Driving Tutorial</value>
+    </data>
+    <data name="Driving description" xml:space="preserve">
+        <value>To drive the car forward and backward, simply drag the slider to the top or bottom.</value>
+    </data>
+    <data name="Turning description" xml:space="preserve">
+        <value>To turning the car left or right, simply rotate the phone to the designated direction like a steering wheel.</value>
+    </data>
+    <data name="Close" xml:space="preserve">
+        <value>Close</value>
+    </data>
+    <data name="Semi-AI description" xml:space="preserve">
+        <value>The PiCar comes with an integrated GPT-4o, enabling dynamic and automated interactions. In Semi-AI mode, the car can recognize road signs and report them to the user for decision-making.</value>
+    </data>
+    <data name="Semi-AI description cont" xml:space="preserve">
+        <value>Further scenario examples include a stop sign or an intersection sign, where the user decides which direction the car should take.</value>
+    </data>
+    <data name="Semi-AI driving tutorial" xml:space="preserve">
+        <value>Driving works the same as in manual mode, but with an additional AI function.</value>
+    </data>
+    <data name="Full-AI description" xml:space="preserve">
+        <value>Sit back, relax and enjoy</value>
+    </data>
 </root>

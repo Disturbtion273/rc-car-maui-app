@@ -60,4 +60,58 @@
     <data name="Typ in IP" xml:space="preserve">
         <value>Gib die IP des Autos ein, um eine Verbindung herzustellen</value>
     </data>
+    <data name="Manual Mode" xml:space="preserve">
+        <value>Manueller Modus</value>
+    </data>
+    <data name="Semi-AI Mode" xml:space="preserve">
+        <value>Halb-KI-Modus</value>
+    </data>
+    <data name="Full-AI Mode" xml:space="preserve">
+        <value>Voll-KI-Modus</value>
+    </data>
+    <data name="Camera movement" xml:space="preserve">
+        <value>Kamerabewegung</value>
+    </data>
+    <data name="Camera re-center" xml:space="preserve">
+        <value>Kamera zentrieren</value>
+    </data>
+    <data name="Connection status" xml:space="preserve">
+        <value>Verbindungsstatus</value>
+    </data>
+    <data name="Driving slider" xml:space="preserve">
+        <value>Fahrregler</value>
+    </data>
+    <data name="Navigate back" xml:space="preserve">
+        <value>Zurück navigieren</value>
+    </data>
+    <data name="Cars battery" xml:space="preserve">
+        <value>Autobatterie</value>
+    </data>
+    <data name="Cars speed" xml:space="preserve">
+        <value>Geschwindigkeit</value>
+    </data>
+    <data name="Driving tutorial" xml:space="preserve">
+        <value>Fahranleitung</value>
+    </data>
+    <data name="Driving description" xml:space="preserve">
+        <value>Um das Auto vorwärts oder rückwärts zu fahren, ziehen Sie einfach den Schieberegler nach oben oder unten.</value>
+    </data>
+    <data name="Turning description" xml:space="preserve">
+        <value>Um das Auto nach links oder rechts zu lenken, drehen Sie einfach das Telefon in die gewünschte Richtung wie ein Lenkrad.</value>
+    </data>
+    <data name="Close" xml:space="preserve">
+        <value>Schließen</value>
+    </data>
+    <data name="Semi-AI description" xml:space="preserve">
+        <value>Der PiCar ist mit einem integrierten GPT-4o ausgestattet, das dynamische und automatisierte Interaktionen ermöglicht. Im Halb-KI-Modus kann das Auto Verkehrsschilder erkennen und dem Benutzer zur Entscheidungsfindung melden.</value>
+    </data>
+    <data name="Semi-AI description cont" xml:space="preserve">
+        <value>Weitere Beispielszenarien sind ein Stoppschild oder ein Kreuzungsschild, bei dem der Benutzer die Fahrtrichtung des Autos bestimmen muss.</value>
+    </data>
+    <data name="Semi-AI driving tutorial" xml:space="preserve">
+        <value>Das Fahren funktioniert genauso wie im manuellen Modus, jedoch mit einer zusätzlichen KI-Funktion.</value>
+    </data>
+    <data name="Full-AI description" xml:space="preserve">
+        <value>Zurücklehnen, entspannen und genießen.</value>
+    </data>
 </root>

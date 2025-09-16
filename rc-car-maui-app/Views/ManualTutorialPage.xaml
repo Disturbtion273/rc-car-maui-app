@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:loc="clr-namespace:rc_car_maui_app.Helpers"
+             x:Class="rc_car_maui_app.Views.ManualTutorialPage"
+             BackgroundColor="#80000000">
+    <Grid>
+        <Border
+            Padding="16"
+            HorizontalOptions="Center"
+            VerticalOptions="Center"
+            WidthRequest="350"
+            Style="{StaticResource SettingCard}"
+            StrokeShape = "RoundRectangle 12">
+            
+            <VerticalStackLayout>
+                <Label Text="{loc:Translate Manual Mode}"
+                       Style="{StaticResource SettingCardLabel}"
+                       HorizontalOptions="Center"/>
+                
+                <VerticalStackLayout Padding="0,6" Spacing="10">
+                    <Image Source="driving_overlay_ui"
+                           WidthRequest="290"
+                           Aspect="AspectFit"
+                           HorizontalOptions="Center" />
+
+                    <Grid ColumnDefinitions="Auto, *"
+                          RowDefinitions="Auto, Auto, Auto, Auto"
+                          ColumnSpacing="12"
+                          RowSpacing="8">
+                        <HorizontalStackLayout Grid.Column="0" Grid.Row="0" Spacing="6" VerticalOptions="Center">
+                            <Label Text="1:" FontAttributes="Bold"
+                                   TextColor="{AppThemeBinding Light={StaticResource PrimaryText}, Dark={StaticResource SecondaryText}}"/>
+                            <Label Text="{loc:Translate Navigate back}"
+                                   TextColor="{AppThemeBinding Light={StaticResource PrimaryText}, Dark={StaticResource SecondaryText}}"
+                                   LineBreakMode="WordWrap" HorizontalOptions="FillAndExpand"/>
+                        </HorizontalStackLayout>
+
+                        <HorizontalStackLayout Grid.Column="1" Grid.Row="0" Spacing="6" VerticalOptions="Center">
+                            <Label Text="2:" FontAttributes="Bold"
+                                   TextColor="{AppThemeBinding Light={StaticResource PrimaryText}, Dark={StaticResource SecondaryText}}"/>
+                            <Label Text="{loc:Translate Camera re-center}"
+                                   TextColor="{AppThemeBinding Light={StaticResource PrimaryText}, Dark={StaticResource SecondaryText}}"
+                                   LineBreakMode="WordWrap" HorizontalOptions="FillAndExpand"/>
+                        </HorizontalStackLayout>
+
+                        <HorizontalStackLayout Grid.Column="0" Grid.Row="1" Spacing="6" VerticalOptions="Center">
+                            <Label Text="3:" FontAttributes="Bold"
+                                   TextColor="{AppThemeBinding Light={StaticResource PrimaryText}, Dark={StaticResource SecondaryText}}"/>
+                            <Label Text="{loc:Translate Connection status}"
+                                   TextColor="{AppThemeBinding Light={StaticResource PrimaryText}, Dark={StaticResource SecondaryText}}"
+                                   LineBreakMode="WordWrap" HorizontalOptions="FillAndExpand"/>
+                        </HorizontalStackLayout>
+
+                        <HorizontalStackLayout Grid.Column="1" Grid.Row="1" Spacing="6" VerticalOptions="Center">
+                            <Label Text="4:" FontAttributes="Bold"
+                                   TextColor="{AppThemeBinding Light={StaticResource PrimaryText}, Dark={StaticResource SecondaryText}}"/>
+                            <Label Text="{loc:Translate Cars battery}"
+                                   TextColor="{AppThemeBinding Light={StaticResource PrimaryText}, Dark={StaticResource SecondaryText}}"
+                                   LineBreakMode="WordWrap" HorizontalOptions="FillAndExpand"/>
+                        </HorizontalStackLayout>
+
+                        <HorizontalStackLayout Grid.Column="0" Grid.Row="2" Spacing="6" VerticalOptions="Center">
+                            <Label Text="5:" FontAttributes="Bold"
+                                   TextColor="{AppThemeBinding Light={StaticResource PrimaryText}, Dark={StaticResource SecondaryText}}"/>
+                            <Label Text="{loc:Translate Cars speed}"
+                                   TextColor="{AppThemeBinding Light={StaticResource PrimaryText}, Dark={StaticResource SecondaryText}}"
+                                   LineBreakMode="WordWrap" HorizontalOptions="FillAndExpand"/>
+                        </HorizontalStackLayout>
+
+                        <HorizontalStackLayout Grid.Column="1" Grid.Row="2" Spacing="6" VerticalOptions="Center">
+                            <Label Text="6:" FontAttributes="Bold"
+                                   TextColor="{AppThemeBinding Light={StaticResource PrimaryText}, Dark={StaticResource SecondaryText}}"/>
+                            <Label Text="{loc:Translate Camera movement}"
+                                   TextColor="{AppThemeBinding Light={StaticResource PrimaryText}, Dark={StaticResource SecondaryText}}"
+                                   LineBreakMode="WordWrap" HorizontalOptions="FillAndExpand"/>
+                        </HorizontalStackLayout>
+
+                        <HorizontalStackLayout Grid.Column="0" Grid.Row="3" Spacing="6" VerticalOptions="Center">
+                            <Label Text="7:" FontAttributes="Bold"
+                                   TextColor="{AppThemeBinding Light={StaticResource PrimaryText}, Dark={StaticResource SecondaryText}}"/>
+                            <Label Text="{loc:Translate Driving slider}"
+                                   TextColor="{AppThemeBinding Light={StaticResource PrimaryText}, Dark={StaticResource SecondaryText}}"
+                                   LineBreakMode="WordWrap" HorizontalOptions="FillAndExpand"/>
+                        </HorizontalStackLayout>
+                    </Grid>
+                </VerticalStackLayout>
+                
+                <Label Text="{loc:Translate Driving tutorial}"
+                       Style="{StaticResource SettingCardLabel}"
+                       Padding="0, 12"
+                       HorizontalOptions="Center"/>
+                
+                <Grid ColumnDefinitions="Auto, *" Padding="0,0, 0, 20" ColumnSpacing="12">
+                       <Image Source="slider_tutorial"
+                              WidthRequest="50"
+                              HeightRequest="70"
+                              Aspect="AspectFit"
+                              Grid.Column="0"
+                              VerticalOptions="Start" />
+                       <Label Grid.Column="1"
+                              Text="{loc:Translate Driving description}"
+                              TextColor="{AppThemeBinding Light={StaticResource PrimaryText}, Dark={StaticResource SecondaryText}}"
+                              LineBreakMode="WordWrap"
+                              HorizontalOptions="FillAndExpand"
+                              VerticalOptions="Center" />
+                </Grid>
+                
+                <Image Source="steering_tutorial"/>
+                <Label Text="{loc:Translate Turning description}"
+                       TextColor="{AppThemeBinding Light={StaticResource PrimaryText}, Dark={StaticResource SecondaryText}}"/>
+                
+                <Button
+                    Text="{loc:Translate Close}"
+                    FontFamily="RajdhaniSemiBold"
+                    HorizontalOptions="Center"
+                    Clicked="BackButton" />
+            </VerticalStackLayout>
+            
+        </Border>
+    </Grid>
+</ContentPage>

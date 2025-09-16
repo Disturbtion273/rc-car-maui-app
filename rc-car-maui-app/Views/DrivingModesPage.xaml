@@ -21,9 +21,18 @@
             <!-- Card 1 -->
             <Border Style="{StaticResource CardStyle}">
                 <Grid ColumnDefinitions="*, Auto" RowDefinitions="Auto">
-                    <VerticalStackLayout Spacing="4" VerticalOptions="Start" Grid.Column="0">
-                        <Label Text="{loc:Translate Manual}" 
-                               Style="{StaticResource CardTitleLabel}"/>
+                    <VerticalStackLayout Spacing="2" VerticalOptions="Start" Grid.Column="0">
+                        <HorizontalStackLayout Spacing="1" VerticalOptions="Center">
+                            <Label Text="{loc:Translate Manual}" 
+                                   Style="{StaticResource CardTitleLabel}"/>
+                            <ImageButton 
+                                BackgroundColor="Transparent" 
+                                Padding="12"
+                                WidthRequest="5"
+                                TranslationY="-7"
+                                Source="{AppThemeBinding Light=tutorial_light, Dark=tutorial_dark}"
+                                Clicked="ManualTutorial" />
+                        </HorizontalStackLayout>
                         <Label Text="{loc:Translate ManualSubtitle}" 
                                Style="{StaticResource CardSubtitleLabel}" />
                     </VerticalStackLayout>
@@ -39,9 +48,18 @@
             <!-- Card 2 -->
             <Border Style="{StaticResource CardStyle}">
                 <Grid ColumnDefinitions="*, Auto" RowDefinitions="Auto">
-                    <VerticalStackLayout Spacing="4" VerticalOptions="Start" Grid.Column="0">
-                        <Label Text="{loc:Translate Semi-Ai}" 
-                               Style="{StaticResource CardTitleLabel}"/>
+                    <VerticalStackLayout Spacing="2" VerticalOptions="Start" Grid.Column="0">
+                        <HorizontalStackLayout Spacing="1" VerticalOptions="Center">
+                            <Label Text="{loc:Translate Semi-Ai}" 
+                                   Style="{StaticResource CardTitleLabel}"/>
+                            <ImageButton 
+                                BackgroundColor="Transparent" 
+                                Padding="12"
+                                WidthRequest="5"
+                                TranslationY="-7"
+                                Source="{AppThemeBinding Light=tutorial_light, Dark=tutorial_dark}"
+                                Clicked="SemiAiTutorial" />
+                        </HorizontalStackLayout>
                         <Label Text="{loc:Translate SemiSubtitle}" 
                                Style="{StaticResource CardSubtitleLabel}"/>
                     </VerticalStackLayout>
@@ -57,9 +75,18 @@
             <!-- Card 3 -->
             <Border Style="{StaticResource CardStyle}">
                 <Grid ColumnDefinitions="*, Auto" RowDefinitions="Auto">
-                    <VerticalStackLayout Spacing="4" VerticalOptions="Start" Grid.Column="0">
-                        <Label Text="{loc:Translate Full-Ai}" 
-                               Style="{StaticResource CardTitleLabel}"/>
+                    <VerticalStackLayout Spacing="2" VerticalOptions="Start" Grid.Column="0">
+                        <HorizontalStackLayout Spacing="1" VerticalOptions="Center">
+                            <Label Text="{loc:Translate Full-Ai}" 
+                                   Style="{StaticResource CardTitleLabel}"/>
+                            <ImageButton 
+                                BackgroundColor="Transparent" 
+                                Padding="12"
+                                WidthRequest="5"
+                                TranslationY="-7"
+                                Source="{AppThemeBinding Light=tutorial_light, Dark=tutorial_dark}"
+                                Clicked="FullAiTutorial" />
+                        </HorizontalStackLayout>
                         <Label Text="{loc:Translate FullSubtitle}" 
                                Style="{StaticResource CardSubtitleLabel}"/>
                     </VerticalStackLayout>
