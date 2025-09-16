@@ -217,7 +217,7 @@ public static class WebsocketClient
                             {
                                 if (keyValue.Key == "battery")
                                 {
-                                    BatteryService.Level = ((JsonElement)keyValue.Value).GetInt32();
+                                    BatteryService.Level = (int)((JsonElement)keyValue.Value).GetDouble();
                                 }
                                 else if (keyValue.Key == "label")
                                 {
@@ -230,7 +230,7 @@ public static class WebsocketClient
                                 }
                                 else if (keyValue.Key == "speed")
                                 {
-                                    SpeedInfoChanged?.Invoke(((JsonElement)keyValue.Value).GetInt32());
+                                    SpeedInfoChanged?.Invoke((int)((JsonElement)keyValue.Value).GetDouble());
                                 }
                             }
                         }
