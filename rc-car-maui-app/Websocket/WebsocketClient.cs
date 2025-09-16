@@ -1,8 +1,6 @@
-using System.Globalization;
 using System.Net.WebSockets;
 using System.Text;
 using System.Text.Json;
-using System.Text.Json.Serialization;
 using rc_car_maui_app.Controls;
 using rc_car_maui_app.Enums;
 using rc_car_maui_app.Helpers;
