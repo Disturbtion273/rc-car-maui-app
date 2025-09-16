@@ -2,6 +2,7 @@
 
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:loc="clr-namespace:rc_car_maui_app.Helpers"
              x:Class="rc_car_maui_app.Views.ManualTutorialPage"
              BackgroundColor="#80000000">
     <Grid>
@@ -14,7 +15,7 @@
             StrokeShape = "RoundRectangle 12">
             
             <VerticalStackLayout>
-                <Label Text="Manual Mode"
+                <Label Text="{loc:Translate Manual Mode}"
                        Style="{StaticResource SettingCardLabel}"
                        HorizontalOptions="Center"/>
                 
@@ -31,7 +32,7 @@
                         <HorizontalStackLayout Grid.Column="0" Grid.Row="0" Spacing="6" VerticalOptions="Center">
                             <Label Text="1:" FontAttributes="Bold"
                                    TextColor="{AppThemeBinding Light={StaticResource PrimaryText}, Dark={StaticResource SecondaryText}}"/>
-                            <Label Text="Navigate back"
+                            <Label Text="{loc:Translate Navigate back}"
                                    TextColor="{AppThemeBinding Light={StaticResource PrimaryText}, Dark={StaticResource SecondaryText}}"
                                    LineBreakMode="WordWrap" HorizontalOptions="FillAndExpand"/>
                         </HorizontalStackLayout>
@@ -39,7 +40,7 @@
                         <HorizontalStackLayout Grid.Column="1" Grid.Row="0" Spacing="6" VerticalOptions="Center">
                             <Label Text="2:" FontAttributes="Bold"
                                    TextColor="{AppThemeBinding Light={StaticResource PrimaryText}, Dark={StaticResource SecondaryText}}"/>
-                            <Label Text="Camera re-center"
+                            <Label Text="{loc:Translate Camera re-center}"
                                    TextColor="{AppThemeBinding Light={StaticResource PrimaryText}, Dark={StaticResource SecondaryText}}"
                                    LineBreakMode="WordWrap" HorizontalOptions="FillAndExpand"/>
                         </HorizontalStackLayout>
@@ -47,7 +48,7 @@
                         <HorizontalStackLayout Grid.Column="0" Grid.Row="1" Spacing="6" VerticalOptions="Center">
                             <Label Text="3:" FontAttributes="Bold"
                                    TextColor="{AppThemeBinding Light={StaticResource PrimaryText}, Dark={StaticResource SecondaryText}}"/>
-                            <Label Text="Connection status"
+                            <Label Text="{loc:Translate Connection status}"
                                    TextColor="{AppThemeBinding Light={StaticResource PrimaryText}, Dark={StaticResource SecondaryText}}"
                                    LineBreakMode="WordWrap" HorizontalOptions="FillAndExpand"/>
                         </HorizontalStackLayout>
@@ -55,7 +56,7 @@
                         <HorizontalStackLayout Grid.Column="1" Grid.Row="1" Spacing="6" VerticalOptions="Center">
                             <Label Text="4:" FontAttributes="Bold"
                                    TextColor="{AppThemeBinding Light={StaticResource PrimaryText}, Dark={StaticResource SecondaryText}}"/>
-                            <Label Text="Car battery indicator"
+                            <Label Text="{loc:Translate Cars battery}"
                                    TextColor="{AppThemeBinding Light={StaticResource PrimaryText}, Dark={StaticResource SecondaryText}}"
                                    LineBreakMode="WordWrap" HorizontalOptions="FillAndExpand"/>
                         </HorizontalStackLayout>
@@ -63,7 +64,7 @@
                         <HorizontalStackLayout Grid.Column="0" Grid.Row="2" Spacing="6" VerticalOptions="Center">
                             <Label Text="5:" FontAttributes="Bold"
                                    TextColor="{AppThemeBinding Light={StaticResource PrimaryText}, Dark={StaticResource SecondaryText}}"/>
-                            <Label Text="Car's speed"
+                            <Label Text="{loc:Translate Cars speed}"
                                    TextColor="{AppThemeBinding Light={StaticResource PrimaryText}, Dark={StaticResource SecondaryText}}"
                                    LineBreakMode="WordWrap" HorizontalOptions="FillAndExpand"/>
                         </HorizontalStackLayout>
@@ -71,7 +72,7 @@
                         <HorizontalStackLayout Grid.Column="1" Grid.Row="2" Spacing="6" VerticalOptions="Center">
                             <Label Text="6:" FontAttributes="Bold"
                                    TextColor="{AppThemeBinding Light={StaticResource PrimaryText}, Dark={StaticResource SecondaryText}}"/>
-                            <Label Text="Camera movement"
+                            <Label Text="{loc:Translate Camera movement}"
                                    TextColor="{AppThemeBinding Light={StaticResource PrimaryText}, Dark={StaticResource SecondaryText}}"
                                    LineBreakMode="WordWrap" HorizontalOptions="FillAndExpand"/>
                         </HorizontalStackLayout>
@@ -79,14 +80,14 @@
                         <HorizontalStackLayout Grid.Column="0" Grid.Row="3" Spacing="6" VerticalOptions="Center">
                             <Label Text="7:" FontAttributes="Bold"
                                    TextColor="{AppThemeBinding Light={StaticResource PrimaryText}, Dark={StaticResource SecondaryText}}"/>
-                            <Label Text="Driving slider"
+                            <Label Text="{loc:Translate Driving slider}"
                                    TextColor="{AppThemeBinding Light={StaticResource PrimaryText}, Dark={StaticResource SecondaryText}}"
                                    LineBreakMode="WordWrap" HorizontalOptions="FillAndExpand"/>
                         </HorizontalStackLayout>
                     </Grid>
                 </VerticalStackLayout>
                 
-                <Label Text="Driving Tutorial"
+                <Label Text="{loc:Translate Driving tutorial}"
                        Style="{StaticResource SettingCardLabel}"
                        Padding="0, 12"
                        HorizontalOptions="Center"/>
@@ -99,7 +100,7 @@
                               Grid.Column="0"
                               VerticalOptions="Start" />
                        <Label Grid.Column="1"
-                              Text="To drive the car forward and backward, simply drag the slider to the top or bottom."
+                              Text="{loc:Translate Driving description}"
                               TextColor="{AppThemeBinding Light={StaticResource PrimaryText}, Dark={StaticResource SecondaryText}}"
                               LineBreakMode="WordWrap"
                               HorizontalOptions="FillAndExpand"
@@ -107,11 +108,11 @@
                 </Grid>
                 
                 <Image Source="steering_tutorial"/>
-                <Label Text="To turning the car left or right, simply rotate the phone to the designated direction like a steering wheel"
+                <Label Text="{loc:Translate Turning description}"
                        TextColor="{AppThemeBinding Light={StaticResource PrimaryText}, Dark={StaticResource SecondaryText}}"/>
                 
                 <Button
-                    Text="Close"
+                    Text="{loc:Translate Close}"
                     FontFamily="RajdhaniSemiBold"
                     HorizontalOptions="Center"
                     Clicked="BackButton" />

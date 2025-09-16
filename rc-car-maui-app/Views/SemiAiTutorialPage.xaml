@@ -3,6 +3,7 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="rc_car_maui_app.Views.SemiAiTutorialPage"
+             xmlns:loc="clr-namespace:rc_car_maui_app.Helpers"
             BackgroundColor="#80000000">
     <Grid>
         <Border
@@ -13,18 +14,46 @@
             Style="{StaticResource SettingCard}"
             StrokeShape = "RoundRectangle 12">
             
-            <VerticalStackLayout>
-                <Label Text="Semi-AI Mode"
-                       Style="{StaticResource SettingCardLabel}"
-                       HorizontalOptions="Center"/>
-                
+            <VerticalStackLayout Spacing="12"> <!-- Add spacing between items -->
+
+                <Label 
+                    Text="{loc:Translate Semi-AI Mode}"
+                    Style="{StaticResource SettingCardLabel}"
+                    HorizontalOptions="Center"
+                    Margin="0,0,0,8"/> <!-- Space below title -->
+
+                <Label 
+                    Text="{loc:Translate Semi-AI description}"
+                    TextColor="{AppThemeBinding Light={StaticResource PrimaryText}, Dark={StaticResource SecondaryText}}"
+                    LineBreakMode="WordWrap"/>
+                <Image 
+                    Source="notification_ui"
+                    HorizontalOptions="Center"
+                    Margin="0,8"/> <!-- Space around image -->
+                <Label 
+                    Text="{loc:Translate Semi-AI description cont}"
+                    TextColor="{AppThemeBinding Light={StaticResource PrimaryText}, Dark={StaticResource SecondaryText}}"
+                    LineBreakMode="WordWrap"/>
+
+                <Label 
+                    Text="{loc:Translate Driving tutorial}"
+                    Style="{StaticResource SettingCardLabel}"
+                    HorizontalOptions="Center"
+                    Margin="0,16,0,4"/> <!-- Separate section with extra top margin -->
+
+                <Label 
+                    Text="{loc:Translate Semi-AI driving tutorial}"
+                    TextColor="{AppThemeBinding Light={StaticResource PrimaryText}, Dark={StaticResource SecondaryText}}"
+                    LineBreakMode="WordWrap"/>
+
                 <Button
                     Text="Close"
                     FontFamily="RajdhaniSemiBold"
                     HorizontalOptions="Center"
+                    Margin="0,16,0,0"
                     Clicked="BackButton" />
+
             </VerticalStackLayout>
-            
         </Border>
     </Grid>
 </ContentPage>

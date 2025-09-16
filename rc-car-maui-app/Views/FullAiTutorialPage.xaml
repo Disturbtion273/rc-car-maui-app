@@ -3,6 +3,7 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="rc_car_maui_app.Views.FullAiTutorialPage"
+             xmlns:loc="clr-namespace:rc_car_maui_app.Helpers"
              BackgroundColor="#80000000">
     <Grid>
         <Border
@@ -14,9 +15,14 @@
             StrokeShape = "RoundRectangle 12">
             
             <VerticalStackLayout>
-                <Label Text="Full-AI Mode"
+                <Label Text="{loc:Translate Full-AI Mode}"
                        Style="{StaticResource SettingCardLabel}"
                        HorizontalOptions="Center"/>
+                
+                <Label 
+                    Text="Sit back, relax and enjoy"
+                    TextColor="{AppThemeBinding Light={StaticResource PrimaryText}, Dark={StaticResource SecondaryText}}"
+                    LineBreakMode="WordWrap"/>
                 
                 <Button
                     Text="Close"

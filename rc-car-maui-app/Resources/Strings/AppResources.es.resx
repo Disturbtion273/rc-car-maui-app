@@ -60,4 +60,55 @@
     <data name="Typ in IP" xml:space="preserve">
         <value>Escribe la IP del coche para conectarte a él</value>
     </data>
+    <data name="Manual Mode" xml:space="preserve">
+        <value>Modo manual</value>
+    </data>
+    <data name="Full-AI Mode" xml:space="preserve">
+        <value>Modo IA completa</value>
+    </data>
+    <data name="Semi-AI Mode" xml:space="preserve">
+        <value>Modo Semi-IA</value>
+    </data>
+    <data name="Camera movement" xml:space="preserve">
+        <value>Movimiento cámara</value>
+    </data>
+    <data name="Camera re-center" xml:space="preserve">
+        <value>Recentrar cámara</value>
+    </data>
+    <data name="Connection status" xml:space="preserve">
+        <value>Estado de conexión</value>
+    </data>
+    <data name="Driving slider" xml:space="preserve">
+        <value>Control de conducción</value>
+    </data>
+    <data name="Navigate back" xml:space="preserve">
+        <value>Navegar hacia atrás</value>
+    </data>
+    <data name="Cars battery" xml:space="preserve">
+        <value>Batería del coche</value>
+    </data>
+    <data name="Cars speed" xml:space="preserve">
+        <value>Velocidad del coche</value>
+    </data>
+    <data name="Driving tutorial" xml:space="preserve">
+        <value>Tutorial de conducción</value>
+    </data>
+    <data name="Driving description" xml:space="preserve">
+        <value>Para conducir el coche hacia adelante o hacia atrás, simplemente arrastra el control deslizante hacia arriba o hacia abajo.</value>
+    </data>
+    <data name="Turning description" xml:space="preserve">
+        <value>Para girar el coche a la izquierda o a la derecha, simplemente gira el teléfono en la dirección deseada como si fuera un volante.</value>
+    </data>
+    <data name="Close" xml:space="preserve">
+        <value>Cerrar</value>
+    </data>
+    <data name="Semi-AI description" xml:space="preserve">
+        <value>El PiCar cuenta con un GPT-4o integrado que permite interacciones dinámicas y automatizadas. En el modo Semi-IA, el coche puede reconocer las señales de tráfico y notificarlas al usuario para que tome la decisión.</value>
+    </data>
+    <data name="Semi-AI description cont" xml:space="preserve">
+        <value>Otros ejemplos de escenarios incluyen una señal de alto o una señal de intersección, donde el usuario decide la dirección que debe tomar el coche.</value>
+    </data>
+    <data name="Semi-AI driving tutorial" xml:space="preserve">
+        <value>La conducción es la misma que en el modo manual, pero con una función adicional de IA.</value>
+    </data>
 </root>
