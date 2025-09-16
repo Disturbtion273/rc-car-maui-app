@@ -17,12 +17,14 @@
             <VerticalStackLayout>
                 <Label Text="{loc:Translate Full-AI Mode}"
                        Style="{StaticResource SettingCardLabel}"
-                       HorizontalOptions="Center"/>
+                       HorizontalOptions="Center"
+                       Margin="0,0,0,8"/>
                 
                 <Label 
                     Text="{loc:Translate Full-AI description}"
                     TextColor="{AppThemeBinding Light={StaticResource PrimaryText}, Dark={StaticResource SecondaryText}}"
-                    LineBreakMode="WordWrap"/>
+                    LineBreakMode="WordWrap"
+                    Padding="6"/>
                 
                 <Button
                     Text="Close"
