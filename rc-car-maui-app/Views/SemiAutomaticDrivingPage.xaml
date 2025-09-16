@@ -1,45 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
+<views:AbstractInteractiveDrivingPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                                      xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                                      xmlns:views="clr-namespace:rc_car_maui_app.Views"
+                                      x:Class="rc_car_maui_app.Views.SemiAutomaticDrivingPage">
 
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:controls="clr-namespace:rc_car_maui_app.Controls"
-             xmlns:slider="clr-namespace:rc_car_maui_app.Controls.Slider"
-             xmlns:joystick="clr-namespace:rc_car_maui_app.Controls.Joystick"
-             x:Class="rc_car_maui_app.Views.SemiAutomaticDrivingPage">
-    <ContentPage.Content>
-        <Grid x:Name="MainGrid" StyleClass="ColoredGrid" IgnoreSafeArea="True">
-            <WebView Source="{Binding WebViewUrl}" />
-
-            <HorizontalStackLayout HorizontalOptions="Start" VerticalOptions="Start" Spacing="10" Margin="50,20,0,0">
-                <controls:OverlayBackButton />
-                <controls:CameraResetButton />
-            </HorizontalStackLayout>
-
-            <slider:CustomSlider Minimum="-100"
-                                 Maximum="100"
-                                 HorizontalOptions="End"
-                                 VerticalOptions="End"
-                                 Margin="80, 20"
-                                 ValueChanged="Slider_OnValueChanged"
-                                 DragCompleted="Slider_OnDragCompleted" />
-
-            <controls:SpeedDisplay x:Name="SpeedDisplayName" />
-
-            <joystick:Joystick HorizontalOptions="Start"
-                               VerticalOptions="End"
-                               Margin="10"
-                               ValueXChanged="Joystick_OnValueXChanged"
-                               ValueYChanged="Joystick_OnValueYChanged"
-                               DragCompleted="Joystick_OnDragCompleted" />
-
-            <HorizontalStackLayout HorizontalOptions="End"
-                                   VerticalOptions="Start"
-                                   Margin="0, 20, 50, 0"
-                                   Spacing="10">
-
-                <controls:WebsocketIndicator />
-                <controls:BatteryIndicator />
-            </HorizontalStackLayout>
-        </Grid>
-    </ContentPage.Content>
-</ContentPage>
+</views:AbstractInteractiveDrivingPage>

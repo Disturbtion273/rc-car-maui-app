@@ -1,7 +1,11 @@
+using System.Globalization;
 using System.Net.WebSockets;
 using System.Text;
 using System.Text.Json;
+using System.Text.Json.Serialization;
+using rc_car_maui_app.Controls;
 using rc_car_maui_app.Enums;
+using rc_car_maui_app.Helpers;
 using rc_car_maui_app.Services;
 
 namespace rc_car_maui_app.Websocket;
@@ -19,10 +23,14 @@ public static class WebsocketClient
 
     public static event Action<WebsocketClientState>? StateChanged;
     public static event Action<string, Color>? ConnectionInfoChanged;
+    public static event Action<Notification?>? NotificationReceived;
+    public static event Action<string>? SpeedLimitReceived;
+    public static event Action<int>? SpeedInfoChanged;
 
-    private static Dictionary<string, double> controlData = new Dictionary<string, double>();
+    private static Dictionary<string, int> controlData = new ();
+    private static Dictionary<string, int> sentControlData = new ();
 
-    public static void SetControlData(string key, double value)
+    public static void SetControlData(string key, int value)
     {
         controlData[key] = value;
     }
@@ -162,7 +170,7 @@ public static class WebsocketClient
             {
                 while (client?.State == WebSocketState.Open)
                 {
-                    if (!queue.TryDequeue(out var queueItem) && queueItem == null)
+                    if (!queue.TryDequeue(out var queueItem) || queueItem == null)
                         continue;
                     
                     await client.SendAsync(new ArraySegment<byte>(Encoding.UTF8.GetBytes(queueItem)), WebSocketMessageType.Text, true, CancellationToken.None);
@@ -200,16 +208,35 @@ public static class WebsocketClient
 
                     var response = Encoding.UTF8.GetString(buffer, 0, result.Count);
                     Console.WriteLine("Received from server: " + response);
-                    var jsonData = JsonSerializer.Deserialize<Dictionary<string, object>> (response);
-                    if (jsonData != null)
+                    try
                     {
-                        foreach (var keyValue in jsonData)
+                        var jsonData = JsonSerializer.Deserialize<Dictionary<string, object>>(response);
+                        if (jsonData != null)
                         {
-                            if (keyValue.Key == "battery")
+                            foreach (var keyValue in jsonData)
                             {
-                                BatteryService.Level = ((JsonElement)keyValue.Value).GetInt32();
+                                if (keyValue.Key == "battery")
+                                {
+                                    BatteryService.Level = ((JsonElement)keyValue.Value).GetInt32();
+                                }
+                                else if (keyValue.Key == "label")
+                                {
+                                    string value = ((JsonElement)keyValue.Value).ToString();
+                                    NotificationReceived?.Invoke(Notifications.Of(value));
+                                    if (Preferences.Get(SettingsKeys.SafeModeEnabled, false))
+                                    {
+                                        SpeedLimitReceived?.Invoke(value);
+                                    }
+                                }
+                                else if (keyValue.Key == "speed")
+                                {
+                                    SpeedInfoChanged?.Invoke(((JsonElement)keyValue.Value).GetInt32());
+                                }
                             }
                         }
+                    } catch (JsonException)
+                    {
+                        Console.WriteLine("Received invalid JSON data: " + response);
                     }
                 }
             }
@@ -230,8 +257,14 @@ public static class WebsocketClient
             {
                 while (client?.State == WebSocketState.Open)
                 {
-                    var json = JsonSerializer.Serialize(controlData);
-                    Send(json);
+                    // Only send control data if it has changed
+                    if (controlData.Any(kv => !sentControlData.TryGetValue(kv.Key, out var val) || val != kv.Value))
+                    {
+                        var json = JsonSerializer.Serialize(controlData);
+                        Send(json);
+                        sentControlData = new Dictionary<string, int>(controlData);
+                    }
+
                     await Task.Delay(10);
                 }
             }

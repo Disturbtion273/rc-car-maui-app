@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:rc_car_maui_app.Controls"
+             x:Class="rc_car_maui_app.Views.AbstractDrivingPage"
+             x:Name="ThisPage">
+
+    <Grid x:Name="MainGrid"
+          x:FieldModifier="protected"
+          StyleClass="ColoredGrid"
+          IgnoreSafeArea="True">
+        
+        <WebView Source="{Binding WebViewUrl}" />
+
+        <HorizontalStackLayout x:Name="TopLeftLayout" 
+                               HorizontalOptions="Start" 
+                               VerticalOptions="Start" 
+                               Spacing="10" 
+                               Margin="50,20,0,0">
+            
+            <controls:OverlayBackButton />
+        </HorizontalStackLayout>
+
+        <HorizontalStackLayout x:Name="TopRightLayout" 
+                               HorizontalOptions="End" 
+                               VerticalOptions="Start" 
+                               Margin="0, 20, 50, 0" 
+                               Spacing="10">
+            
+            <controls:WebsocketIndicator />
+            <controls:BatteryIndicator />
+        </HorizontalStackLayout>
+
+        <controls:SpeedDisplay x:Name="SpeedDisplayControl" 
+                               x:FieldModifier="protected" />
+    </Grid>
+</ContentPage>
