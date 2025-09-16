@@ -20,7 +20,7 @@
                        HorizontalOptions="Center"/>
                 
                 <Label 
-                    Text="Sit back, relax and enjoy"
+                    Text="{loc:Translate Full-AI description}"
                     TextColor="{AppThemeBinding Light={StaticResource PrimaryText}, Dark={StaticResource SecondaryText}}"
                     LineBreakMode="WordWrap"/>
                 

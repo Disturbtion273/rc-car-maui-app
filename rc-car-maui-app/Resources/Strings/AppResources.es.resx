@@ -111,4 +111,7 @@
     <data name="Semi-AI driving tutorial" xml:space="preserve">
         <value>La conducción es la misma que en el modo manual, pero con una función adicional de IA.</value>
     </data>
+    <data name="Full-AI description" xml:space="preserve">
+        <value>Siéntate, relájate y disfruta.</value>
+    </data>
 </root>

@@ -114,4 +114,7 @@
     <data name="Semi-AI driving tutorial" xml:space="preserve">
         <value>Driving works the same as in manual mode, but with an additional AI function.</value>
     </data>
+    <data name="Full-AI description" xml:space="preserve">
+        <value>Sit back, relax and enjoy</value>
+    </data>
 </root>

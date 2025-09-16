@@ -111,4 +111,7 @@
     <data name="Semi-AI driving tutorial" xml:space="preserve">
         <value>Das Fahren funktioniert genauso wie im manuellen Modus, jedoch mit einer zusätzlichen KI-Funktion.</value>
     </data>
+    <data name="Full-AI description" xml:space="preserve">
+        <value>Zurücklehnen, entspannen und genießen.</value>
+    </data>
 </root>
