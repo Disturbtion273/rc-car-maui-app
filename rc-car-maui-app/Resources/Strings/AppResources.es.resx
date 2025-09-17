@@ -103,7 +103,7 @@
         <value>Cerrar</value>
     </data>
     <data name="Semi-AI description" xml:space="preserve">
-        <value>El PiCar cuenta con un GPT-4o integrado que permite interacciones dinámicas y automatizadas. En el modo Semi-IA, el coche puede reconocer las señales de tráfico y notificarlas al usuario para que tome la decisión.</value>
+        <value>En el modo Semi-IA, el coche puede reconocer las señales de tráfico y notificarlas al usuario para que tome la decisión.</value>
     </data>
     <data name="Semi-AI description cont" xml:space="preserve">
         <value>Otros ejemplos de escenarios incluyen una señal de alto o una señal de intersección, donde el usuario decide la dirección que debe tomar el coche.</value>

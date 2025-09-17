@@ -47,7 +47,7 @@
                     LineBreakMode="WordWrap"/>
 
                 <Button
-                    Text="Close"
+                    Text="{loc:Translate Close}"
                     FontFamily="RajdhaniSemiBold"
                     HorizontalOptions="Center"
                     Margin="0,16,0,0"

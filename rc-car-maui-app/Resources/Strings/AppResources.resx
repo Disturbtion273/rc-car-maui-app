@@ -106,7 +106,7 @@
         <value>Close</value>
     </data>
     <data name="Semi-AI description" xml:space="preserve">
-        <value>The PiCar comes with an integrated GPT-4o, enabling dynamic and automated interactions. In Semi-AI mode, the car can recognize road signs and report them to the user for decision-making.</value>
+        <value>In Semi-AI mode, the car can recognize road signs and report them to the user for decision-making.</value>
     </data>
     <data name="Semi-AI description cont" xml:space="preserve">
         <value>Further scenario examples include a stop sign or an intersection sign, where the user decides which direction the car should take.</value>

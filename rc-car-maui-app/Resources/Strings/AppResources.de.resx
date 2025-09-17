@@ -103,7 +103,7 @@
         <value>Schließen</value>
     </data>
     <data name="Semi-AI description" xml:space="preserve">
-        <value>Der PiCar ist mit einem integrierten GPT-4o ausgestattet, das dynamische und automatisierte Interaktionen ermöglicht. Im Halb-KI-Modus kann das Auto Verkehrsschilder erkennen und dem Benutzer zur Entscheidungsfindung melden.</value>
+        <value>Im Halb-KI-Modus kann das Auto Verkehrsschilder erkennen und dem Benutzer zur Entscheidungsfindung melden.</value>
     </data>
     <data name="Semi-AI description cont" xml:space="preserve">
         <value>Weitere Beispielszenarien sind ein Stoppschild oder ein Kreuzungsschild, bei dem der Benutzer die Fahrtrichtung des Autos bestimmen muss.</value>
