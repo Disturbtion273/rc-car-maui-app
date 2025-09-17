@@ -25,13 +25,17 @@
                         <HorizontalStackLayout Spacing="1" VerticalOptions="Center">
                             <Label Text="{loc:Translate Manual}" 
                                    Style="{StaticResource CardTitleLabel}"/>
-                            <ImageButton 
-                                BackgroundColor="Transparent" 
-                                Padding="12"
-                                WidthRequest="5"
-                                TranslationY="-7"
-                                Source="{AppThemeBinding Light=tutorial_light, Dark=tutorial_dark}"
-                                Clicked="ManualTutorial" />
+                            <Image Source="{AppThemeBinding Light=tutorial_light, Dark=tutorial_dark}"
+                                   Aspect="AspectFit"
+                                   HeightRequest="17"
+                                   WidthRequest="17"
+                                   VerticalOptions="Center"
+                                   Margin="12,0,0,0"
+                                   HorizontalOptions="Start">
+                                <Image.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="ManualTutorial" />
+                                </Image.GestureRecognizers>
+                            </Image>
                         </HorizontalStackLayout>
                         <Label Text="{loc:Translate ManualSubtitle}" 
                                Style="{StaticResource CardSubtitleLabel}" />
@@ -49,16 +53,20 @@
             <Border Style="{StaticResource CardStyle}">
                 <Grid ColumnDefinitions="*, Auto" RowDefinitions="Auto">
                     <VerticalStackLayout Spacing="2" VerticalOptions="Start" Grid.Column="0">
-                        <HorizontalStackLayout Spacing="1" VerticalOptions="Center">
+                        <HorizontalStackLayout Spacing="3" VerticalOptions="Center">
                             <Label Text="{loc:Translate Semi-Ai}" 
                                    Style="{StaticResource CardTitleLabel}"/>
-                            <ImageButton 
-                                BackgroundColor="Transparent" 
-                                Padding="12"
-                                WidthRequest="5"
-                                TranslationY="-7"
-                                Source="{AppThemeBinding Light=tutorial_light, Dark=tutorial_dark}"
-                                Clicked="SemiAiTutorial" />
+                            <Image Source="{AppThemeBinding Light=tutorial_light, Dark=tutorial_dark}"
+                                   Aspect="AspectFit"
+                                   HeightRequest="17"
+                                   WidthRequest="17"
+                                   VerticalOptions="Center"
+                                   Margin="12,0,0,0"
+                                   HorizontalOptions="Start">
+                                <Image.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="SemiAiTutorial" />
+                                </Image.GestureRecognizers>
+                            </Image>
                         </HorizontalStackLayout>
                         <Label Text="{loc:Translate SemiSubtitle}" 
                                Style="{StaticResource CardSubtitleLabel}"/>
@@ -79,13 +87,17 @@
                         <HorizontalStackLayout Spacing="1" VerticalOptions="Center">
                             <Label Text="{loc:Translate Full-Ai}" 
                                    Style="{StaticResource CardTitleLabel}"/>
-                            <ImageButton 
-                                BackgroundColor="Transparent" 
-                                Padding="12"
-                                WidthRequest="5"
-                                TranslationY="-7"
-                                Source="{AppThemeBinding Light=tutorial_light, Dark=tutorial_dark}"
-                                Clicked="FullAiTutorial" />
+                            <Image Source="{AppThemeBinding Light=tutorial_light, Dark=tutorial_dark}"
+                                   Aspect="AspectFit"
+                                   HeightRequest="17"
+                                   WidthRequest="17"
+                                   VerticalOptions="Center"
+                                   Margin="12,0,0,0"
+                                   HorizontalOptions="Start">
+                                <Image.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="FullAiTutorial" />
+                                </Image.GestureRecognizers>
+                            </Image>
                         </HorizontalStackLayout>
                         <Label Text="{loc:Translate FullSubtitle}" 
                                Style="{StaticResource CardSubtitleLabel}"/>
